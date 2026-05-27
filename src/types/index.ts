@@ -69,6 +69,8 @@ export interface Phase2Recipe {
 // ── Smoothies ────────────────────────────────────────────────────────────────
 
 export interface SmoothieRecipe {
+  /** Stable kebab-case slug used for React keys and per-recipe persistence (e.g. ratings). */
+  id: string;
   name: string;
   /** Short descriptor shown on the card (e.g. "Protein - Electrolytes - Mood-lifting") */
   desc: string;
@@ -93,6 +95,8 @@ export interface Snack {
 // ── Desserts ─────────────────────────────────────────────────────────────────
 
 export interface Dessert {
+  /** Stable kebab-case slug used for React keys and per-recipe persistence (e.g. ratings). */
+  id: string;
   name: string;
   time: string;
   serves: string;

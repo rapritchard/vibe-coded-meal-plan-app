@@ -1962,6 +1962,7 @@ export const SEED_PHASE2: Phase2Recipe[] = [
 
 export const SMOOTHIES_DATA: SmoothieRecipe[] = [
   {
+    id: "chocolate-espresso",
     name: "Chocolate espresso smoothie",
     desc: "Protein - Electrolytes - Mood-lifting",
     ingredients: [
@@ -2000,6 +2001,7 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
+    id: "banana-oat",
     name: "Banana & oat smoothie",
     desc: "Gentle - Gut-friendly - Medication mornings",
     ingredients: [
@@ -2031,6 +2033,7 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
+    id: "kefir-berry-ginger",
     name: "Kefir, berry & ginger smoothie",
     desc: "Gut health - Probiotic - Anti-inflammatory",
     ingredients: [
@@ -2062,6 +2065,7 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
+    id: "mango-turmeric",
     name: "Mango & turmeric smoothie",
     desc: "Collagen - Anti-inflammatory - Immunity",
     ingredients: [
@@ -2095,6 +2099,7 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
+    id: "strawberry-protein-shake",
     name: "Strawberry protein shake",
     desc: "High protein - Meal replacement - Quick",
     ingredients: [
@@ -2126,6 +2131,7 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
+    id: "carrot-ginger-mango",
     name: "Carrot, ginger & mango smoothie",
     desc: "Immunity - Collagen - Beta carotene",
     ingredients: [
@@ -2181,6 +2187,7 @@ export const SNACKS_DATA: Snack[] = [
 
 export const DESSERTS_DATA: Dessert[] = [
   {
+    id: "dark-chocolate-mousse",
     name: "Dark chocolate mousse",
     time: "20 min + 2 hrs chilling",
     serves: "4",
@@ -2204,6 +2211,7 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
+    id: "chocolate-dipped-strawberries",
     name: "Chocolate dipped strawberries",
     time: "10 min + 20 min setting",
     serves: "2",
@@ -2223,6 +2231,7 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
+    id: "chocolate-yoghurt-mango-bites",
     name: "Chocolate covered yoghurt mango bites",
     time: "10 min + 1-2 hrs freezing",
     serves: "4",
@@ -2245,6 +2254,7 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
+    id: "strawberry-trifle",
     name: "Strawberry trifle",
     time: "30 min + overnight setting",
     serves: "8",

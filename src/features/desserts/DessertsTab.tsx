@@ -11,7 +11,7 @@ export default function DessertsTab() {
       </InfoBanner>
 
       {DESSERTS_DATA.map((dessert) => (
-        <DessertCard key={dessert.name} dessert={dessert} />
+        <DessertCard key={dessert.id} dessert={dessert} />
       ))}
     </div>
   );

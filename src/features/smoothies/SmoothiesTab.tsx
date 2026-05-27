@@ -11,7 +11,7 @@ export default function SmoothiesTab() {
       </InfoBanner>
 
       {SMOOTHIES_DATA.map((smoothie) => (
-        <SmoothieCard key={smoothie.name} smoothie={smoothie} />
+        <SmoothieCard key={smoothie.id} smoothie={smoothie} />
       ))}
     </div>
   );

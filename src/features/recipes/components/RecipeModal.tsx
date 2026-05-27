@@ -3,10 +3,13 @@ import { useState, type ReactNode } from "react";
 import type { Recipe } from "@/types";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { RecipeNotes } from "@/components/shared/RecipeNotes";
 import { RecipeTimeTag } from "@/components/shared/RecipeTimeTag";
 import { RecipeTip } from "@/components/shared/RecipeTip";
+import { StarRating } from "@/components/shared/StarRating";
 import { StepList } from "@/components/shared/StepList";
 import { useMediaQuery } from "@/hooks/use-media-query";
+import { useRatings } from "@/hooks/use-ratings";
 
 import { ActiveVariationBanner } from "./ActiveVariationBanner";
 import { InteractiveVariationList } from "./InteractiveVariationList";
@@ -23,8 +26,11 @@ interface RecipeModalProps {
 export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
   const [activeVar, setActiveVar] = useState<number | null>(null);
   const isDesktop = useMediaQuery("(min-width: 640px)");
+  const { getRating, setRating } = useRatings();
 
   if (!recipe) return null;
+
+  const rating = getRating("recipe", recipe.id);
 
   const steps =
     activeVar !== null && recipe.variationSteps?.[activeVar]
@@ -74,6 +80,8 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
         />
       )}
 
+      <RecipeNotes type="recipe" id={recipe.id} />
+
       <div className="h-4" />
     </div>
   );
@@ -94,6 +102,12 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
       </div>
       <div className="mt-2">
         <MoodPills moods={recipe.moods} />
+      </div>
+      <div className="mt-3">
+        <StarRating
+          value={rating}
+          onChange={(next) => setRating("recipe", recipe.id, next)}
+        />
       </div>
     </div>
   );
