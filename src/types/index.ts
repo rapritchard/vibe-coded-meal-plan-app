@@ -16,29 +16,97 @@ export interface ToolAlt {
 
 // ── Recipe effort / timing ───────────────────────────────────────────────────
 
-export type EffortLevel = "grab-and-go" | "easy" | "medium" | "hard";
+/**
+ * What kind of cooking experience to expect.
+ * - ready: already prepared, open/grab from fridge (under 1 min)
+ * - make-ahead: today's meal needed yesterday's prep (overnight, chill, freeze)
+ * - quick-cook: ~15 min total, active throughout
+ * - set-forget: ~30 min total but only ~5 min hands-on; simmer/bake walks away
+ * - cook-tend: 25+ min sustained, attentive kitchen work
+ */
+export type EffortLevel =
+  | "ready"
+  | "make-ahead"
+  | "quick-cook"
+  | "set-forget"
+  | "cook-tend";
+
+/** Display label for each EffortLevel bucket. */
+export const EFFORT_LABELS: Record<EffortLevel, string> = {
+  ready: "Ready to eat",
+  "make-ahead": "Make-ahead",
+  "quick-cook": "Quick cook",
+  "set-forget": "Set & forget",
+  "cook-tend": "Cook & tend",
+};
+
+/**
+ * Mouth-feel / cravings vocabulary. Recipes carry 1-3 of these so users can
+ * filter by what they're actually in the mood for.
+ */
+export type Mood =
+  | "Creamy"
+  | "Salty & savoury"
+  | "Brothy"
+  | "Rich & deep"
+  | "Bright & fresh"
+  | "Spiced & warming"
+  | "Sweet";
+
+export const ALL_MOODS: Mood[] = [
+  "Creamy",
+  "Salty & savoury",
+  "Brothy",
+  "Rich & deep",
+  "Bright & fresh",
+  "Spiced & warming",
+  "Sweet",
+];
 
 /** Unicode emoji used as a time-complexity key */
 export type TimeKey = "⚡" | "🕐" | "🕑" | "⏳" | "🌙";
 
 export type MealCategory = "breakfast" | "lunch" | "dinner";
 
-// ── Core Recipe ──────────────────────────────────────────────────────────────
+/**
+ * The full set of categories an item can have once snacks/smoothies/desserts
+ * are unified into one catalog.
+ */
+export type RecipeCategoryKind =
+  | MealCategory
+  | "snack"
+  | "smoothie"
+  | "dessert";
 
-export interface Recipe {
+/** Recipe meal filter value: category or "all". */
+export type MealFilter = RecipeCategoryKind | "all";
+
+// ── Shared base across the four ratable/notable item types ──────────────────
+
+/**
+ * Fields every browsable food item shares once the catalog is unified.
+ * The full set of moods/effort/leftovers/on-the-go is what FilterBar reads.
+ */
+export interface RecipeBase {
   id: string;
   name: string;
+  moods: Mood[];
+  effort: EffortLevel;
+  isBatch: boolean;
+  /** Whether this item survives a Tupperware / eats well cold or reheated. */
+  goodOnTheGo: boolean;
+}
+
+// ── Core Recipe ──────────────────────────────────────────────────────────────
+
+export interface Recipe extends RecipeBase {
+  type: "recipe";
   phase: number;
   category: MealCategory;
   time: string;
   serves: string;
   timeKey: TimeKey;
-  /** Number of items to wash up */
-  tools: number;
   leadTime: string | null;
-  isBatch: boolean;
-  moods: string[];
-  effort: EffortLevel;
   ingredients: IngredientTuple[];
   toolAlts: ToolAlt[];
   /** Tasks that can be run simultaneously — shown in a "Do these together" block */
@@ -68,10 +136,9 @@ export interface Phase2Recipe {
 
 // ── Smoothies ────────────────────────────────────────────────────────────────
 
-export interface SmoothieRecipe {
-  /** Stable kebab-case slug used for React keys and per-recipe persistence (e.g. ratings). */
-  id: string;
-  name: string;
+export interface SmoothieRecipe extends RecipeBase {
+  type: "smoothie";
+  category: "smoothie";
   /** Short descriptor shown on the card (e.g. "Protein - Electrolytes - Mood-lifting") */
   desc: string;
   /** Plain-text ingredient list (already formatted for display) */
@@ -86,18 +153,19 @@ export interface SmoothieRecipe {
 
 // ── Snacks ───────────────────────────────────────────────────────────────────
 
-export interface Snack {
-  name: string;
+export interface Snack extends RecipeBase {
+  type: "snack";
+  category: "snack";
+  /** "When to reach for it" label, e.g. "Medication buffer", "High protein". */
   badge: string;
   desc: string;
 }
 
 // ── Desserts ─────────────────────────────────────────────────────────────────
 
-export interface Dessert {
-  /** Stable kebab-case slug used for React keys and per-recipe persistence (e.g. ratings). */
-  id: string;
-  name: string;
+export interface Dessert extends RecipeBase {
+  type: "dessert";
+  category: "dessert";
   time: string;
   serves: string;
   leadTime: string;
@@ -105,6 +173,14 @@ export interface Dessert {
   tip: string;
   variations: string[];
 }
+
+// ── Unified catalog ──────────────────────────────────────────────────────────
+
+/**
+ * Any browsable item in the recipe catalog. Discriminated by `type`, so a
+ * dispatcher can render the correct card style for each kind.
+ */
+export type AnyRecipe = Recipe | SmoothieRecipe | Snack | Dessert;
 
 // ── Kitchen tools ────────────────────────────────────────────────────────────
 

@@ -37,10 +37,17 @@ export function RecipeNotes({ type, id }: RecipeNotesProps) {
         <Sparkles className="h-3.5 w-3.5" />
         Notes for next iteration
       </div>
+      <p className="text-xs text-muted-foreground leading-relaxed">
+        Anything — recategorisation requests (&ldquo;move this to spiced &amp;
+        warming&rdquo;), fundamental recipe changes (&ldquo;use the bagel maker
+        instead&rdquo;), additions, or substitutions. Saved automatically to
+        this browser only — paste them into a chat with the AI agent when
+        you&rsquo;re ready to iterate.
+      </p>
       <Textarea
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
-        placeholder="What would you change next time? An AI agent will use these notes when iterating on this recipe."
+        placeholder="What would you change next time?"
         className="rounded-xl text-sm"
         rows={3}
       />

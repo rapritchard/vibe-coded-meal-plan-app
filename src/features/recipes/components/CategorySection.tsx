@@ -1,27 +1,40 @@
-import type { MealCategory, Recipe } from "@/types";
+import type { AnyRecipe, Recipe, RecipeCategoryKind } from "@/types";
 
-import { RecipeCard } from "./RecipeCard";
+import { RecipeListItem } from "./RecipeListItem";
+
+const CATEGORY_LABELS: Record<RecipeCategoryKind, string> = {
+  breakfast: "Breakfast",
+  lunch: "Lunch",
+  dinner: "Dinner",
+  snack: "Snacks",
+  smoothie: "Smoothies",
+  dessert: "Desserts",
+};
 
 interface CategorySectionProps {
-  category: MealCategory;
-  recipes: Recipe[];
-  onView: (recipe: Recipe) => void;
+  category: RecipeCategoryKind;
+  items: AnyRecipe[];
+  onViewRecipe: (recipe: Recipe) => void;
 }
 
 export function CategorySection({
   category,
-  recipes,
-  onView,
+  items,
+  onViewRecipe,
 }: CategorySectionProps) {
-  if (recipes.length === 0) return null;
+  if (items.length === 0) return null;
   return (
     <div>
       <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3 mt-2">
-        {category}
+        {CATEGORY_LABELS[category]}
       </div>
       <div className="space-y-2">
-        {recipes.map((r) => (
-          <RecipeCard key={r.id} recipe={r} onView={onView} />
+        {items.map((item) => (
+          <RecipeListItem
+            key={`${item.type}:${item.id}`}
+            item={item}
+            onViewRecipe={onViewRecipe}
+          />
         ))}
       </div>
     </div>

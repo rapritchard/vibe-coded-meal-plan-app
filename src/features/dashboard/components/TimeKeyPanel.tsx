@@ -19,14 +19,6 @@ export function TimeKeyPanel() {
           </div>
         ))}
         <div className="flex items-center gap-3">
-          <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-stone-100 text-stone-500">
-            xN to wash
-          </span>
-          <span className="text-sm text-stone-600">
-            Number of things to wash up
-          </span>
-        </div>
-        <div className="flex items-center gap-3">
           <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700">
             Lead time
           </span>

@@ -74,7 +74,6 @@ export function MealSelector({
         <div className="mt-1.5 flex flex-wrap gap-1.5">
           <RecipeTimeTag
             icon={selected.timeKey}
-            tools={selected.tools}
             leadTime={selected.leadTime}
           />
           {selected.isBatch && (

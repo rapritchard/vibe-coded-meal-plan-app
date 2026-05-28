@@ -14,6 +14,8 @@ export interface ShoppingTabProps {
   customWeek: CustomWeek;
   customSaved: boolean;
   customShoppingList: ShoppingCategory | null;
+  activeWeek: WeekName;
+  onActiveWeekChange: (week: WeekName) => void;
   onWeekChange: (week: CustomWeek) => void;
   onSave: (week: CustomWeek) => Promise<void>;
 }
@@ -23,10 +25,11 @@ export default function ShoppingTab({
   customWeek,
   customSaved,
   customShoppingList,
+  activeWeek,
+  onActiveWeekChange,
   onWeekChange,
   onSave,
 }: ShoppingTabProps) {
-  const [activeWeek, setActiveWeek] = useState<WeekName>("Week A");
   const [previewRecipe, setPreviewRecipe] = useState<Recipe | null>(null);
 
   const handleSave = useCallback(async () => {
@@ -42,7 +45,7 @@ export default function ShoppingTab({
       />
 
       <div className="space-y-4">
-        <WeekSelector active={activeWeek} onChange={setActiveWeek} />
+        <WeekSelector active={activeWeek} onChange={onActiveWeekChange} />
 
         {activeWeek === "Custom" ? (
           <CustomShoppingView

@@ -94,11 +94,7 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
         <span>Serves {recipe.serves}</span>
       </div>
       <div className="mt-2">
-        <RecipeTimeTag
-          icon={recipe.timeKey}
-          tools={recipe.tools}
-          leadTime={recipe.leadTime}
-        />
+        <RecipeTimeTag icon={recipe.timeKey} leadTime={recipe.leadTime} />
       </div>
       <div className="mt-2">
         <MoodPills moods={recipe.moods} />

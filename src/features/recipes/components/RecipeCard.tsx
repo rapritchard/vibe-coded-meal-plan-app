@@ -23,11 +23,7 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
           {recipe.name}
         </div>
 
-        <RecipeTimeTag
-          icon={recipe.timeKey}
-          tools={recipe.tools}
-          leadTime={recipe.leadTime}
-        />
+        <RecipeTimeTag icon={recipe.timeKey} leadTime={recipe.leadTime} />
 
         <MoodPills moods={recipe.moods} />
 

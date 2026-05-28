@@ -3,16 +3,34 @@ export type TabId =
   | "Meal Plan"
   | "Recipes"
   | "Phase 2"
+  | "Breakfast"
+  | "Lunch"
+  | "Dinner"
   | "Smoothies"
   | "Snacks"
   | "Desserts"
   | "Kitchen"
-  | "Shopping";
+  | "Shopping"
+  | "Review";
 
 export const DASHBOARD_TABS: ReadonlySet<TabId> = new Set([
   "Overview",
   "Meal Plan",
   "Phase 2",
+]);
+
+/**
+ * Sidebar entries that open the Recipes catalog with a meal-type filter
+ * pre-applied. All other Food entries are quick-link shortcuts onto the
+ * single unified Recipes view.
+ */
+export const RECIPE_QUICK_LINKS: ReadonlySet<TabId> = new Set([
+  "Breakfast",
+  "Lunch",
+  "Dinner",
+  "Smoothies",
+  "Snacks",
+  "Desserts",
 ]);
 
 export interface NavGroup {
@@ -22,6 +40,17 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   { label: "Planning", tabs: ["Overview", "Meal Plan", "Phase 2"] },
-  { label: "Food", tabs: ["Recipes", "Smoothies", "Snacks", "Desserts"] },
-  { label: "Resources", tabs: ["Kitchen", "Shopping"] },
+  {
+    label: "Food",
+    tabs: [
+      "Recipes",
+      "Breakfast",
+      "Lunch",
+      "Dinner",
+      "Smoothies",
+      "Snacks",
+      "Desserts",
+    ],
+  },
+  { label: "Resources", tabs: ["Kitchen", "Shopping", "Review"] },
 ];

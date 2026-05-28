@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import type { CustomWeek, Recipe, ShoppingCategory } from "@/types";
+import type { AnyRecipe, CustomWeek, Recipe, ShoppingCategory } from "@/types";
 import {
   createEmptyWeek,
   generateShoppingList,
@@ -9,20 +9,29 @@ import {
   loadRecipes,
   savePhase2Unlocked,
 } from "@/data/shoppingLists";
+import type { WeekName } from "@/data/shoppingLists";
+import {
+  DESSERTS_DATA,
+  SMOOTHIES_DATA,
+  SNACKS_DATA,
+} from "@/data/recipes";
 
 import { AppHeader } from "@/components/layout/AppHeader";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { Sidebar } from "@/components/layout/Sidebar";
-import { DASHBOARD_TABS, type TabId } from "@/components/layout/nav-config";
+import {
+  DASHBOARD_TABS,
+  RECIPE_QUICK_LINKS,
+  type TabId,
+} from "@/components/layout/nav-config";
+import type { MealFilter } from "@/types";
 
 import DashboardTab, {
   type DashboardView,
 } from "@/features/dashboard/DashboardTab";
-import DessertsTab from "@/features/desserts/DessertsTab";
 import RecipeTab from "@/features/recipes/RecipeTab";
+import ReviewTab from "@/features/review/ReviewTab";
 import ShoppingTab from "@/features/shopping/ShoppingTab";
-import SmoothiesTab from "@/features/smoothies/SmoothiesTab";
-import SnacksTab from "@/features/snacks/SnacksTab";
 import StoresTab from "@/features/stores/StoresTab";
 
 export default function App() {
@@ -34,6 +43,8 @@ export default function App() {
   const [customShoppingList, setCustomShoppingList] =
     useState<ShoppingCategory | null>(null);
   const [activeTab, setActiveTab] = useState<TabId>("Overview");
+  const [shoppingActiveWeek, setShoppingActiveWeek] =
+    useState<WeekName>("Week A");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -78,12 +89,50 @@ export default function App() {
   }, []);
 
   const handleNavigateToCustomBuilder = useCallback(() => {
+    setShoppingActiveWeek("Custom");
     setActiveTab("Shopping");
   }, []);
 
   if (!ready) return <LoadingScreen />;
 
   const isDashboardTab = DASHBOARD_TABS.has(activeTab);
+  const isRecipeMode =
+    activeTab === "Recipes" || RECIPE_QUICK_LINKS.has(activeTab);
+
+  // Combined unified catalog. Recipe[] + smoothies + snacks + desserts.
+  const allItems: AnyRecipe[] = [
+    ...recipes,
+    ...SMOOTHIES_DATA,
+    ...SNACKS_DATA,
+    ...DESSERTS_DATA,
+  ];
+
+  // Map activeTab ↔ meal filter so the sidebar and the FilterBar meal pills
+  // are equivalent input methods to the same state.
+  const activeMeal: MealFilter =
+    activeTab === "Breakfast"
+      ? "breakfast"
+      : activeTab === "Lunch"
+        ? "lunch"
+        : activeTab === "Dinner"
+          ? "dinner"
+          : activeTab === "Smoothies"
+            ? "smoothie"
+            : activeTab === "Snacks"
+              ? "snack"
+              : activeTab === "Desserts"
+                ? "dessert"
+                : "all";
+
+  const handleActiveMealChange = (next: MealFilter) => {
+    if (next === "breakfast") setActiveTab("Breakfast");
+    else if (next === "lunch") setActiveTab("Lunch");
+    else if (next === "dinner") setActiveTab("Dinner");
+    else if (next === "smoothie") setActiveTab("Smoothies");
+    else if (next === "snack") setActiveTab("Snacks");
+    else if (next === "dessert") setActiveTab("Desserts");
+    else setActiveTab("Recipes");
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -111,7 +160,13 @@ export default function App() {
             />
           )}
 
-          {activeTab === "Recipes" && <RecipeTab recipes={recipes} />}
+          {isRecipeMode && (
+            <RecipeTab
+              items={allItems}
+              activeMeal={activeMeal}
+              onActiveMealChange={handleActiveMealChange}
+            />
+          )}
 
           {activeTab === "Shopping" && (
             <ShoppingTab
@@ -119,15 +174,15 @@ export default function App() {
               customWeek={customWeek}
               customSaved={customSaved}
               customShoppingList={customShoppingList}
+              activeWeek={shoppingActiveWeek}
+              onActiveWeekChange={setShoppingActiveWeek}
               onWeekChange={setCustomWeek}
               onSave={handleSaveCustomWeek}
             />
           )}
 
           {activeTab === "Kitchen" && <StoresTab />}
-          {activeTab === "Smoothies" && <SmoothiesTab />}
-          {activeTab === "Snacks" && <SnacksTab />}
-          {activeTab === "Desserts" && <DessertsTab />}
+          {activeTab === "Review" && <ReviewTab items={allItems} />}
         </main>
       </div>
     </div>

@@ -48,7 +48,6 @@ export function MealRow({ label, meal, recipes }: MealRowProps) {
               <div className="mt-1">
                 <RecipeTimeTag
                   icon={recipe.timeKey}
-                  tools={recipe.tools}
                   leadTime={recipe.leadTime}
                 />
               </div>
