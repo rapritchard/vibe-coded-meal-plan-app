@@ -6,18 +6,24 @@ import {
   generateShoppingList,
   loadCustomWeek,
   loadPhase2Unlocked,
-  loadRecipes,
   savePhase2Unlocked,
 } from "@/data/shoppingLists";
 import type { WeekName } from "@/data/shoppingLists";
 import {
   DESSERTS_DATA,
+  SEED_RECIPES,
   SMOOTHIES_DATA,
   SNACKS_DATA,
 } from "@/data/recipes";
+import {
+  loadRecipesFromSupabase,
+  readRecipesCacheSync,
+} from "@/lib/recipes-supabase";
+import { useAuth } from "@/hooks/use-auth";
 
 import { AppHeader } from "@/components/layout/AppHeader";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { MobileTopBar } from "@/components/layout/MobileTopBar";
 import { Sidebar } from "@/components/layout/Sidebar";
 import {
   DASHBOARD_TABS,
@@ -34,9 +40,26 @@ import ReviewTab from "@/features/review/ReviewTab";
 import ShoppingTab from "@/features/shopping/ShoppingTab";
 import StoresTab from "@/features/stores/StoresTab";
 
+// Fallback chain for the unified catalog. Supabase first, then local cache,
+// then the bundled static seed (so the app works offline on a brand-new
+// device that has never reached the cloud).
+async function loadAllItemsWithFallback(): Promise<AnyRecipe[]> {
+  const fromSupabase = await loadRecipesFromSupabase();
+  if (fromSupabase && fromSupabase.length > 0) return fromSupabase;
+  const cached = readRecipesCacheSync();
+  if (cached && cached.length > 0) return cached;
+  return [
+    ...SEED_RECIPES,
+    ...SMOOTHIES_DATA,
+    ...SNACKS_DATA,
+    ...DESSERTS_DATA,
+  ];
+}
+
 export default function App() {
+  const { session } = useAuth();
   const [ready, setReady] = useState(false);
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [allItems, setAllItems] = useState<AnyRecipe[]>([]);
   const [phase2Unlocked, setPhase2Unlocked] = useState(false);
   const [customWeek, setCustomWeek] = useState<CustomWeek>(createEmptyWeek());
   const [customSaved, setCustomSaved] = useState(false);
@@ -47,28 +70,39 @@ export default function App() {
     useState<WeekName>("Week A");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  // Derive Recipe[] from the unified catalog for consumers that only care
+  // about cooking-recipe entries (ShoppingTab, MealRow lookup, etc.).
+  const recipes = allItems.filter(
+    (i): i is Recipe => i.type === "recipe",
+  );
+
   useEffect(() => {
     (async () => {
-      const [r, cw, p2] = await Promise.all([
-        loadRecipes(),
+      const [items, cw, p2] = await Promise.all([
+        loadAllItemsWithFallback(),
         loadCustomWeek(),
         loadPhase2Unlocked(),
       ]);
-      setRecipes(r);
+      setAllItems(items);
       setCustomWeek(cw);
       setPhase2Unlocked(p2);
 
+      const recipeOnly = items.filter(
+        (i): i is Recipe => i.type === "recipe",
+      );
       const hasData = Object.values(cw).some((d) =>
         Object.values(d).some((v) => v),
       );
       if (hasData) {
         setCustomSaved(true);
-        setCustomShoppingList(generateShoppingList(cw, r));
+        setCustomShoppingList(generateShoppingList(cw, recipeOnly));
       }
 
       setReady(true);
     })();
-  }, []);
+    // Re-run when auth state flips so a fresh sign-in pulls partner's
+    // updates (and a fresh seed if the migration just populated Supabase).
+  }, [session?.user?.id]);
 
   const handleSaveCustomWeek = useCallback(
     async (week: CustomWeek) => {
@@ -99,14 +133,6 @@ export default function App() {
   const isRecipeMode =
     activeTab === "Recipes" || RECIPE_QUICK_LINKS.has(activeTab);
 
-  // Combined unified catalog. Recipe[] + smoothies + snacks + desserts.
-  const allItems: AnyRecipe[] = [
-    ...recipes,
-    ...SMOOTHIES_DATA,
-    ...SNACKS_DATA,
-    ...DESSERTS_DATA,
-  ];
-
   // Map activeTab ↔ meal filter so the sidebar and the FilterBar meal pills
   // are equivalent input methods to the same state.
   const activeMeal: MealFilter =
@@ -136,7 +162,11 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      <AppHeader onMenuOpen={() => setSidebarOpen(true)} />
+      <MobileTopBar
+        title={activeTab}
+        onMenuOpen={() => setSidebarOpen(true)}
+      />
+      <AppHeader />
 
       <div className="flex">
         <Sidebar
@@ -146,7 +176,7 @@ export default function App() {
           onMobileOpenChange={setSidebarOpen}
         />
 
-        <main className="flex-1 min-w-0 px-6 py-6 space-y-5 max-w-2xl mx-auto w-full">
+        <main className="flex-1 min-w-0 px-6 py-6 space-y-5 max-w-4xl mx-auto w-full">
           {isDashboardTab && (
             <DashboardTab
               view={activeTab as DashboardView}

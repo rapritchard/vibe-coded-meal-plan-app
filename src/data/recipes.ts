@@ -61,7 +61,8 @@ export const TAG_STYLES: Record<string, string> = {
 export const SEED_RECIPES: Recipe[] = [
   // ── BREAKFAST ──────────────────────────────────────────────────────────────
   {
-    id: "overnight-oats-berries",
+    id: "e7987f38-9f34-59e7-ad07-5cb173f1d450",
+    slug: "overnight-oats-berries",
     type: "recipe",
     name: "Overnight oats with berries",
     phase: 1,
@@ -114,7 +115,8 @@ export const SEED_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: "porridge-berries-honey",
+    id: "48cb9cbf-075f-5fa0-90dc-40c45bb68e24",
+    slug: "porridge-berries-honey",
     type: "recipe",
     name: "Porridge with berries & honey",
     phase: 1,
@@ -171,7 +173,8 @@ export const SEED_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: "crumpets-banana-cinnamon",
+    id: "4842d34c-207a-524b-b021-7e70668821fa",
+    slug: "crumpets-banana-cinnamon",
     type: "recipe",
     name: "Crumpets with banana & cinnamon",
     phase: 1,
@@ -212,7 +215,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "rice-porridge-ginger-honey",
+    id: "fb4c5370-5199-5931-8135-c0ea81f21939",
+    slug: "rice-porridge-ginger-honey",
     type: "recipe",
     name: "Rice porridge with ginger & honey",
     phase: 1,
@@ -268,7 +272,8 @@ export const SEED_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: "soft-scrambled-eggs-sourdough",
+    id: "4af9d48c-566f-50bb-b96c-ea01f17dc60c",
+    slug: "soft-scrambled-eggs-sourdough",
     type: "recipe",
     name: "Soft scrambled eggs on sourdough",
     phase: 1,
@@ -313,7 +318,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "soft-boiled-egg-philly-sourdough",
+    id: "4f3a0ce7-4305-57a1-bd0e-5e865c8c7b99",
+    slug: "soft-boiled-egg-philly-sourdough",
     type: "recipe",
     name: "Soft-boiled egg & Philly Lightest on sourdough",
     phase: 1,
@@ -355,7 +361,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "greek-yoghurt-protein-honey",
+    id: "d0738b48-0dd9-5d22-b5cd-3e74aaf31d46",
+    slug: "greek-yoghurt-protein-honey",
     type: "recipe",
     name: "0% Greek yoghurt with protein powder & honey",
     phase: 1,
@@ -392,7 +399,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "rice-cakes-philly-cucumber-egg",
+    id: "76cbe216-bf65-5e34-abb3-4da5dbd7fc24",
+    slug: "rice-cakes-philly-cucumber-egg",
     type: "recipe",
     name: "Rice cakes with Philly Lightest, cucumber & egg",
     phase: 1,
@@ -433,7 +441,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "quark-pouch-banana",
+    id: "b8b871d7-0394-57f1-84e4-2fd135c6ad34",
+    slug: "quark-pouch-banana",
     type: "recipe",
     name: "Quark pouch with banana",
     phase: 1,
@@ -466,7 +475,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "seedy-protein-loaf",
+    id: "f19d2ecb-4755-5b42-86de-3552074a70ef",
+    slug: "seedy-protein-loaf",
     type: "recipe",
     name: "Seedy protein loaf",
     phase: 1,
@@ -511,7 +521,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "baking-tray-pancakes",
+    id: "32498bcb-a3cb-5966-a830-35d6ed6b94a0",
+    slug: "baking-tray-pancakes",
     type: "recipe",
     name: "Baking tray pancakes with berries",
     phase: 1,
@@ -566,7 +577,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "strawberry-chia-overnight-oats",
+    id: "aa0660c9-2432-52c6-8cd1-ecbf1e4cb4f1",
+    slug: "strawberry-chia-overnight-oats",
     type: "recipe",
     name: "Strawberry & chia overnight oats",
     phase: 1,
@@ -606,7 +618,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "mushrooms-on-toast-philly-herbs",
+    id: "034259ec-8fca-518d-a035-2832bf49337d",
+    slug: "mushrooms-on-toast-philly-herbs",
     type: "recipe",
     name: "Mushrooms on toast with Philly Lightest & herbs",
     phase: 1,
@@ -658,7 +671,8 @@ export const SEED_RECIPES: Recipe[] = [
   },
   // ── LUNCH ──────────────────────────────────────────────────────────────────
   {
-    id: "jacket-potato-philly-chives",
+    id: "bafb68c3-b8ce-5c86-a21a-a047614788e4",
+    slug: "jacket-potato-philly-chives",
     type: "recipe",
     name: "Jacket potato with Philly Lightest & chives",
     phase: 1,
@@ -707,7 +721,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "jacket-potato-beans-cheddar",
+    id: "e45f04f2-e965-51c3-a508-7a5d8489e3e5",
+    slug: "jacket-potato-beans-cheddar",
     type: "recipe",
     name: "Jacket potato with baked beans & reduced fat cheddar",
     phase: 1,
@@ -759,7 +774,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "soft-egg-cucumber-open-sandwich",
+    id: "c4b3a406-1385-5fbf-9d05-f7f7ccc9c2c0",
+    slug: "soft-egg-cucumber-open-sandwich",
     type: "recipe",
     name: "Soft egg & cucumber open sandwich",
     phase: 1,
@@ -801,7 +817,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "miso-broth-silken-tofu-soba",
+    id: "d62ceea3-e1c4-53e4-a1bc-d1731aa63868",
+    slug: "miso-broth-silken-tofu-soba",
     type: "recipe",
     name: "Miso broth with silken tofu, soba & spring onion",
     phase: 1,
@@ -845,7 +862,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "steamed-edamame-rice-bowl-miso",
+    id: "0007fe0f-4e05-5a77-90dd-b20433d6cb39",
+    slug: "steamed-edamame-rice-bowl-miso",
     type: "recipe",
     name: "Steamed edamame & rice bowl with miso dressing",
     phase: 1,
@@ -889,7 +907,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "soft-rice-paper-rolls",
+    id: "8cafd8e4-9c6a-55a2-9143-f6d919963e0d",
+    slug: "soft-rice-paper-rolls",
     type: "recipe",
     name: "Soft rice paper rolls with tofu, carrot & cucumber",
     phase: 1,
@@ -937,7 +956,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "posh-cheesy-beans-toast",
+    id: "912b3edb-0288-5981-a07c-29aca0427d12",
+    slug: "posh-cheesy-beans-toast",
     type: "recipe",
     name: "Posh cheesy beans on toast",
     phase: 1,
@@ -988,7 +1008,8 @@ export const SEED_RECIPES: Recipe[] = [
   },
   // ── LUNCH/DINNER shared ────────────────────────────────────────────────────
   {
-    id: "vegetable-white-bean-soup",
+    id: "d205ac24-6427-5235-9e28-1f2247e9c864",
+    slug: "vegetable-white-bean-soup",
     type: "recipe",
     name: "Vegetable & white bean soup",
     phase: 1,
@@ -1036,7 +1057,8 @@ export const SEED_RECIPES: Recipe[] = [
   },
   // ── DINNER ─────────────────────────────────────────────────────────────────
   {
-    id: "lentil-carrot-bolognese",
+    id: "2d74fbcc-acc9-5c7d-8ea1-f9f355d878d6",
+    slug: "lentil-carrot-bolognese",
     type: "recipe",
     name: "Lentil & carrot bolognese with pasta",
     phase: 1,
@@ -1094,7 +1116,8 @@ export const SEED_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: "baked-tofu-miso-glazed-carrots",
+    id: "dd855e37-3375-5320-a908-8ec29e9d545f",
+    slug: "baked-tofu-miso-glazed-carrots",
     type: "recipe",
     name: "Baked tofu with miso-glazed carrots, pak choi & rice",
     phase: 1,
@@ -1152,7 +1175,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "tomato-lentil-dhal",
+    id: "e12ca268-fe57-53c0-8d94-3dfacc6c072f",
+    slug: "tomato-lentil-dhal",
     type: "recipe",
     name: "Tomato & lentil dhal with rice",
     phase: 1,
@@ -1198,7 +1222,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "vegan-pho",
+    id: "cf0de520-6cbb-5fd9-8cbb-d4481e6e545f",
+    slug: "vegan-pho",
     type: "recipe",
     name: "Vegan pho",
     phase: 1,
@@ -1248,7 +1273,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null],
   },
   {
-    id: "congee-ginger-spring-onion-egg",
+    id: "063864de-b6a2-543c-9bbb-609b272f1745",
+    slug: "congee-ginger-spring-onion-egg",
     type: "recipe",
     name: "Congee with ginger, spring onion & soft egg",
     phase: 1,
@@ -1305,7 +1331,8 @@ export const SEED_RECIPES: Recipe[] = [
     ],
   },
   {
-    id: "miso-noodle-broth-pak-choi-egg",
+    id: "b15a2353-3ab2-55b5-b74b-73a6bc4ce711",
+    slug: "miso-noodle-broth-pak-choi-egg",
     type: "recipe",
     name: "Miso noodle broth with pak choi & egg",
     phase: 1,
@@ -1349,7 +1376,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "baked-eggs-tomato-white-bean",
+    id: "6c0d8c9f-9fe4-5aa8-b9f8-608f40255af4",
+    slug: "baked-eggs-tomato-white-bean",
     type: "recipe",
     name: "Baked eggs in gentle tomato & white bean sauce",
     phase: 1,
@@ -1394,7 +1422,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "miso-mushroom-pasta",
+    id: "912f8827-4827-5894-ac48-06f033e28fb7",
+    slug: "miso-mushroom-pasta",
     type: "recipe",
     name: "Miso mushroom pasta",
     phase: 1,
@@ -1453,7 +1482,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "low-fat-full-english",
+    id: "58ffeb5c-f328-5470-8fb8-ac6faf759a87",
+    slug: "low-fat-full-english",
     type: "recipe",
     name: "Low fat full English",
     phase: 1,
@@ -1507,7 +1537,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "tortellini-four-cheese-sauce",
+    id: "0ff679a5-d500-50fd-ac09-04363c1645de",
+    slug: "tortellini-four-cheese-sauce",
     type: "recipe",
     name: "Tortellini with lighter four cheese sauce",
     phase: 1,
@@ -1543,7 +1574,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "tofu-tikka-turmeric-rice",
+    id: "5e08de75-66c7-560d-b91d-c7a7079288cd",
+    slug: "tofu-tikka-turmeric-rice",
     type: "recipe",
     name: "Tofu tikka with turmeric rice",
     phase: 1,
@@ -1605,7 +1637,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "tofu-alfredo-silken",
+    id: "0e604922-6d8b-5309-ac64-b8169155bd77",
+    slug: "tofu-alfredo-silken",
     type: "recipe",
     name: "Tofu alfredo with silken tofu sauce",
     phase: 1,
@@ -1667,7 +1700,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "grilled-tofu-alfredo-soy-milk",
+    id: "9a4600d3-af97-57ef-8120-0cb98e1d4ab9",
+    slug: "grilled-tofu-alfredo-soy-milk",
     type: "recipe",
     name: "Grilled tofu alfredo with soy milk sauce",
     phase: 1,
@@ -1727,7 +1761,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "garlic-lemon-white-bean-pasta",
+    id: "6dfde84a-e171-579f-8231-81675a424db2",
+    slug: "garlic-lemon-white-bean-pasta",
     type: "recipe",
     name: "Garlic lemon & white bean pasta",
     phase: 1,
@@ -1783,7 +1818,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "one-pan-creamy-tagliatelle",
+    id: "0f67afed-44e0-5e6c-b215-b881e8eadf48",
+    slug: "one-pan-creamy-tagliatelle",
     type: "recipe",
     name: "One-pan creamy tagliatelle",
     phase: 1,
@@ -1825,7 +1861,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "sticky-soy-tofu-bowls",
+    id: "ed186955-1749-55f7-92a9-a9eaeab79eea",
+    slug: "sticky-soy-tofu-bowls",
     type: "recipe",
     name: "Sticky soy tofu bowls",
     phase: 1,
@@ -1879,7 +1916,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "crispy-tofu-miso-coconut-ramen",
+    id: "608eb9e9-6c17-55e9-97f3-a347d958257f",
+    slug: "crispy-tofu-miso-coconut-ramen",
     type: "recipe",
     name: "Crispy grated tofu miso coconut ramen",
     phase: 1,
@@ -1940,7 +1978,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "egg-drop-soup-rice",
+    id: "cc12adba-8ae2-5c11-99d4-39695047af34",
+    slug: "egg-drop-soup-rice",
     type: "recipe",
     name: "Egg drop soup with rice",
     phase: 1,
@@ -1983,7 +2022,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "lemon-artichoke-spinach-pasta",
+    id: "4232670d-93f4-5ca2-8684-de9af99c641d",
+    slug: "lemon-artichoke-spinach-pasta",
     type: "recipe",
     name: "Lemon artichoke & spinach pasta",
     phase: 1,
@@ -2031,7 +2071,8 @@ export const SEED_RECIPES: Recipe[] = [
     variationSteps: [null, null, null],
   },
   {
-    id: "white-bean-cacio-e-pepe-sausage",
+    id: "ab1fbcd9-f897-5a52-8761-198eddcb95a1",
+    slug: "white-bean-cacio-e-pepe-sausage",
     type: "recipe",
     name: "White bean cacio e pepe with sausage",
     phase: 1,
@@ -2125,7 +2166,8 @@ export const SEED_PHASE2: Phase2Recipe[] = [
 
 export const SMOOTHIES_DATA: SmoothieRecipe[] = [
   {
-    id: "chocolate-espresso",
+    id: "c5b31231-f5bd-5f07-b7b5-f678d4f7ca7e",
+    slug: "chocolate-espresso",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Rich & deep", "Creamy"],
@@ -2170,7 +2212,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
-    id: "banana-oat",
+    id: "1427f369-6318-5628-a33f-bbdaf7c33642",
+    slug: "banana-oat",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Creamy"],
@@ -2208,7 +2251,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
-    id: "kefir-berry-ginger",
+    id: "9721598d-6b9a-55e6-ac2b-75366e6c8973",
+    slug: "kefir-berry-ginger",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Bright & fresh", "Spiced & warming"],
@@ -2246,7 +2290,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
-    id: "mango-turmeric",
+    id: "1856386c-f277-5e69-b72a-88ab6701c87d",
+    slug: "mango-turmeric",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Spiced & warming"],
@@ -2286,7 +2331,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
-    id: "strawberry-protein-shake",
+    id: "c5471cd5-281b-5ba9-a500-19dbe4c23625",
+    slug: "strawberry-protein-shake",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Creamy"],
@@ -2324,7 +2370,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
     ],
   },
   {
-    id: "carrot-ginger-mango",
+    id: "6476902d-d607-51ff-8747-49d77f5778a4",
+    slug: "carrot-ginger-mango",
     type: "smoothie",
     category: "smoothie",
     moods: ["Sweet", "Spiced & warming", "Bright & fresh"],
@@ -2368,7 +2415,8 @@ export const SMOOTHIES_DATA: SmoothieRecipe[] = [
 
 export const SNACKS_DATA: Snack[] = [
   {
-    id: "mini-overnight-oat-pots",
+    id: "eda2fccb-8392-5255-b3a3-19785f0dbbd6",
+    slug: "mini-overnight-oat-pots",
     type: "snack",
     category: "snack",
     name: "Mini overnight oat pots",
@@ -2380,7 +2428,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Half quantity overnight oats in a small jar. Make 2 on Sunday alongside your full jars. Keep up to 4 days. Eat before medication when you cannot face a full breakfast.",
   },
   {
-    id: "steamed-edamame-sea-salt",
+    id: "e6e45792-ecce-54c7-b2f1-ffe4a8618f02",
+    slug: "steamed-edamame-sea-salt",
     type: "snack",
     category: "snack",
     name: "Steamed edamame with sea salt",
@@ -2392,7 +2441,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Microwave frozen edamame in a covered bowl with a splash of water for 4-5 minutes. Salt generously. Eat straight from the pod. Keeps 2 days.",
   },
   {
-    id: "edamame-miso-dressing",
+    id: "6ee8893f-e00f-559d-aa3d-e3995342d12b",
+    slug: "edamame-miso-dressing",
     type: "snack",
     category: "snack",
     name: "Edamame with miso dressing",
@@ -2404,7 +2454,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Whisk 1 tsp white miso, 1 tsp soy sauce, 1 tsp warm water, tiny squeeze of lime. Toss through shelled warm edamame. 3 minutes total.",
   },
   {
-    id: "edamame-smoked-paprika",
+    id: "d3041447-98fa-5eec-8e04-555b50388bea",
+    slug: "edamame-smoked-paprika",
     type: "snack",
     category: "snack",
     name: "Edamame with smoked paprika & sea salt",
@@ -2416,7 +2467,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Microwave shelled edamame 4 minutes. Drain, toss in smoked paprika and sea salt while warm. No fat needed.",
   },
   {
-    id: "batch-boiled-eggs",
+    id: "adfa9135-2055-5acd-b440-7a9172eabfa2",
+    slug: "batch-boiled-eggs",
     type: "snack",
     category: "snack",
     name: "Batch boiled eggs",
@@ -2428,7 +2480,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Boil 6 eggs on Sunday — 6 minutes for a jammy yolk. Keep unpeeled in the fridge up to 4 days. Eat with smoked paprika or Philly Lightest on the side.",
   },
   {
-    id: "rice-cakes-philly-cucumber",
+    id: "f0690424-e264-5a05-9fdf-a4a0dfc5c25a",
+    slug: "rice-cakes-philly-cucumber",
     type: "snack",
     category: "snack",
     name: "Rice cakes with Philly Lightest & cucumber",
@@ -2440,7 +2493,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Spread rice cakes with Philly Lightest. Top with thin cucumber slices. Optional: smoked paprika or chives. Ready in 2 minutes.",
   },
   {
-    id: "greek-yoghurt-protein",
+    id: "dec478d7-8f1a-541b-850c-c436d1cc122b",
+    slug: "greek-yoghurt-protein",
     type: "snack",
     category: "snack",
     name: "0% Greek yoghurt with protein powder",
@@ -2452,7 +2506,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Stir one scoop of protein powder into 150g 0% Greek yoghurt. Add honey and cinnamon. Thick, filling, zero cooking.",
   },
   {
-    id: "quark-pouch",
+    id: "4df90e48-1d94-535b-b47e-7602f31abf86",
+    slug: "quark-pouch",
     type: "snack",
     category: "snack",
     name: "Quark pouch",
@@ -2464,7 +2519,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Strawberry or vanilla flavoured quark pouch straight from the fridge. Highest protein grab-and-go on the plan.",
   },
   {
-    id: "savoury-yoghurt-dip-carrots",
+    id: "60770309-39e0-5839-b53d-c7411d215dfd",
+    slug: "savoury-yoghurt-dip-carrots",
     type: "snack",
     category: "snack",
     name: "Savoury Greek yoghurt dip with carrots",
@@ -2476,7 +2532,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "200g 0% Greek yoghurt, 2 tbsp nutritional yeast, half tsp each garlic powder, onion powder, smoked paprika, white miso paste, fresh chives, tiny squeeze of lime. Stir, refrigerate 30 min. Keeps 3 days. Serve with carrot batons and rice cakes.",
   },
   {
-    id: "banana",
+    id: "4eded310-9f09-56bd-92bb-17680837e426",
+    slug: "banana",
     type: "snack",
     category: "snack",
     name: "Banana",
@@ -2488,7 +2545,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Have one every day, especially if on antibiotics or pain relief. Binding, gentle, good buffer for medication.",
   },
   {
-    id: "soft-fruit",
+    id: "9eded753-f09a-5077-9de4-4b340283a260",
+    slug: "soft-fruit",
     type: "snack",
     category: "snack",
     name: "Soft fruit",
@@ -2500,7 +2558,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Melon, grapes, thawed frozen berries, mango. Easy to digest, no prep. Avoid hard or fibrous fruit in the first week.",
   },
   {
-    id: "dark-chocolate",
+    id: "ce980bfd-de98-57c2-8601-28c94421401f",
+    slug: "dark-chocolate",
     type: "snack",
     category: "snack",
     name: "Dark chocolate (2-3 squares)",
@@ -2512,7 +2571,8 @@ export const SNACKS_DATA: Snack[] = [
     desc: "Green and Black 70% only. Keep the rest of the day clean fat-wise. Do not combine with other high-fat items.",
   },
   {
-    id: "smoothie-popsicles",
+    id: "5079bd4c-25b6-5223-a05c-d9593e7598e6",
+    slug: "smoothie-popsicles",
     type: "snack",
     category: "snack",
     name: "Smoothie popsicles",
@@ -2529,7 +2589,8 @@ export const SNACKS_DATA: Snack[] = [
 
 export const DESSERTS_DATA: Dessert[] = [
   {
-    id: "dark-chocolate-mousse",
+    id: "77837c05-84dd-5d19-bb3c-6cb346993f69",
+    slug: "dark-chocolate-mousse",
     type: "dessert",
     category: "dessert",
     moods: ["Sweet", "Rich & deep", "Creamy"],
@@ -2559,7 +2620,8 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
-    id: "chocolate-dipped-strawberries",
+    id: "186b371e-1399-5d22-8db6-1fd3d057668e",
+    slug: "chocolate-dipped-strawberries",
     type: "dessert",
     category: "dessert",
     moods: ["Sweet", "Bright & fresh"],
@@ -2585,7 +2647,8 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
-    id: "chocolate-yoghurt-mango-bites",
+    id: "bda77afb-9414-5004-ac9b-11abda28c121",
+    slug: "chocolate-yoghurt-mango-bites",
     type: "dessert",
     category: "dessert",
     moods: ["Sweet", "Bright & fresh"],
@@ -2614,7 +2677,8 @@ export const DESSERTS_DATA: Dessert[] = [
     ],
   },
   {
-    id: "strawberry-trifle",
+    id: "c65f9772-0323-5ebd-8301-aba48722e439",
+    slug: "strawberry-trifle",
     type: "dessert",
     category: "dessert",
     moods: ["Sweet", "Creamy", "Bright & fresh"],

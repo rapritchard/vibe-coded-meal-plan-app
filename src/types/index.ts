@@ -88,7 +88,10 @@ export type MealFilter = RecipeCategoryKind | "all";
  * The full set of moods/effort/leftovers/on-the-go is what FilterBar reads.
  */
 export interface RecipeBase {
+  /** Opaque UUID (Postgres-generated for new entries; deterministic for seed). */
   id: string;
+  /** Human-readable kebab-case identifier. Unique. Used for URLs/logs. */
+  slug: string;
   name: string;
   moods: Mood[];
   effort: EffortLevel;

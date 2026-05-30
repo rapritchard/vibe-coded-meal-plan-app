@@ -8,13 +8,15 @@ import {
 } from "react";
 
 import {
+  deleteNote,
   loadNotes,
   noteKey,
-  saveNotes,
+  readNotesCacheSync,
+  upsertNote,
   type NotesMap,
 } from "@/lib/notes";
 import type { RecipeType } from "@/lib/recipe-types";
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { useAuth } from "./use-auth";
 
 interface NotesContextValue {
   getNote: (type: RecipeType, id: string) => string;
@@ -28,41 +30,38 @@ interface NotesProviderProps {
 }
 
 export function NotesProvider({ children }: NotesProviderProps) {
-  const [notes, setNotes] = useState<NotesMap | null>(null);
+  const [notes, setNotes] = useState<NotesMap>(() => readNotesCacheSync());
+  const { session } = useAuth();
 
   useEffect(() => {
     let cancelled = false;
-    loadNotes().then((loaded) => {
-      if (!cancelled) setNotes(loaded);
+    loadNotes().then((fresh) => {
+      if (!cancelled) setNotes(fresh);
     });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [session?.user?.id]);
 
   const getNote = useCallback(
-    (type: RecipeType, id: string) => (notes ?? {})[noteKey(type, id)] ?? "",
+    (type: RecipeType, id: string) => notes[noteKey(type, id)] ?? "",
     [notes],
   );
 
   const setNote = useCallback((type: RecipeType, id: string, value: string) => {
+    const key = noteKey(type, id);
     setNotes((prev) => {
-      const safe = prev ?? {};
-      const key = noteKey(type, id);
-      const next: NotesMap = { ...safe };
-      if (value.trim() === "") {
-        delete next[key];
-      } else {
-        next[key] = value;
-      }
-      void saveNotes(next);
+      const next: NotesMap = { ...prev };
+      if (value.trim() === "") delete next[key];
+      else next[key] = value;
       return next;
     });
+    if (value.trim() === "") {
+      void deleteNote(key);
+    } else {
+      void upsertNote(key, value);
+    }
   }, []);
-
-  if (notes === null) {
-    return <LoadingScreen />;
-  }
 
   return (
     <NotesContext.Provider value={{ getNote, setNote }}>

@@ -14,6 +14,7 @@ import type {
 } from "../types";
 import { SEED_VERSION, SEED_RECIPES } from "./recipes";
 import { storage } from "../lib/storage";
+import { loadAppState, saveAppState } from "../lib/app-state";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -666,47 +667,27 @@ export async function loadRecipes(): Promise<Recipe[]> {
 }
 
 /**
- * Loads the persisted custom week. Falls back to a blank week on any error
- * (storage miss, parse failure, etc.).
+ * Loads the persisted custom week from shared app state (Supabase-backed,
+ * localStorage-cached). Falls back to a blank week on any error.
  */
 export async function loadCustomWeek(): Promise<CustomWeek> {
-  try {
-    const r = await storage.get(STORAGE_KEYS.customWeek);
-    return r ? (JSON.parse(r.value) as CustomWeek) : createEmptyWeek();
-  } catch {
-    return createEmptyWeek();
-  }
+  return loadAppState<CustomWeek>(STORAGE_KEYS.customWeek, createEmptyWeek());
 }
 
-/** Persists the current custom week selection. */
+/** Persists the current custom week selection (shared household state). */
 export async function saveCustomWeek(week: CustomWeek): Promise<void> {
-  try {
-    await storage.set(STORAGE_KEYS.customWeek, JSON.stringify(week));
-  } catch {
-    // silently swallow — UI should not crash on a storage write failure
-  }
+  await saveAppState(STORAGE_KEYS.customWeek, week);
 }
 
 /**
- * Loads the Phase 2 unlock flag. Returns `false` if never set or on any error.
+ * Loads the Phase 2 unlock flag from shared app state. Returns `false` if
+ * never set or on any error.
  */
 export async function loadPhase2Unlocked(): Promise<boolean> {
-  try {
-    const r = await storage.get(STORAGE_KEYS.phase2Unlocked);
-    return r ? (JSON.parse(r.value) as boolean) : false;
-  } catch {
-    return false;
-  }
+  return loadAppState<boolean>(STORAGE_KEYS.phase2Unlocked, false);
 }
 
-/** Persists the Phase 2 unlock flag. */
+/** Persists the Phase 2 unlock flag (shared household state). */
 export async function savePhase2Unlocked(value: boolean): Promise<void> {
-  try {
-    await storage.set(
-      STORAGE_KEYS.phase2Unlocked,
-      JSON.stringify(value)
-    );
-  } catch {
-    // silently swallow
-  }
+  await saveAppState(STORAGE_KEYS.phase2Unlocked, value);
 }
