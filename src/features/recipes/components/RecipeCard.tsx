@@ -19,9 +19,13 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
   return (
     <Card className="rounded-2xl px-5 py-4 border-stone-100 flex items-start justify-between gap-3">
       <div className="flex-1 min-w-0 space-y-1.5">
-        <div className="font-serif font-semibold text-card-foreground text-sm leading-snug">
+        <button
+          type="button"
+          onClick={() => onView(recipe)}
+          className="font-serif font-semibold text-card-foreground text-sm leading-snug text-left hover:underline focus-visible:underline focus-visible:outline-none"
+        >
           {recipe.name}
-        </div>
+        </button>
 
         <RecipeTimeTag icon={recipe.timeKey} leadTime={recipe.leadTime} />
 

@@ -20,6 +20,7 @@ export interface DashboardTabProps {
   onUnlockPhase2: () => Promise<void>;
   onLockPhase2: () => Promise<void>;
   onNavigateToCustomBuilder: () => void;
+  onResetCustomWeek: () => Promise<void>;
 }
 
 export default function DashboardTab({
@@ -31,6 +32,7 @@ export default function DashboardTab({
   onUnlockPhase2,
   onLockPhase2,
   onNavigateToCustomBuilder,
+  onResetCustomWeek,
 }: DashboardTabProps) {
   const handleUnlock = async () => {
     await savePhase2Unlocked(true);
@@ -70,6 +72,7 @@ export default function DashboardTab({
       customWeek={customWeek}
       customSaved={customSaved}
       onNavigateToCustomBuilder={onNavigateToCustomBuilder}
+      onResetCustomWeek={onResetCustomWeek}
     />
   );
 }

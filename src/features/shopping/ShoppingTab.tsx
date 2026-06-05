@@ -18,6 +18,7 @@ export interface ShoppingTabProps {
   onActiveWeekChange: (week: WeekName) => void;
   onWeekChange: (week: CustomWeek) => void;
   onSave: (week: CustomWeek) => Promise<void>;
+  onReset: () => Promise<void>;
 }
 
 export default function ShoppingTab({
@@ -29,6 +30,7 @@ export default function ShoppingTab({
   onActiveWeekChange,
   onWeekChange,
   onSave,
+  onReset,
 }: ShoppingTabProps) {
   const [previewRecipe, setPreviewRecipe] = useState<Recipe | null>(null);
 
@@ -55,6 +57,7 @@ export default function ShoppingTab({
             customShoppingList={customShoppingList}
             onWeekChange={onWeekChange}
             onSave={handleSave}
+            onReset={onReset}
             onViewRecipe={setPreviewRecipe}
           />
         ) : (

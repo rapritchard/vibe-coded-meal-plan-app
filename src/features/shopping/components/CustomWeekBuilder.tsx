@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import type { CustomWeek, MealType, Recipe } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { createEmptyWeek, DAYS } from "@/data/shoppingLists";
+import { DAYS } from "@/data/shoppingLists";
 
 import { DayBuilderCard } from "./DayBuilderCard";
 
@@ -13,6 +13,7 @@ interface CustomWeekBuilderProps {
   saved: boolean;
   onWeekChange: (week: CustomWeek) => void;
   onSave: () => Promise<void>;
+  onReset: () => Promise<void>;
   onViewRecipe: (recipe: Recipe) => void;
 }
 
@@ -22,6 +23,7 @@ export function CustomWeekBuilder({
   saved,
   onWeekChange,
   onSave,
+  onReset,
   onViewRecipe,
 }: CustomWeekBuilderProps) {
   const handleChange = useCallback(
@@ -58,8 +60,12 @@ export function CustomWeekBuilder({
   );
 
   const handleClearAll = useCallback(() => {
-    onWeekChange(createEmptyWeek());
-  }, [onWeekChange]);
+    const confirmed = window.confirm(
+      "Reset the custom week? All selections, the saved week, and the generated shopping list will be cleared.",
+    );
+    if (!confirmed) return;
+    void onReset();
+  }, [onReset]);
 
   return (
     <div className="space-y-4">
@@ -98,7 +104,7 @@ export function CustomWeekBuilder({
           onClick={handleClearAll}
           className="rounded-xl px-4 py-3 h-auto border-2 border-border text-muted-foreground text-sm font-semibold hover:border-stone-300"
         >
-          Clear All
+          Reset week
         </Button>
       </div>
     </div>

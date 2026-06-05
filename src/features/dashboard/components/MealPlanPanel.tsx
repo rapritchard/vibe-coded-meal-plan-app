@@ -20,6 +20,7 @@ interface MealPlanPanelProps {
   customWeek: CustomWeek;
   customSaved: boolean;
   onNavigateToCustomBuilder: () => void;
+  onResetCustomWeek: () => Promise<void>;
 }
 
 const CUSTOM_SNACKS = [
@@ -33,7 +34,16 @@ export function MealPlanPanel({
   customWeek,
   customSaved,
   onNavigateToCustomBuilder,
+  onResetCustomWeek,
 }: MealPlanPanelProps) {
+  const handleReset = () => {
+    const confirmed = window.confirm(
+      "Reset the custom week? All selections, the saved week, and the generated shopping list will be cleared.",
+    );
+    if (!confirmed) return;
+    void onResetCustomWeek();
+  };
+
   const [week, setWeek] = useState<WeekName>("Week A");
 
   return (
@@ -62,22 +72,42 @@ export function MealPlanPanel({
               ? "Your saved custom week is shown below."
               : "Custom week not built yet — go to Shopping then Custom to build it."}
           </div>
-          {customSaved &&
-            DAYS.map((day) => (
-              <DayCard
-                key={day}
-                day={{
-                  day,
-                  meals: {
-                    breakfast: { name: customWeek[day]?.breakfast || "not set" },
-                    lunch: { name: customWeek[day]?.lunch || "not set" },
-                    dinner: { name: customWeek[day]?.dinner || "not set" },
-                    snacks: CUSTOM_SNACKS,
-                  },
-                }}
-                recipes={recipes}
-              />
-            ))}
+          {customSaved && (
+            <>
+              {DAYS.map((day) => (
+                <DayCard
+                  key={day}
+                  day={{
+                    day,
+                    meals: {
+                      breakfast: {
+                        name: customWeek[day]?.breakfast || "not set",
+                      },
+                      lunch: { name: customWeek[day]?.lunch || "not set" },
+                      dinner: { name: customWeek[day]?.dinner || "not set" },
+                      snacks: CUSTOM_SNACKS,
+                    },
+                  }}
+                  recipes={recipes}
+                />
+              ))}
+              <div className="flex gap-3 pt-1">
+                <Button
+                  onClick={onNavigateToCustomBuilder}
+                  className="flex-1 rounded-xl py-3 h-auto font-bold text-sm bg-violet-700 hover:bg-violet-800"
+                >
+                  Edit in Shopping
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={handleReset}
+                  className="rounded-xl px-4 py-3 h-auto border-2 border-border text-muted-foreground text-sm font-semibold hover:border-stone-300"
+                >
+                  Reset week
+                </Button>
+              </div>
+            </>
+          )}
           {!customSaved && (
             <Button
               onClick={onNavigateToCustomBuilder}

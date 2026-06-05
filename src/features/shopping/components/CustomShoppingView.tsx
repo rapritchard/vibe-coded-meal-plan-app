@@ -10,6 +10,7 @@ interface CustomShoppingViewProps {
   customShoppingList: ShoppingCategory | null;
   onWeekChange: (week: CustomWeek) => void;
   onSave: () => Promise<void>;
+  onReset: () => Promise<void>;
   onViewRecipe: (recipe: Recipe) => void;
 }
 
@@ -20,6 +21,7 @@ export function CustomShoppingView({
   customShoppingList,
   onWeekChange,
   onSave,
+  onReset,
   onViewRecipe,
 }: CustomShoppingViewProps) {
   return (
@@ -30,6 +32,7 @@ export function CustomShoppingView({
         saved={customSaved}
         onWeekChange={onWeekChange}
         onSave={onSave}
+        onReset={onReset}
         onViewRecipe={onViewRecipe}
       />
 

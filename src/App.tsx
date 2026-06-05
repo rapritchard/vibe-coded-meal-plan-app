@@ -6,6 +6,7 @@ import {
   generateShoppingList,
   loadCustomWeek,
   loadPhase2Unlocked,
+  saveCustomWeek,
   savePhase2Unlocked,
 } from "@/data/shoppingLists";
 import type { WeekName } from "@/data/shoppingLists";
@@ -112,6 +113,14 @@ export default function App() {
     [recipes],
   );
 
+  const handleResetCustomWeek = useCallback(async () => {
+    const empty = createEmptyWeek();
+    setCustomWeek(empty);
+    setCustomSaved(false);
+    setCustomShoppingList(null);
+    await saveCustomWeek(empty);
+  }, []);
+
   const handleUnlockPhase2 = useCallback(async () => {
     await savePhase2Unlocked(true);
     setPhase2Unlocked(true);
@@ -187,6 +196,7 @@ export default function App() {
               onUnlockPhase2={handleUnlockPhase2}
               onLockPhase2={handleLockPhase2}
               onNavigateToCustomBuilder={handleNavigateToCustomBuilder}
+              onResetCustomWeek={handleResetCustomWeek}
             />
           )}
 
@@ -208,6 +218,7 @@ export default function App() {
               onActiveWeekChange={setShoppingActiveWeek}
               onWeekChange={setCustomWeek}
               onSave={handleSaveCustomWeek}
+              onReset={handleResetCustomWeek}
             />
           )}
 

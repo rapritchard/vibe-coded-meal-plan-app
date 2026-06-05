@@ -31,9 +31,19 @@ export function MealRow({ label, meal, recipes }: MealRowProps) {
               {label}
             </div>
             <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-              <span className="text-sm font-medium text-card-foreground">
-                {meal.name}
-              </span>
+              {recipe ? (
+                <button
+                  type="button"
+                  onClick={() => setActiveRecipe(recipe)}
+                  className="text-sm font-medium text-card-foreground text-left hover:underline focus-visible:underline focus-visible:outline-none"
+                >
+                  {meal.name}
+                </button>
+              ) : (
+                <span className="text-sm font-medium text-card-foreground">
+                  {meal.name}
+                </span>
+              )}
               {recipe && (
                 <Button
                   size="sm"
