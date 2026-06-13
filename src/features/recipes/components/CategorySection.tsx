@@ -1,15 +1,7 @@
 import type { AnyRecipe, Recipe, RecipeCategoryKind } from "@/types";
+import { CATEGORY_LABELS } from "@/lib/taxonomy";
 
 import { RecipeListItem } from "./RecipeListItem";
-
-const CATEGORY_LABELS: Record<RecipeCategoryKind, string> = {
-  breakfast: "Breakfast",
-  lunch: "Lunch",
-  dinner: "Dinner",
-  snack: "Snacks",
-  smoothie: "Smoothies",
-  dessert: "Desserts",
-};
 
 interface CategorySectionProps {
   category: RecipeCategoryKind;

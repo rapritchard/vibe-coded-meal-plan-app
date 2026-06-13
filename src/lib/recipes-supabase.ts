@@ -1,27 +1,33 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // src/lib/recipes-supabase.ts
 // Maps between the unified Supabase `recipes` table (structured cols + jsonb
-// data) and the discriminated AnyRecipe union. Read-through localStorage
-// cache keeps the app responsive offline and on first paint.
+// data) and the discriminated AnyRecipe union. Read-through localStorage cache
+// keeps the app responsive offline and on first paint.
+//
+// The per-type jsonb `data` payloads are validated with zod (each field has a
+// `.catch` fallback) so a malformed row degrades to sensible defaults instead of
+// crashing the catalog load — and so the expected shape is documented in code
+// rather than scattered `as` casts.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { z } from "zod";
+
 import { supabase } from "./supabase";
+import { loadCached, readCache } from "./cached-store";
+import { ALL_MOODS } from "@/types";
 import type {
   AnyRecipe,
   Dessert,
   RecipeNutrition,
   EffortLevel,
-  IngredientTuple,
   MealCategory,
   Mood,
   Recipe,
   SmoothieRecipe,
   Snack,
-  TimeKey,
-  ToolAlt,
 } from "@/types";
 
-interface RecipeRow {
+export interface RecipeRow {
   id: string;
   slug: string;
   type: "recipe" | "smoothie" | "snack" | "dessert";
@@ -37,14 +43,60 @@ interface RecipeRow {
 
 const CACHE_KEY = "recipes-cache-v2";
 
+// ── jsonb `data` schemas (one per discriminated type) ────────────────────────
+
+const timeKeyEnum = z.enum(["⚡", "🕐", "🕑", "⏳", "🌙"]);
+const ingredientTuple = z.tuple([z.string(), z.number(), z.string()]);
+const toolAlt = z.object({ tool: z.string(), note: z.string() });
+
+const recipeData = z.object({
+  phase: z.number().catch(1),
+  time: z.string().catch(""),
+  serves: z.string().catch(""),
+  timeKey: timeKeyEnum.catch("⚡"),
+  leadTime: z.string().nullable().catch(null),
+  ingredients: z.array(ingredientTuple).catch([]),
+  toolAlts: z.array(toolAlt).catch([]),
+  parallelTasks: z.array(z.string()).catch([]),
+  steps: z.array(z.string()).catch([]),
+  tip: z.string().catch(""),
+  variations: z.array(z.string()).catch([]),
+  variationSteps: z.array(z.array(z.string()).nullable()).catch([]),
+});
+
+const smoothieData = z.object({
+  desc: z.string().catch(""),
+  ingredients: z.array(z.string()).catch([]),
+  bc151: z.array(z.string()).catch([]),
+  duo: z.array(z.string()).catch([]),
+  tip: z.string().catch(""),
+  variations: z.array(z.string()).catch([]),
+});
+
+const snackData = z.object({
+  badge: z.string().catch(""),
+  desc: z.string().catch(""),
+});
+
+const dessertData = z.object({
+  time: z.string().catch(""),
+  serves: z.string().catch(""),
+  leadTime: z.string().catch(""),
+  steps: z.array(z.string()).catch([]),
+  tip: z.string().catch(""),
+  variations: z.array(z.string()).catch([]),
+});
+
 // ── Row ↔ AnyRecipe mapping ─────────────────────────────────────────────────
 
-function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
+export function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
   const base = {
     id: row.id,
     slug: row.slug,
     name: row.name,
-    moods: row.moods ?? [],
+    moods: (row.moods ?? []).filter((m): m is Mood =>
+      (ALL_MOODS as string[]).includes(m),
+    ),
     effort: row.effort,
     isBatch: row.is_batch,
     goodOnTheGo: row.good_on_the_go,
@@ -58,18 +110,7 @@ function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
         ...base,
         type: "recipe",
         category: row.category as MealCategory,
-        phase: (d.phase as number) ?? 1,
-        time: (d.time as string) ?? "",
-        serves: (d.serves as string) ?? "",
-        timeKey: (d.timeKey as TimeKey) ?? "⚡",
-        leadTime: (d.leadTime as string | null) ?? null,
-        ingredients: (d.ingredients as IngredientTuple[]) ?? [],
-        toolAlts: (d.toolAlts as ToolAlt[]) ?? [],
-        parallelTasks: (d.parallelTasks as string[]) ?? [],
-        steps: (d.steps as string[]) ?? [],
-        tip: (d.tip as string) ?? "",
-        variations: (d.variations as string[]) ?? [],
-        variationSteps: (d.variationSteps as (string[] | null)[]) ?? [],
+        ...recipeData.parse(d),
       } satisfies Recipe;
 
     case "smoothie":
@@ -77,12 +118,7 @@ function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
         ...base,
         type: "smoothie",
         category: "smoothie",
-        desc: (d.desc as string) ?? "",
-        ingredients: (d.ingredients as string[]) ?? [],
-        bc151: (d.bc151 as string[]) ?? [],
-        duo: (d.duo as string[]) ?? [],
-        tip: (d.tip as string) ?? "",
-        variations: (d.variations as string[]) ?? [],
+        ...smoothieData.parse(d),
       } satisfies SmoothieRecipe;
 
     case "snack":
@@ -90,8 +126,7 @@ function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
         ...base,
         type: "snack",
         category: "snack",
-        badge: (d.badge as string) ?? "",
-        desc: (d.desc as string) ?? "",
+        ...snackData.parse(d),
       } satisfies Snack;
 
     case "dessert":
@@ -99,20 +134,15 @@ function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
         ...base,
         type: "dessert",
         category: "dessert",
-        time: (d.time as string) ?? "",
-        serves: (d.serves as string) ?? "",
-        leadTime: (d.leadTime as string) ?? "",
-        steps: (d.steps as string[]) ?? [],
-        tip: (d.tip as string) ?? "",
-        variations: (d.variations as string[]) ?? [],
+        ...dessertData.parse(d),
       } satisfies Dessert;
   }
 }
 
-function anyRecipeToRow(item: AnyRecipe): RecipeRow {
+export function anyRecipeToRow(item: AnyRecipe): RecipeRow {
   // Pull out columns that are denormalised on the table; everything else is
-  // jsonb data. We destructure-and-rest by re-listing because TypeScript
-  // narrows the union nicely this way.
+  // jsonb data. We re-list the column keys because TypeScript narrows the union
+  // nicely this way.
   const rest: Record<string, unknown> = {};
   for (const [k, v] of Object.entries(item)) {
     if (
@@ -148,20 +178,7 @@ function anyRecipeToRow(item: AnyRecipe): RecipeRow {
 // ── Cache ───────────────────────────────────────────────────────────────────
 
 export function readRecipesCacheSync(): AnyRecipe[] | null {
-  try {
-    const cached = localStorage.getItem(CACHE_KEY);
-    return cached ? (JSON.parse(cached) as AnyRecipe[]) : null;
-  } catch {
-    return null;
-  }
-}
-
-function writeRecipesCache(items: AnyRecipe[]): void {
-  try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify(items));
-  } catch {
-    // non-fatal
-  }
+  return readCache<AnyRecipe[] | null>(CACHE_KEY, null);
 }
 
 // ── Public API ──────────────────────────────────────────────────────────────
@@ -172,60 +189,13 @@ function writeRecipesCache(items: AnyRecipe[]): void {
  * never cached).
  */
 export async function loadRecipesFromSupabase(): Promise<AnyRecipe[] | null> {
-  if (!supabase) return readRecipesCacheSync();
-  try {
+  return loadCached<AnyRecipe[] | null>(CACHE_KEY, null, async () => {
+    if (!supabase) return null;
     const { data, error } = await supabase
       .from("recipes")
       .select("*")
       .order("name", { ascending: true });
-    if (error || !data) return readRecipesCacheSync();
-    const items = (data as RecipeRow[]).map(rowToAnyRecipe);
-    writeRecipesCache(items);
-    return items;
-  } catch {
-    return readRecipesCacheSync();
-  }
-}
-
-/** Insert (or update) one item. RLS enforces allowlist auth. */
-export async function upsertRecipe(item: AnyRecipe): Promise<void> {
-  if (!supabase) {
-    throw new Error("Supabase is not configured");
-  }
-  const row = anyRecipeToRow(item);
-  const { error } = await supabase
-    .from("recipes")
-    .upsert(row, { onConflict: "id" });
-  if (error) throw error;
-}
-
-/** Delete one item by id. */
-export async function deleteRecipe(id: string): Promise<void> {
-  if (!supabase) {
-    throw new Error("Supabase is not configured");
-  }
-  const { error } = await supabase.from("recipes").delete().eq("id", id);
-  if (error) throw error;
-}
-
-/** True when the Supabase recipes table has zero rows. Used by the seed
- * migration to decide whether to seed. */
-export async function recipesTableIsEmpty(): Promise<boolean> {
-  if (!supabase) return false;
-  const { count, error } = await supabase
-    .from("recipes")
-    .select("*", { count: "exact", head: true });
-  if (error) return false;
-  return (count ?? 0) === 0;
-}
-
-/** Bulk upsert (for the one-time seed migration). */
-export async function bulkUpsertRecipes(items: AnyRecipe[]): Promise<void> {
-  if (!supabase) return;
-  const rows = items.map(anyRecipeToRow);
-  // Supabase has a 1000-row insert cap; we're well below that with ~61 items.
-  const { error } = await supabase
-    .from("recipes")
-    .upsert(rows, { onConflict: "id" });
-  if (error) throw error;
+    if (error || !data) return null;
+    return (data as RecipeRow[]).map(rowToAnyRecipe);
+  });
 }

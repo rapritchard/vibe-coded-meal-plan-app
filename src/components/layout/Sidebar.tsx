@@ -1,30 +1,17 @@
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 
 import { SidebarNav } from "./SidebarNav";
-import type { TabId } from "./nav-config";
 
 interface SidebarProps {
-  active: TabId;
-  onChange: (tab: TabId) => void;
   mobileOpen: boolean;
   onMobileOpenChange: (open: boolean) => void;
 }
 
-export function Sidebar({
-  active,
-  onChange,
-  mobileOpen,
-  onMobileOpenChange,
-}: SidebarProps) {
-  function handleSelect(tab: TabId) {
-    onChange(tab);
-    onMobileOpenChange(false);
-  }
-
+export function Sidebar({ mobileOpen, onMobileOpenChange }: SidebarProps) {
   return (
     <>
       <aside className="hidden md:block w-48 flex-shrink-0 sticky top-0 self-start h-screen overflow-y-auto border-r border-border bg-card">
-        <SidebarNav active={active} onSelect={handleSelect} />
+        <SidebarNav />
       </aside>
 
       <Sheet open={mobileOpen} onOpenChange={onMobileOpenChange}>
@@ -35,7 +22,7 @@ export function Sidebar({
           <SheetTitle className="px-4 py-4 text-sm font-semibold text-stone-700 border-b border-border">
             Navigation
           </SheetTitle>
-          <SidebarNav active={active} onSelect={handleSelect} />
+          <SidebarNav onNavigate={() => onMobileOpenChange(false)} />
         </SheetContent>
       </Sheet>
     </>

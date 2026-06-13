@@ -1,18 +1,11 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // src/data/shoppingLists.ts
-// Static shopping list data for the three curated weeks, the week-plan
-// schedules, the custom-week generator utility, and all storage helpers.
+// Static shopping data + domain constants for the three curated weeks and the
+// week-plan schedules. The custom-week logic + persistence live in
+// src/lib/shopping.ts.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import type {
-  ShoppingLists,
-  ShoppingCategory,
-  WeekPlans,
-  CustomWeek,
-  MealType,
-  Recipe,
-} from "../types";
-import { loadAppState, saveAppState } from "../lib/app-state";
+import type { ShoppingLists, WeekPlans, MealType } from "../types";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -547,123 +540,6 @@ export const SHOPPING_CATEGORY_KEYWORDS: Record<string, string[]> = {
   "Smoothie & Drinks": ["oat milk", "coconut water", "dates", "kefir"],
 };
 
-// ── Custom week generator ─────────────────────────────────────────────────────
-
-/**
- * Builds a deduplicated, categorised shopping list from a custom week's
- * meal selections. Ingredients are extracted from the matched Recipe objects
- * and bucketed using `SHOPPING_CATEGORY_KEYWORDS`.
- *
- * Returns a `ShoppingCategory` (category → string[]) suitable for rendering
- * in ShoppingTab alongside the curated week lists.
- */
-export function generateShoppingList(
-  customWeek: CustomWeek,
-  recipes: Recipe[]
-): ShoppingCategory {
-  // 1. Collect unique ingredient names across all selected recipes
-  const map: Record<string, string> = {};
-
-  const addIngredient = (name: string): void => {
-    const key = name.toLowerCase().trim();
-    if (!map[key]) map[key] = name;
-  };
-
-  Object.values(customWeek).forEach((day) => {
-    MEAL_TYPES.forEach((type) => {
-      const recipeName = day[type];
-      if (!recipeName) return;
-      const recipe = recipes.find((r) => r.name === recipeName);
-      if (recipe?.ingredients) {
-        recipe.ingredients.forEach(([name]) => addIngredient(name));
-      }
-    });
-  });
-
-  // 2. Categorise using keyword matching
-  const grouped: ShoppingCategory = {};
-  const assigned = new Set<string>();
-
-  Object.entries(SHOPPING_CATEGORY_KEYWORDS).forEach(([category, keywords]) => {
-    const matches: string[] = [];
-
-    Object.values(map).forEach((name) => {
-      const key = name.toLowerCase();
-      const alreadyAssigned = assigned.has(key);
-      const matchesCategory = keywords.some(
-        (kw) => key.includes(kw) || kw.includes(key)
-      );
-      if (!alreadyAssigned && matchesCategory) {
-        matches.push(name);
-        assigned.add(key);
-      }
-    });
-
-    if (matches.length > 0) {
-      grouped[category] = matches;
-    }
-  });
-
-  // 3. Catch anything that didn't match a keyword category
-  const uncategorised = Object.values(map).filter(
-    (name) => !assigned.has(name.toLowerCase())
-  );
-  if (uncategorised.length > 0) {
-    grouped["Other"] = uncategorised;
-  }
-
-  return grouped;
-}
-
-// ── Custom week factory ───────────────────────────────────────────────────────
-
-/**
- * Returns a blank CustomWeek with every day initialised to empty strings.
- * Used as the default state for the custom week builder.
- */
-export function createEmptyWeek(): CustomWeek {
-  return DAYS.reduce<CustomWeek>(
-    (acc, day) => ({
-      ...acc,
-      [day]: { breakfast: "", lunch: "", dinner: "" },
-    }),
-    {} as CustomWeek
-  );
-}
-
-// ── Storage helpers ───────────────────────────────────────────────────────────
-// These are thin async wrappers around the storage adapter (localStorage outside Claude,
-// storage API). They are co-located here so every storage key is defined in
-// one place and importable without reaching into component files.
-
-/** Storage key constants — single source of truth */
-export const STORAGE_KEYS = {
-  customWeek: "custom-week-d",
-  phase2Unlocked: "phase2-unlocked",
-} as const;
-
-/**
- * Loads the persisted custom week from shared app state (Supabase-backed,
- * localStorage-cached). Falls back to a blank week on any error.
- */
-export async function loadCustomWeek(): Promise<CustomWeek> {
-  return loadAppState<CustomWeek>(STORAGE_KEYS.customWeek, createEmptyWeek());
-}
-
-/** Persists the current custom week selection (shared household state). */
-export async function saveCustomWeek(week: CustomWeek): Promise<void> {
-  await saveAppState(STORAGE_KEYS.customWeek, week);
-}
-
-/**
- * Loads the Phase 2 unlock flag from shared app state. Returns `false` if
- * never set or on any error.
- */
-export async function loadPhase2Unlocked(): Promise<boolean> {
-  return loadAppState<boolean>(STORAGE_KEYS.phase2Unlocked, false);
-}
-
-/** Persists the Phase 2 unlock flag (shared household state). */
-export async function savePhase2Unlocked(value: boolean): Promise<void> {
-  await saveAppState(STORAGE_KEYS.phase2Unlocked, value);
-}
+// Custom-week logic (generateShoppingList, createEmptyWeek) and persistence
+// (loadCustomWeek, saveCustomWeek) now live in src/lib/shopping.ts. The keyword
+// map above is consumed there.

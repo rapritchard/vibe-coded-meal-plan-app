@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import type { CustomWeek, Recipe, ShoppingCategory } from "@/types";
-import { saveCustomWeek } from "@/data/shoppingLists";
+import { saveCustomWeek } from "@/lib/shopping";
 import type { WeekName } from "@/data/shoppingLists";
 import { RecipeModal } from "@/features/recipes/components/RecipeModal";
 

@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-import type {
-  AnyRecipe,
-  EffortLevel,
-  RecipeCategoryKind,
-} from "@/types";
+import type { AnyRecipe } from "@/types";
 import { ALL_MOODS, EFFORT_LABELS } from "@/types";
 import { Card } from "@/components/ui/card";
+import {
+  CATEGORY_LABELS,
+  CATEGORY_ORDER,
+  EFFORT_ORDER,
+} from "@/lib/taxonomy";
 import { cn } from "@/lib/utils";
 
 interface ReviewTabProps {
@@ -14,32 +15,6 @@ interface ReviewTabProps {
 }
 
 type ViewMode = "by-category" | "by-recipe";
-
-const EFFORT_ORDER: EffortLevel[] = [
-  "ready",
-  "make-ahead",
-  "quick-cook",
-  "set-forget",
-  "cook-tend",
-];
-
-const CATEGORY_ORDER: RecipeCategoryKind[] = [
-  "breakfast",
-  "lunch",
-  "dinner",
-  "snack",
-  "smoothie",
-  "dessert",
-];
-
-const CATEGORY_LABELS: Record<RecipeCategoryKind, string> = {
-  breakfast: "Breakfast",
-  lunch: "Lunch",
-  dinner: "Dinner",
-  snack: "Snacks",
-  smoothie: "Smoothies",
-  dessert: "Desserts",
-};
 
 export default function ReviewTab({ items }: ReviewTabProps) {
   const [mode, setMode] = useState<ViewMode>("by-category");

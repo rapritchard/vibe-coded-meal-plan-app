@@ -10,3 +10,12 @@ node_modules/
 # Build files
 build/
 dist/
+
+# Test artifacts
+coverage/
+playwright-report/
+test-results/
+.playwright-mcp/
+
+# Tooling caches
+.tanstack/
