@@ -9,10 +9,7 @@ import {
 import type { Session } from "@supabase/supabase-js";
 
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
-import {
-  migrateLocalToSupabaseIfNeeded,
-  seedRecipesIfEmpty,
-} from "@/lib/migration";
+import { migrateLocalToSupabaseIfNeeded } from "@/lib/migration";
 
 interface AuthContextValue {
   /** Current Supabase session, or `null` if signed out / not configured. */
@@ -61,7 +58,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setSession(newSession);
         if (event === "SIGNED_IN") {
           void migrateLocalToSupabaseIfNeeded();
-          void seedRecipesIfEmpty();
         }
       },
     );

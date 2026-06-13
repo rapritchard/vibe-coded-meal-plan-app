@@ -9,6 +9,7 @@ import { supabase } from "./supabase";
 import type {
   AnyRecipe,
   Dessert,
+  RecipeNutrition,
   EffortLevel,
   IngredientTuple,
   MealCategory,
@@ -31,6 +32,7 @@ interface RecipeRow {
   is_batch: boolean;
   good_on_the_go: boolean;
   data: Record<string, unknown>;
+  nutrition: RecipeNutrition | null;
 }
 
 const CACHE_KEY = "recipes-cache-v2";
@@ -46,6 +48,7 @@ function rowToAnyRecipe(row: RecipeRow): AnyRecipe {
     effort: row.effort,
     isBatch: row.is_batch,
     goodOnTheGo: row.good_on_the_go,
+    nutrition: row.nutrition ?? null,
   };
   const d = row.data ?? {};
 
@@ -121,7 +124,8 @@ function anyRecipeToRow(item: AnyRecipe): RecipeRow {
       k !== "moods" &&
       k !== "effort" &&
       k !== "isBatch" &&
-      k !== "goodOnTheGo"
+      k !== "goodOnTheGo" &&
+      k !== "nutrition"
     ) {
       rest[k] = v;
     }
@@ -137,6 +141,7 @@ function anyRecipeToRow(item: AnyRecipe): RecipeRow {
     is_batch: item.isBatch,
     good_on_the_go: item.goodOnTheGo,
     data: rest,
+    nutrition: item.nutrition ?? null,
   };
 }
 

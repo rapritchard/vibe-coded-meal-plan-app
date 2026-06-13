@@ -98,6 +98,41 @@ export interface RecipeBase {
   isBatch: boolean;
   /** Whether this item survives a Tupperware / eats well cold or reheated. */
   goodOnTheGo: boolean;
+  /**
+   * Normalised nutrition data, or null when unknown. Stored as jsonb so the
+   * schema doesn't change if we add fields later. Raw provider response is
+   * kept inside under `raw` in case we ever want to extract extra fields.
+   */
+  nutrition?: RecipeNutrition | null;
+}
+
+/**
+ * Normalised nutrition record. Provider-independent so we can swap the
+ * upstream API (API Ninjas, Edamam, USDA, manual entry…) without touching
+ * the UI. All totals are for the whole recipe; divide by `yieldServings` to
+ * get per-serving values.
+ */
+export interface RecipeNutrition {
+  /** Servings the totals were computed for. */
+  yieldServings: number;
+  /** Totals across the entire recipe. */
+  total: {
+    calories: number;
+    protein_g: number;
+    carbs_g: number;
+    fat_g: number;
+    fibre_g: number;
+    /** Optional fields — some providers don't supply these on free tier. */
+    sugar_g?: number;
+    sodium_mg?: number;
+    saturatedFat_g?: number;
+  };
+  /** Where the data came from. */
+  source: "api-ninjas" | "edamam" | "usda" | "manual" | "llm";
+  /** ISO timestamp of when it was last fetched / edited. */
+  fetchedAt?: string;
+  /** Raw provider response, preserved for future field extraction. */
+  raw?: unknown;
 }
 
 // ── Core Recipe ──────────────────────────────────────────────────────────────
@@ -122,19 +157,6 @@ export interface Recipe extends RecipeBase {
    * step list) or a string array of replacement steps for that variation.
    */
   variationSteps: (string[] | null)[];
-}
-
-// ── Phase 2 preview (teaser cards, no full recipe data yet) ──────────────────
-
-export interface Phase2Recipe {
-  id: string;
-  name: string;
-  moods: string[];
-  effort: EffortLevel;
-  time: string;
-  serves: string;
-  /** Explains why it is not Phase 1 safe and how to adapt */
-  note: string;
 }
 
 // ── Smoothies ────────────────────────────────────────────────────────────────

@@ -2,7 +2,6 @@ export type TabId =
   | "Overview"
   | "Meal Plan"
   | "Recipes"
-  | "Phase 2"
   | "Breakfast"
   | "Lunch"
   | "Dinner"
@@ -16,7 +15,6 @@ export type TabId =
 export const DASHBOARD_TABS: ReadonlySet<TabId> = new Set([
   "Overview",
   "Meal Plan",
-  "Phase 2",
 ]);
 
 /**
@@ -39,7 +37,7 @@ export interface NavGroup {
 }
 
 export const NAV_GROUPS: NavGroup[] = [
-  { label: "Planning", tabs: ["Overview", "Meal Plan", "Phase 2"] },
+  { label: "Planning", tabs: ["Overview", "Meal Plan"] },
   {
     label: "Food",
     tabs: [

@@ -12,8 +12,6 @@ import type {
   MealType,
   Recipe,
 } from "../types";
-import { SEED_VERSION, SEED_RECIPES } from "./recipes";
-import { storage } from "../lib/storage";
 import { loadAppState, saveAppState } from "../lib/app-state";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
@@ -640,31 +638,9 @@ export function createEmptyWeek(): CustomWeek {
 
 /** Storage key constants — single source of truth */
 export const STORAGE_KEYS = {
-  recipesVersion: "recipes-version",
-  recipesData: "recipes-data",
   customWeek: "custom-week-d",
   phase2Unlocked: "phase2-unlocked",
 } as const;
-
-/**
- * Loads recipes from persistent storage. If the stored seed version does not
- * match the current `SEED_VERSION`, the storage is re-seeded with fresh data.
- */
-export async function loadRecipes(): Promise<Recipe[]> {
-  try {
-    const v = await storage.get(STORAGE_KEYS.recipesVersion);
-    if (!v || v.value !== SEED_VERSION) throw new Error("seed-stale");
-    const r = await storage.get(STORAGE_KEYS.recipesData);
-    return r ? (JSON.parse(r.value) as Recipe[]) : SEED_RECIPES;
-  } catch {
-    await storage.set(STORAGE_KEYS.recipesVersion, SEED_VERSION);
-    await storage.set(
-      STORAGE_KEYS.recipesData,
-      JSON.stringify(SEED_RECIPES)
-    );
-    return SEED_RECIPES;
-  }
-}
 
 /**
  * Loads the persisted custom week from shared app state (Supabase-backed,

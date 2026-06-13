@@ -5,17 +5,9 @@ import {
   createEmptyWeek,
   generateShoppingList,
   loadCustomWeek,
-  loadPhase2Unlocked,
   saveCustomWeek,
-  savePhase2Unlocked,
 } from "@/data/shoppingLists";
 import type { WeekName } from "@/data/shoppingLists";
-import {
-  DESSERTS_DATA,
-  SEED_RECIPES,
-  SMOOTHIES_DATA,
-  SNACKS_DATA,
-} from "@/data/recipes";
 import {
   loadRecipesFromSupabase,
   readRecipesCacheSync,
@@ -41,27 +33,21 @@ import ReviewTab from "@/features/review/ReviewTab";
 import ShoppingTab from "@/features/shopping/ShoppingTab";
 import StoresTab from "@/features/stores/StoresTab";
 
-// Fallback chain for the unified catalog. Supabase first, then local cache,
-// then the bundled static seed (so the app works offline on a brand-new
-// device that has never reached the cloud).
+// Fallback chain for the unified catalog. Supabase first, then localStorage
+// cache. Supabase is now the source of truth — no bundled static seed.
+// A brand-new offline device sees an empty catalog until the next online
+// visit populates the cache.
 async function loadAllItemsWithFallback(): Promise<AnyRecipe[]> {
   const fromSupabase = await loadRecipesFromSupabase();
   if (fromSupabase && fromSupabase.length > 0) return fromSupabase;
   const cached = readRecipesCacheSync();
-  if (cached && cached.length > 0) return cached;
-  return [
-    ...SEED_RECIPES,
-    ...SMOOTHIES_DATA,
-    ...SNACKS_DATA,
-    ...DESSERTS_DATA,
-  ];
+  return cached ?? [];
 }
 
 export default function App() {
   const { session } = useAuth();
   const [ready, setReady] = useState(false);
   const [allItems, setAllItems] = useState<AnyRecipe[]>([]);
-  const [phase2Unlocked, setPhase2Unlocked] = useState(false);
   const [customWeek, setCustomWeek] = useState<CustomWeek>(createEmptyWeek());
   const [customSaved, setCustomSaved] = useState(false);
   const [customShoppingList, setCustomShoppingList] =
@@ -79,14 +65,12 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const [items, cw, p2] = await Promise.all([
+      const [items, cw] = await Promise.all([
         loadAllItemsWithFallback(),
         loadCustomWeek(),
-        loadPhase2Unlocked(),
       ]);
       setAllItems(items);
       setCustomWeek(cw);
-      setPhase2Unlocked(p2);
 
       const recipeOnly = items.filter(
         (i): i is Recipe => i.type === "recipe",
@@ -119,16 +103,6 @@ export default function App() {
     setCustomSaved(false);
     setCustomShoppingList(null);
     await saveCustomWeek(empty);
-  }, []);
-
-  const handleUnlockPhase2 = useCallback(async () => {
-    await savePhase2Unlocked(true);
-    setPhase2Unlocked(true);
-  }, []);
-
-  const handleLockPhase2 = useCallback(async () => {
-    await savePhase2Unlocked(false);
-    setPhase2Unlocked(false);
   }, []);
 
   const handleNavigateToCustomBuilder = useCallback(() => {
@@ -192,9 +166,6 @@ export default function App() {
               recipes={recipes}
               customWeek={customWeek}
               customSaved={customSaved}
-              phase2Unlocked={phase2Unlocked}
-              onUnlockPhase2={handleUnlockPhase2}
-              onLockPhase2={handleLockPhase2}
               onNavigateToCustomBuilder={handleNavigateToCustomBuilder}
               onResetCustomWeek={handleResetCustomWeek}
             />

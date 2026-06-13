@@ -3,6 +3,7 @@ import { useState, type ReactNode } from "react";
 import type { Recipe } from "@/types";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { NutritionPanel } from "@/components/shared/NutritionPanel";
 import { RecipeNotes } from "@/components/shared/RecipeNotes";
 import { RecipeTimeTag } from "@/components/shared/RecipeTimeTag";
 import { RecipeTip } from "@/components/shared/RecipeTip";
@@ -68,6 +69,11 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
       )}
 
       <StepList steps={steps} />
+
+      <NutritionPanel
+        nutrition={recipe.nutrition}
+        servings={Number.parseInt(recipe.serves, 10) || undefined}
+      />
 
       {recipe.tip && <RecipeTip tip={recipe.tip} />}
 
