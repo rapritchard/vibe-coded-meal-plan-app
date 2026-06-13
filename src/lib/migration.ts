@@ -19,7 +19,6 @@ import { storage } from "./storage";
 const MIGRATION_FLAG_KEY = "supabase-migration-v2";
 
 const CUSTOM_WEEK_KEY = "custom-week-d";
-const PHASE2_UNLOCKED_KEY = "phase2-unlocked";
 
 /**
  * Translates a local composite cache key into the (item_type, item_id) shape
@@ -35,9 +34,6 @@ function localKeyToRow(
   if (i < 0) return null;
   const type = localKey.slice(0, i);
   const ident = localKey.slice(i + 1);
-
-  // Phase 2 keys historically used slugs; keep as-is.
-  if (type === "phase2") return { item_type: type, item_id: ident };
 
   // Accept UUIDs (current shape) only.
   if (
@@ -95,7 +91,7 @@ export async function migrateLocalToSupabaseIfNeeded(): Promise<void> {
       }
     }
 
-    // Custom week + phase2 unlock flag — push from localStorage to app_state.
+    // Custom week — push from localStorage to app_state.
     const appStateRows: { key: string; value: unknown }[] = [];
     const customWeek = await storage.get(CUSTOM_WEEK_KEY);
     if (customWeek) {
@@ -103,17 +99,6 @@ export async function migrateLocalToSupabaseIfNeeded(): Promise<void> {
         appStateRows.push({
           key: CUSTOM_WEEK_KEY,
           value: JSON.parse(customWeek.value),
-        });
-      } catch {
-        // skip malformed
-      }
-    }
-    const phase2 = await storage.get(PHASE2_UNLOCKED_KEY);
-    if (phase2) {
-      try {
-        appStateRows.push({
-          key: PHASE2_UNLOCKED_KEY,
-          value: JSON.parse(phase2.value),
         });
       } catch {
         // skip malformed

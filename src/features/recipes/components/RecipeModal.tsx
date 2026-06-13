@@ -70,11 +70,7 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
 
       <StepList steps={steps} />
 
-      <NutritionSection
-        recipeId={recipe.id}
-        nutrition={recipe.nutrition}
-        servings={Number.parseInt(recipe.serves, 10) || undefined}
-      />
+      <NutritionSection recipeId={recipe.id} nutrition={recipe.nutrition} />
 
       {recipe.tip && <RecipeTip tip={recipe.tip} />}
 

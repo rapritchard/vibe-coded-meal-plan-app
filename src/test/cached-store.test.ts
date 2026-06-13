@@ -5,7 +5,7 @@ import {
   mutateCachedMap,
   readCache,
   writeCache,
-} from "./cached-store";
+} from "@/lib/cached-store";
 
 beforeEach(() => {
   localStorage.clear();

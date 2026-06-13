@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import { FlavourToolsPanel } from "@/features/dashboard/components/FlavourToolsPanel";
-import { Phase1ExplainerPanel } from "@/features/dashboard/components/Phase1ExplainerPanel";
 import { PrinciplesPanel } from "@/features/dashboard/components/PrinciplesPanel";
 import { SafeFoodsPanel } from "@/features/dashboard/components/SafeFoodsPanel";
 import { TimeKeyPanel } from "@/features/dashboard/components/TimeKeyPanel";
@@ -15,7 +14,6 @@ function OverviewPage() {
     <div className="space-y-6">
       <TimeKeyPanel />
       <SafeFoodsPanel />
-      <Phase1ExplainerPanel />
       <PrinciplesPanel />
       <FlavourToolsPanel />
     </div>

@@ -50,7 +50,6 @@ const ingredientTuple = z.tuple([z.string(), z.number(), z.string()]);
 const toolAlt = z.object({ tool: z.string(), note: z.string() });
 
 const recipeData = z.object({
-  phase: z.number().catch(1),
   time: z.string().catch(""),
   serves: z.string().catch(""),
   timeKey: timeKeyEnum.catch("⚡"),
@@ -198,4 +197,25 @@ export async function loadRecipesFromSupabase(): Promise<AnyRecipe[] | null> {
     if (error || !data) return null;
     return (data as RecipeRow[]).map(rowToAnyRecipe);
   });
+}
+
+/**
+ * Saves manually-entered nutrition onto one recipe. RLS ("allowlist writes
+ * recipes") enforces that only signed-in household members can write — a blocked
+ * write affects zero rows, which we surface as an error.
+ */
+export async function updateRecipeNutrition(
+  id: string,
+  nutrition: RecipeNutrition,
+): Promise<void> {
+  if (!supabase) throw new Error("Supabase is not configured");
+  const { data, error } = await supabase
+    .from("recipes")
+    .update({ nutrition })
+    .eq("id", id)
+    .select("id");
+  if (error) throw error;
+  if (!data || data.length === 0) {
+    throw new Error("Not authorized to edit recipes (sign in required)");
+  }
 }

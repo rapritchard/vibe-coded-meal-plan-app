@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { anyRecipeToRow, rowToAnyRecipe } from "./recipes-supabase";
+import { anyRecipeToRow, rowToAnyRecipe } from "@/lib/recipes-supabase";
 import type { Recipe, Snack } from "@/types";
 
 // These two functions are the boundary between the Supabase row shape
@@ -18,7 +18,6 @@ const sampleRecipe: Recipe = {
   isBatch: false,
   goodOnTheGo: false,
   nutrition: null,
-  phase: 1,
   category: "breakfast",
   time: "10 min",
   serves: "1",

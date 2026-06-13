@@ -14,7 +14,6 @@ function makeRecipe(name: string, ingredients: string[]): Recipe {
     isBatch: false,
     goodOnTheGo: false,
     nutrition: null,
-    phase: 1,
     category: "dinner",
     time: "",
     serves: "",

@@ -139,7 +139,6 @@ export interface RecipeNutrition {
 
 export interface Recipe extends RecipeBase {
   type: "recipe";
-  phase: number;
   category: MealCategory;
   time: string;
   serves: string;

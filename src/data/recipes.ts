@@ -110,7 +110,7 @@ export const KITCHEN_TOOLS: KitchenToolsMap = {
   ],
   "Moulds & Holders": [
     { name: "Egg Cups", notes: "" },
-    { name: "Taco Holders", notes: "Phase 2 useful." },
+    { name: "Taco Holders", notes: "Occasional use." },
     { name: "Popsicle Holders", notes: "Smoothie popsicles — pour any smoothie in and freeze." },
     { name: "Ice Maker", notes: "" },
   ],
@@ -119,16 +119,16 @@ export const KITCHEN_TOOLS: KitchenToolsMap = {
   ],
 };
 
-// ── Costco Phase 2 staples ────────────────────────────────────────────────────
+// ── Costco staples ────────────────────────────────────────────────────────────
 
-export const COSTCO_PHASE2_ITEMS: string[] = [
+export const COSTCO_ITEMS: string[] = [
   "Rolled oats (large bags)",
   "White basmati rice",
   "Soy sauce / tamari",
   "Protein powder",
   "Frozen edamame",
   "Coconut water (cases)",
-  "Olive oil (Phase 2+)",
+  "Olive oil",
   "Greek yoghurt (large tubs)",
   "Medjool dates",
 ];

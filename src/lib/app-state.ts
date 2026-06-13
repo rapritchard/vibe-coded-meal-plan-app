@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // src/lib/app-state.ts
-// Shared household key-value state — customWeek, phase2-unlocked, etc.
+// Shared household key-value state — customWeek, etc.
 // Backed by the Supabase `app_state` table with a localStorage cache so the
 // app boots instantly and works offline.
 // ─────────────────────────────────────────────────────────────────────────────

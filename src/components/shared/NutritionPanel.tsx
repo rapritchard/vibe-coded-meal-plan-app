@@ -17,10 +17,10 @@ const TONE_CLASSES: Record<Tone, string> = {
 };
 
 /**
- * Color thresholds tuned to the Phase 1 recovery brief:
- * - Fat: lower is better (Phase 1 cap is ~3g/meal, so <5g is comfortably safe)
- * - Protein: higher is better (recovery focus)
- * - Fibre: higher is better (gut health)
+ * Color thresholds (low-fat, protein- and fibre-forward defaults):
+ * - Fat: lower is better (<5g good)
+ * - Protein: higher is better
+ * - Fibre: higher is better
  * - Calories / carbs: neutral (depends too much on meal type)
  */
 function toneFor(label: string, perServing: number): Tone {

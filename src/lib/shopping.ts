@@ -95,7 +95,6 @@ export function createEmptyWeek(): CustomWeek {
 /** Storage key constants — single source of truth. */
 export const STORAGE_KEYS = {
   customWeek: "custom-week-d",
-  phase2Unlocked: "phase2-unlocked",
 } as const;
 
 /**
