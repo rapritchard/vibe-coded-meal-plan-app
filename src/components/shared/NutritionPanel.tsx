@@ -57,60 +57,68 @@ export function NutritionPanel({ nutrition, servings }: NutritionPanelProps) {
   const perServing = (n: number | undefined): number | null =>
     typeof n === "number" ? n / safeYield : null;
 
-  const fields: { value: number | null; label: string; unit: string; round: number }[] =
-    [
-      {
-        value: perServing(nutrition.total.calories),
-        label: "Calories",
-        unit: "kcal",
-        round: 0,
-      },
-      {
-        value: perServing(nutrition.total.protein_g),
-        label: "Protein",
-        unit: "g",
-        round: 1,
-      },
-      {
-        value: perServing(nutrition.total.carbs_g),
-        label: "Carbs",
-        unit: "g",
-        round: 1,
-      },
-      {
-        value: perServing(nutrition.total.fat_g),
-        label: "Fat",
-        unit: "g",
-        round: 1,
-      },
-      {
-        value: perServing(nutrition.total.fibre_g),
-        label: "Fibre",
-        unit: "g",
-        round: 1,
-      },
-    ];
+  const fields: {
+    value: number | null;
+    label: string;
+    abbr: string;
+    unit: string;
+    round: number;
+  }[] = [
+    {
+      value: perServing(nutrition.total.calories),
+      label: "Calories",
+      abbr: "Kcal",
+      unit: "kcal",
+      round: 0,
+    },
+    {
+      value: perServing(nutrition.total.protein_g),
+      label: "Protein",
+      abbr: "P",
+      unit: "g",
+      round: 1,
+    },
+    {
+      value: perServing(nutrition.total.carbs_g),
+      label: "Carbs",
+      abbr: "C",
+      unit: "g",
+      round: 1,
+    },
+    {
+      value: perServing(nutrition.total.fat_g),
+      label: "Fat",
+      abbr: "F",
+      unit: "g",
+      round: 1,
+    },
+    {
+      value: perServing(nutrition.total.fibre_g),
+      label: "Fibre",
+      abbr: "Fib",
+      unit: "g",
+      round: 1,
+    },
+  ];
 
   return (
     <div className="space-y-2">
-      <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
-        Nutrition — per serving
-      </div>
-      <div className="grid grid-cols-5 gap-2">
-        {fields.map(({ value, label, unit, round }) => {
+      <div className="kicker text-muted-foreground">Nutrition — per serving</div>
+      <div className="grid grid-cols-5 gap-1.5">
+        {fields.map(({ value, label, abbr, unit, round }) => {
           const tone = value == null ? "neutral" : toneFor(label, value);
           return (
             <div
               key={label}
-              className={`rounded-xl px-2 py-2 text-center ${TONE_CLASSES[tone]}`}
+              className={`rounded-lg px-1 py-2 text-center ${TONE_CLASSES[tone]}`}
             >
-              <div className="text-[10px] font-semibold uppercase tracking-wider opacity-70">
-                {label}
+              <div className="text-[9px] font-semibold uppercase tracking-wide opacity-70">
+                {abbr}
               </div>
-              <div className="text-sm font-bold mt-0.5">
+              <div className="text-sm font-bold mt-0.5 tabular-nums">
                 {value == null ? "—" : value.toFixed(round)}
               </div>
-              <div className="text-[10px] opacity-70">{unit}</div>
+              <div className="text-[9px] opacity-70">{unit}</div>
             </div>
           );
         })}

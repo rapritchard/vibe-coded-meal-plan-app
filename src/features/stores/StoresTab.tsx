@@ -1,21 +1,18 @@
 import { KITCHEN_TOOLS } from "@/data/recipes";
 
 import { CategorySection } from "./components/CategorySection";
-import { CostcoPanel } from "./components/CostcoPanel";
 
 export default function StoresTab() {
   return (
     <div className="space-y-6">
-      {Object.entries(KITCHEN_TOOLS).map(([category, tools], index) => (
+      {Object.entries(KITCHEN_TOOLS).map(([category, tools]) => (
         <CategorySection
           key={category}
           category={category}
           tools={tools}
-          defaultOpen={index < 2}
+          defaultOpen={false}
         />
       ))}
-
-      <CostcoPanel />
     </div>
   );
 }

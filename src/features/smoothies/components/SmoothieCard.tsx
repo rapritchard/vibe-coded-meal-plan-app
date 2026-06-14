@@ -8,6 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import { NutritionSection } from "@/components/shared/NutritionSection";
 import { RecipeNotes } from "@/components/shared/RecipeNotes";
 import { RecipeTip } from "@/components/shared/RecipeTip";
 import { StarRating } from "@/components/shared/StarRating";
@@ -29,7 +30,7 @@ export function SmoothieCard({ smoothie }: SmoothieCardProps) {
 
   return (
     <Collapsible open={open} onOpenChange={setOpen} asChild>
-      <Card className="rounded-2xl overflow-hidden p-0 border-stone-100">
+      <Card className="rounded-lg overflow-hidden p-0 border-border">
         <div className="px-5 pt-4 pb-3">
           <CollapsibleTrigger className="w-full flex items-center justify-between text-left">
             <div>
@@ -67,6 +68,10 @@ export function SmoothieCard({ smoothie }: SmoothieCardProps) {
             {smoothie.variations?.length > 0 && (
               <VariationList variations={smoothie.variations} />
             )}
+            <NutritionSection
+              recipeId={smoothie.id}
+              nutrition={smoothie.nutrition}
+            />
             <RecipeNotes type="smoothie" id={smoothie.id} />
           </div>
         </CollapsibleContent>

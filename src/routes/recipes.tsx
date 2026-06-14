@@ -145,7 +145,7 @@ function RecipesLayout() {
         />
 
         {filtered.length === 0 && (
-          <Card className="p-6 border-stone-100 text-center text-sm text-muted-foreground">
+          <Card className="p-6 border-border text-center text-sm text-muted-foreground">
             No items match your filters.
           </Card>
         )}

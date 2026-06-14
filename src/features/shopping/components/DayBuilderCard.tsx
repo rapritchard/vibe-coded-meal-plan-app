@@ -36,8 +36,8 @@ export function DayBuilderCard({
 
   return (
     <Collapsible open={open} onOpenChange={setOpen} asChild>
-      <Card className="rounded-2xl overflow-hidden p-0 border-stone-100">
-        <div className="flex items-center justify-between px-5 py-3 border-b border-stone-50">
+      <Card className="rounded-lg overflow-hidden p-0 border-border">
+        <div className="flex items-center justify-between px-5 py-3 border-b border-border">
           <CollapsibleTrigger className="flex items-center gap-2 flex-1 text-left">
             <span className="font-serif font-bold text-card-foreground text-sm">
               {day}

@@ -3,8 +3,8 @@ import { TIME_COLORS, TIME_KEY } from "@/data/recipes";
 
 export function TimeKeyPanel() {
   return (
-    <Card className="rounded-2xl p-5 border-stone-100">
-      <div className="font-bold text-card-foreground mb-3">Time key</div>
+    <Card className="rounded-lg p-5 border-border">
+      <div className="font-serif text-lg font-medium text-ink mb-3">Time key</div>
       <div className="space-y-2">
         {Object.entries(TIME_KEY).map(([icon, label]) => (
           <div key={icon} className="flex items-center gap-3">
@@ -15,14 +15,14 @@ export function TimeKeyPanel() {
             >
               {icon}
             </span>
-            <span className="text-sm text-stone-600">{label}</span>
+            <span className="text-sm text-muted-foreground">{label}</span>
           </div>
         ))}
         <div className="flex items-center gap-3">
           <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700">
             Lead time
           </span>
-          <span className="text-sm text-stone-600">
+          <span className="text-sm text-muted-foreground">
             Action needed before you cook
           </span>
         </div>

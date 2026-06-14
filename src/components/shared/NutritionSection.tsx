@@ -13,11 +13,11 @@ interface NutritionSectionProps {
 
 // The per-serving fields the panel displays, in order.
 const FIELDS = [
-  { key: "calories", label: "Calories", unit: "kcal" },
-  { key: "protein_g", label: "Protein", unit: "g" },
-  { key: "carbs_g", label: "Carbs", unit: "g" },
-  { key: "fat_g", label: "Fat", unit: "g" },
-  { key: "fibre_g", label: "Fibre", unit: "g" },
+  { key: "calories", label: "Kcal", unit: "kcal" },
+  { key: "protein_g", label: "P", unit: "g" },
+  { key: "carbs_g", label: "C", unit: "g" },
+  { key: "fat_g", label: "F", unit: "g" },
+  { key: "fibre_g", label: "Fib", unit: "g" },
 ] as const;
 
 type FieldKey = (typeof FIELDS)[number]["key"];

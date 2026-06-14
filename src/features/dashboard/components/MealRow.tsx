@@ -24,7 +24,7 @@ export function MealRow({ label, meal, recipes }: MealRowProps) {
         onClose={() => setActiveRecipe(null)}
       />
 
-      <div className="py-2.5 border-t border-stone-100">
+      <div className="py-2.5 border-t border-border">
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
             <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">

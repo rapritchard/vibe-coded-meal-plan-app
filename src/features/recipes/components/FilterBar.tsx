@@ -77,7 +77,7 @@ export function FilterBar(props: FilterBarProps) {
           value={props.query}
           onChange={(e) => props.onQueryChange(e.target.value)}
           placeholder="Search by name…"
-          className="pl-9 pr-9 rounded-xl"
+          className="pl-9 pr-9 rounded-lg"
         />
         {props.query && (
           <button
@@ -102,7 +102,7 @@ export function FilterBar(props: FilterBarProps) {
       <div className="sm:hidden space-y-2">
         <button
           onClick={() => setMobileSheetOpen(true)}
-          className="flex items-center justify-between w-full px-3 py-2 rounded-lg border border-border bg-background text-sm font-medium text-foreground hover:border-stone-300 transition-colors"
+          className="flex items-center justify-between w-full px-3 py-2 rounded-lg border border-border bg-background text-sm font-medium text-foreground hover:border-ink/30 transition-colors"
         >
           <span className="flex items-center gap-2">
             <SlidersHorizontal className="h-4 w-4" />

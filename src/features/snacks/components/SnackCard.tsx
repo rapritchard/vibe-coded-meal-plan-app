@@ -8,7 +8,7 @@ interface SnackCardProps {
 
 export function SnackCard({ snack }: SnackCardProps) {
   return (
-    <Card className="rounded-2xl p-4 border-stone-100">
+    <Card className="rounded-lg p-4 border-border">
       <div className="flex items-start justify-between gap-3 mb-1">
         <div className="font-serif font-bold text-card-foreground text-sm">
           {snack.name}

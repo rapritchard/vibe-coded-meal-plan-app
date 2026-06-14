@@ -21,7 +21,7 @@ export default function ReviewTab({ items }: ReviewTabProps) {
 
   return (
     <div className="space-y-6">
-      <Card className="p-4 border-stone-100">
+      <Card className="p-4 border-border">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div>
             <div className="font-serif font-bold text-card-foreground text-base">
@@ -76,7 +76,7 @@ function ViewModeButton({ label, active, onClick }: ViewModeButtonProps) {
         "text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors",
         active
           ? "bg-primary text-primary-foreground border-primary"
-          : "bg-background text-muted-foreground border-border hover:border-stone-300 hover:text-foreground",
+          : "bg-background text-muted-foreground border-border hover:border-ink/30 hover:text-foreground",
       )}
     >
       {label}
@@ -160,7 +160,7 @@ interface ReviewBucketProps {
 
 function ReviewBucket({ label, names }: ReviewBucketProps) {
   return (
-    <Card className="p-4 border-stone-100">
+    <Card className="p-4 border-border">
       <div className="flex items-center justify-between mb-2">
         <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
           {label}
@@ -168,11 +168,11 @@ function ReviewBucket({ label, names }: ReviewBucketProps) {
         <span className="text-xs text-muted-foreground">{names.length}</span>
       </div>
       {names.length === 0 ? (
-        <div className="text-xs text-stone-400 italic">no items</div>
+        <div className="text-xs text-muted-foreground italic">no items</div>
       ) : (
         <ul className="space-y-0.5">
           {names.map((n) => (
-            <li key={n} className="text-sm text-stone-700">
+            <li key={n} className="text-sm text-foreground">
               · {n}
             </li>
           ))}
@@ -212,7 +212,7 @@ function ReviewRecipeCard({ item }: ReviewRecipeCardProps) {
   if (item.goodOnTheGo) extras.push("Good on the go");
 
   return (
-    <Card className="p-4 border-stone-100 space-y-2">
+    <Card className="p-4 border-border space-y-2">
       <div className="font-serif font-bold text-card-foreground text-sm">
         {item.name}
       </div>
@@ -229,7 +229,7 @@ function ReviewRecipeCard({ item }: ReviewRecipeCardProps) {
         {extras.length === 0 ? <Muted>none</Muted> : extras.join(" · ")}
       </Row>
       <Row label="ID">
-        <code className="text-xs text-stone-500">
+        <code className="text-xs text-muted-foreground">
           {item.type}:{item.id}
         </code>
       </Row>
@@ -249,11 +249,11 @@ function Row({
       <span className="font-semibold text-muted-foreground uppercase tracking-widest w-20 flex-shrink-0">
         {label}
       </span>
-      <span className="text-stone-700">{children}</span>
+      <span className="text-foreground">{children}</span>
     </div>
   );
 }
 
 function Muted({ children }: { children: React.ReactNode }) {
-  return <span className="text-stone-400 italic">{children}</span>;
+  return <span className="text-muted-foreground italic">{children}</span>;
 }

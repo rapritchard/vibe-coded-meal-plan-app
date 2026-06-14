@@ -2,15 +2,26 @@ import { AuthButton } from "./AuthButton";
 
 export function AppHeader() {
   return (
-    <div className="bg-stone-900 text-white px-6 pt-10 pb-8 relative">
-      <div className="hidden md:block absolute top-4 right-4">
-        <AuthButton variant="dark" />
+    <header className="relative border-b-2 border-ink bg-paper px-6 pt-9 pb-6 md:px-10">
+      <div className="hidden md:block absolute top-5 right-6">
+        <AuthButton variant="light" />
       </div>
 
-      <h1 className="font-serif text-3xl font-bold mb-1">Meal Planner</h1>
-      <p className="text-stone-400 text-sm">
-        Plan your week, browse recipes, and build a shopping list.
+      <div className="kicker text-persimmon">Vegetarian · Home cooking</div>
+
+      <h1 className="mt-3 font-serif text-5xl md:text-[5.5rem] font-semibold leading-[0.92] tracking-[-0.02em] text-ink">
+        Meal
+        <span className="font-light italic"> Planner</span>
+        <span className="text-persimmon">.</span>
+      </h1>
+
+      <p className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
+        Plan the week
+        <span className="mx-2 text-persimmon">/</span>
+        Browse recipes
+        <span className="mx-2 text-persimmon">/</span>
+        Build a list
       </p>
-    </div>
+    </header>
   );
 }

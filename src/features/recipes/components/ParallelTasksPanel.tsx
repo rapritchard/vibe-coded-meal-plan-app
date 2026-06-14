@@ -4,7 +4,7 @@ interface ParallelTasksPanelProps {
 
 export function ParallelTasksPanel({ tasks }: ParallelTasksPanelProps) {
   return (
-    <div className="bg-sky-50 border border-sky-100 rounded-xl p-3 space-y-1">
+    <div className="bg-sky-50 border border-sky-100 rounded-lg p-3 space-y-1">
       <div className="text-xs font-bold text-sky-800 mb-1">
         Do these simultaneously
       </div>

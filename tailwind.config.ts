@@ -12,7 +12,14 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Georgia", "serif"],
+        sans: [
+          "Hanken Grotesk",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+        ],
+        serif: ["Fraunces", "Georgia", "serif"],
+        mono: ["IBM Plex Mono", "ui-monospace", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -20,6 +27,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        paper: "hsl(var(--paper))",
+        ink: "hsl(var(--ink))",
+        olive: "hsl(var(--olive))",
+        persimmon: "hsl(var(--persimmon))",
+        mustard: "hsl(var(--mustard))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

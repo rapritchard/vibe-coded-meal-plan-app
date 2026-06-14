@@ -53,8 +53,8 @@ export function ShoppingList({ items }: ShoppingListProps) {
                     className={cn(
                       "text-sm transition-colors",
                       isChecked
-                        ? "line-through text-stone-300"
-                        : "text-stone-700",
+                        ? "line-through text-foreground/30"
+                        : "text-foreground",
                     )}
                   >
                     {item}

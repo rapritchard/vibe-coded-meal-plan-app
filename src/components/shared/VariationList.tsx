@@ -9,9 +9,9 @@ export function VariationList({ variations }: VariationListProps) {
         Variations
       </div>
       {variations.map((v, i) => (
-        <div key={i} className="bg-muted rounded-xl p-3 flex gap-2">
-          <span className="text-stone-400 flex-shrink-0">+</span>
-          <p className="text-xs text-stone-700">{v}</p>
+        <div key={i} className="bg-muted rounded-lg p-3 flex gap-2 items-baseline">
+          <span className="text-xs text-muted-foreground flex-shrink-0">+</span>
+          <p className="text-xs text-foreground">{v}</p>
         </div>
       ))}
     </div>

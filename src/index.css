@@ -2,67 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────────────────
+   "The Test Kitchen" — an editorial cookbook identity.
+   Pressed-paper ground, deep ink, deep-olive primary, persimmon accent.
+   Display: Fraunces · Body: Hanken Grotesk · Mono: IBM Plex Mono
+   ───────────────────────────────────────────────────────────────────────── */
+
 @layer base {
   :root {
-    --background: 60 9% 98%;
-    --foreground: 24 10% 10%;
+    --background: 40 38% 92%; /* pressed paper */
+    --foreground: 30 18% 12%; /* ink */
 
-    --card: 0 0% 100%;
-    --card-foreground: 24 10% 10%;
+    --card: 42 46% 97%; /* clean paper */
+    --card-foreground: 30 18% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 24 10% 10%;
+    --popover: 42 46% 97%;
+    --popover-foreground: 30 18% 12%;
 
-    --primary: 24 10% 10%;
-    --primary-foreground: 60 9% 98%;
+    --primary: 74 25% 26%; /* deep olive */
+    --primary-foreground: 42 46% 97%;
 
-    --secondary: 60 5% 96%;
-    --secondary-foreground: 24 10% 10%;
+    --secondary: 40 24% 88%;
+    --secondary-foreground: 30 18% 16%;
 
-    --muted: 60 5% 96%;
-    --muted-foreground: 25 5% 45%;
+    --muted: 40 26% 89%;
+    --muted-foreground: 32 10% 40%;
 
-    --accent: 60 5% 96%;
-    --accent-foreground: 24 10% 10%;
+    --accent: 40 30% 86%; /* soft neutral hover */
+    --accent-foreground: 30 18% 14%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 60 9% 98%;
+    --destructive: 8 62% 46%;
+    --destructive-foreground: 42 46% 97%;
 
-    --border: 20 6% 90%;
-    --input: 20 6% 90%;
-    --ring: 24 10% 10%;
+    --border: 36 22% 79%; /* warm hairline */
+    --input: 36 22% 79%;
+    --ring: 74 25% 26%;
 
-    --radius: 0.75rem;
-  }
+    --radius: 0.35rem; /* crisp, print-like corners */
 
-  .dark {
-    --background: 20 14% 4%;
-    --foreground: 60 9% 98%;
+    /* Brand accents for hand-styled surfaces */
+    --paper: 40 38% 92%;
+    --ink: 30 18% 12%;
+    --olive: 74 25% 26%;
+    --persimmon: 14 68% 47%;
+    --mustard: 38 68% 48%;
 
-    --card: 20 14% 4%;
-    --card-foreground: 60 9% 98%;
-
-    --popover: 20 14% 4%;
-    --popover-foreground: 60 9% 98%;
-
-    --primary: 60 9% 98%;
-    --primary-foreground: 24 10% 10%;
-
-    --secondary: 12 6% 15%;
-    --secondary-foreground: 60 9% 98%;
-
-    --muted: 12 6% 15%;
-    --muted-foreground: 24 5% 64%;
-
-    --accent: 12 6% 15%;
-    --accent-foreground: 60 9% 98%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 60 9% 98%;
-
-    --border: 12 6% 15%;
-    --input: 12 6% 15%;
-    --ring: 24 5% 84%;
+    --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
   }
 }
 
@@ -70,8 +57,44 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-feature-settings:
+      "ss01" on,
+      "cv11" on;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-serif {
+    font-optical-sizing: auto;
+  }
+
+  /* Subtle paper grain over the whole surface. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  /* Numbered, letterspaced section kicker used across the editorial chrome. */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
   }
 }
 

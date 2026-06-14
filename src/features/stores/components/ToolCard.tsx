@@ -7,7 +7,7 @@ interface ToolCardProps {
 
 export function ToolCard({ tool }: ToolCardProps) {
   return (
-    <Card className="rounded-xl p-4 border-stone-100">
+    <Card className="rounded-lg p-4 border-border">
       <div className="font-semibold text-card-foreground text-sm">
         {tool.name}
       </div>

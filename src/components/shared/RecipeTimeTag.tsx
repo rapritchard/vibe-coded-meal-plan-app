@@ -10,7 +10,7 @@ interface RecipeTimeTagProps {
 export function RecipeTimeTag({ icon, leadTime }: RecipeTimeTagProps) {
   const timeColor =
     TIME_COLORS[icon as keyof typeof TIME_COLORS] ??
-    "bg-stone-100 text-stone-500";
+    "bg-muted text-muted-foreground";
   const timeLabel = TIME_KEY[icon as keyof typeof TIME_KEY];
 
   return (

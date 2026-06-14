@@ -138,7 +138,7 @@ function FilterPill({
         "text-sm font-medium px-3 py-1.5 rounded-full border transition-colors",
         active
           ? "bg-primary text-primary-foreground border-primary"
-          : "bg-background text-muted-foreground border-border hover:border-stone-300 hover:text-foreground",
+          : "bg-background text-muted-foreground border-border hover:border-ink/30 hover:text-foreground",
       )}
     >
       {label}

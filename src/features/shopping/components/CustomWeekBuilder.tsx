@@ -70,12 +70,12 @@ export function CustomWeekBuilder({
   return (
     <div className="space-y-4">
       {saved && (
-        <div className="bg-green-50 border border-green-200 rounded-xl px-4 py-2 text-xs text-green-700 font-semibold">
+        <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-2 text-xs text-green-700 font-semibold">
           Saved — shopping list updated below.
         </div>
       )}
 
-      <Card className="p-4 text-xs text-muted-foreground leading-relaxed border-stone-100 bg-muted">
+      <Card className="p-4 text-xs text-muted-foreground leading-relaxed border-border bg-muted">
         Build your week. Dinner recipes also appear as lunch options — batch
         cooks will auto-suggest leftovers for the next day.
       </Card>
@@ -95,14 +95,14 @@ export function CustomWeekBuilder({
       <div className="flex gap-3 pt-1">
         <Button
           onClick={onSave}
-          className="flex-1 rounded-xl py-3 h-auto font-bold text-sm"
+          className="flex-1 rounded-lg py-3 h-auto font-bold text-sm"
         >
           Save &amp; Generate Shopping List
         </Button>
         <Button
           variant="outline"
           onClick={handleClearAll}
-          className="rounded-xl px-4 py-3 h-auto border-2 border-border text-muted-foreground text-sm font-semibold hover:border-stone-300"
+          className="rounded-lg px-4 py-3 h-auto border-2 border-border text-muted-foreground text-sm font-semibold hover:border-ink/30"
         >
           Reset week
         </Button>

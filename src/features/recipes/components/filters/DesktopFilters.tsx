@@ -103,8 +103,8 @@ function MultiSelect({ label, chips, children }: MultiSelectProps) {
         className={cn(
           "flex items-start gap-1 min-h-[34px] w-full px-2.5 py-1.5 border cursor-pointer transition-colors",
           open
-            ? "rounded-t-lg border-stone-400 border-b-transparent"
-            : "rounded-lg border-border hover:border-stone-300",
+            ? "rounded-t-lg border-foreground/40 border-b-transparent"
+            : "rounded-lg border-border hover:border-ink/30",
         )}
       >
         <div className="flex flex-wrap gap-1 flex-1 min-w-0">
@@ -141,7 +141,7 @@ function MultiSelect({ label, chips, children }: MultiSelectProps) {
       </div>
 
       {open && (
-        <div className="absolute top-full left-0 right-0 z-50 bg-background border border-stone-400 border-t-0 rounded-b-lg shadow-md py-1">
+        <div className="absolute top-full left-0 right-0 z-50 bg-background border border-foreground/40 border-t-0 rounded-b-lg shadow-md py-1">
           {children}
         </div>
       )}

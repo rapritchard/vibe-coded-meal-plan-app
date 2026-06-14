@@ -48,7 +48,7 @@ export function MealSelector({
       </div>
       <div className="flex gap-2 items-center">
         <Select value={value || NONE_VALUE} onValueChange={handleValueChange}>
-          <SelectTrigger className="flex-1 rounded-xl">
+          <SelectTrigger className="flex-1 rounded-lg">
             <SelectValue placeholder="choose" />
           </SelectTrigger>
           <SelectContent>

@@ -53,7 +53,7 @@ export function StarRating({
               sizeClass,
               filled
                 ? "fill-amber-400 text-amber-400"
-                : "fill-transparent text-stone-300",
+                : "fill-transparent text-foreground/30",
             )}
           />
         );

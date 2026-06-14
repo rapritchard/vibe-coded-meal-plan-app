@@ -16,9 +16,7 @@ function MealPlanPage() {
       recipes={recipes}
       customWeek={customWeek}
       customSaved={customSaved}
-      onNavigateToCustomBuilder={() =>
-        navigate({ to: "/shopping", search: { week: "Custom" } })
-      }
+      onNavigateToCustomBuilder={() => navigate({ to: "/shopping" })}
       onResetCustomWeek={resetCustomWeek}
     />
   );

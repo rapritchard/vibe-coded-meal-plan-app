@@ -22,15 +22,15 @@ export function InteractiveVariationList({
         <div
           key={i}
           className={cn(
-            "rounded-xl p-3 flex gap-2 border transition-colors",
+            "rounded-lg p-3 flex gap-2 items-baseline border transition-colors",
             activeVar === i
               ? "bg-indigo-50 border-indigo-200"
               : "bg-muted border-transparent",
           )}
         >
-          <span className="flex-shrink-0 text-stone-400">+</span>
+          <span className="flex-shrink-0 text-xs text-muted-foreground">+</span>
           <div className="flex-1 min-w-0">
-            <p className="text-xs text-stone-700">{v}</p>
+            <p className="text-xs text-foreground">{v}</p>
             {variationSteps?.[i] && (
               <button
                 onClick={() => onSelect(i)}

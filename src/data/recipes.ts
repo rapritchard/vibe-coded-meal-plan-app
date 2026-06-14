@@ -1,19 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // src/data/recipes.ts
-// Small static lookups (time/tag styling) + non-recipe content (principles,
-// flavour tools, kitchen tools, Costco lists).
-//
-// As of v1.5 the recipe catalog lives in Supabase — see scripts/seed-recipes.sql
-// for a one-time backup that can re-create the table from source. The bulk
-// arrays that used to live here are gone.
+// Small static lookups (time/tag styling) + the kitchen-tools content.
+// The recipe catalog itself lives in Supabase.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import type {
-  Principle,
-  FlavourTool,
-  KitchenToolsMap,
-  TimeKey,
-} from "../types";
+import type { KitchenToolsMap, TimeKey } from "../types";
 
 // ── Time / tag lookup maps ────────────────────────────────────────────────────
 
@@ -42,34 +33,6 @@ export const TAG_STYLES: Record<string, string> = {
   LEFTOVERS: "bg-blue-100 text-blue-700",
   "COOK x 2": "bg-rose-100 text-rose-700",
 };
-
-
-// (Bulk recipe data lives in Supabase as of v1.5 — see scripts/seed-recipes.sql for one-time backup.)
-
-export const PRINCIPLES: Principle[] = [
-  { icon: "🫒", title: "Fat strictly low", detail: "Max 3g fat per meal initially. No olive oil drizzles, no full-fat cheese, no nuts." },
-  { icon: "🧄", title: "Garlic & onion cooked only", detail: "Finely minced, softened fully before adding anything else. Never raw." },
-  { icon: "🍽️", title: "Small & frequent", detail: "Smaller amounts more often. Your gut is managing bile solo now." },
-  { icon: "🥣", title: "Soft textures", detail: "Well-cooked, easy to digest. Avoid anything fibrous or chewy in the first week." },
-  { icon: "⚠️", title: "Bloat stacking rule", detail: "Never combine more than one gas-producing ingredient per meal." },
-  { icon: "🍅", title: "Tomato cap", detail: "Max one tomato-based dish per day." },
-  { icon: "🫘", title: "Legume rule", detail: "Baked beans and lentil dishes never on the same day." },
-  { icon: "🍋", title: "Lime sparingly", detail: "A small squeeze to finish, not a main flavour." },
-];
-
-// ── Flavour tools ─────────────────────────────────────────────────────────────
-
-export const FLAVOUR_TOOLS: FlavourTool[] = [
-  { icon: "🫙", name: "White miso", use: "Stir into broths, dressings, glazes." },
-  { icon: "🥢", name: "Soy sauce / tamari", use: "Marinades, broths, rice bowls." },
-  { icon: "🍯", name: "Honey", use: "Small amounts round off sharp flavours." },
-  { icon: "🟫", name: "Brown sugar & cinnamon", use: "Warming sweetness for oats, porridge, crumpets." },
-  { icon: "🫚", name: "Smoked paprika", use: "Adds richness without fat." },
-  { icon: "🌿", name: "Fresh ginger", use: "Warmth and depth. Goes in almost everything savoury." },
-  { icon: "🌱", name: "Spring onion & chives", use: "Safe raw as a topping." },
-  { icon: "🌿", name: "Fresh coriander", use: "Brightens everything." },
-  { icon: "🟢", name: "Lime (small squeeze)", use: "Lifts flat flavours. Use sparingly." },
-];
 
 // ── Kitchen tools ─────────────────────────────────────────────────────────────
 
@@ -118,17 +81,3 @@ export const KITCHEN_TOOLS: KitchenToolsMap = {
     { name: "Small Food Processor / Mandoline", notes: "Not yet decided. Check Wirecutter or Which? independently — both ad-free." },
   ],
 };
-
-// ── Costco staples ────────────────────────────────────────────────────────────
-
-export const COSTCO_ITEMS: string[] = [
-  "Rolled oats (large bags)",
-  "White basmati rice",
-  "Soy sauce / tamari",
-  "Protein powder",
-  "Frozen edamame",
-  "Coconut water (cases)",
-  "Olive oil",
-  "Greek yoghurt (large tubs)",
-  "Medjool dates",
-];

@@ -23,7 +23,7 @@ export function DayCard({ day, recipes }: DayCardProps) {
 
   return (
     <Collapsible open={open} onOpenChange={setOpen} asChild>
-      <Card className="rounded-2xl overflow-hidden p-0 border-stone-100">
+      <Card className="rounded-lg overflow-hidden p-0 border-border">
         <CollapsibleTrigger className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-muted/60 transition-colors">
           <span className="font-serif font-bold text-card-foreground">
             {day.day}

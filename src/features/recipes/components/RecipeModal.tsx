@@ -45,55 +45,54 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
     }
   }
 
-  const title = (TitleComponent: typeof DialogTitle | typeof SheetTitle) => (
-    <TitleComponent className="font-serif font-bold text-foreground text-base leading-snug">
-      {recipe.name}
-    </TitleComponent>
+  // ── Reusable content sections (composed one way on desktop, another on mobile)
+  const ingredients = (
+    <RecipeIngredientList ingredients={recipe.ingredients} />
   );
-
-  const body: ReactNode = (
-    <div className="overflow-y-auto flex-1 px-5 py-4 space-y-5">
-      <RecipeIngredientList ingredients={recipe.ingredients} />
-
-      {recipe.parallelTasks?.length > 0 && (
-        <ParallelTasksPanel tasks={recipe.parallelTasks} />
-      )}
-
-      {recipe.toolAlts?.length > 0 && <ToolAltsPanel alts={recipe.toolAlts} />}
-
-      {activeVar !== null && (
-        <ActiveVariationBanner
-          text={recipe.variations[activeVar]}
-          onReset={() => setActiveVar(null)}
-        />
-      )}
-
+  const tools =
+    recipe.toolAlts?.length > 0 ? <ToolAltsPanel alts={recipe.toolAlts} /> : null;
+  const nutrition = (
+    <NutritionSection recipeId={recipe.id} nutrition={recipe.nutrition} />
+  );
+  const parallel =
+    recipe.parallelTasks?.length > 0 ? (
+      <ParallelTasksPanel tasks={recipe.parallelTasks} />
+    ) : null;
+  const variationBanner =
+    activeVar !== null ? (
+      <ActiveVariationBanner
+        text={recipe.variations[activeVar]}
+        onReset={() => setActiveVar(null)}
+      />
+    ) : null;
+  const method = (
+    <div className="space-y-2">
+      <div className="kicker text-muted-foreground">Method</div>
       <StepList steps={steps} />
-
-      <NutritionSection recipeId={recipe.id} nutrition={recipe.nutrition} />
-
-      {recipe.tip && <RecipeTip tip={recipe.tip} />}
-
-      {recipe.variations?.length > 0 && (
-        <InteractiveVariationList
-          variations={recipe.variations}
-          variationSteps={recipe.variationSteps}
-          activeVar={activeVar}
-          onSelect={(i) => setActiveVar(activeVar === i ? null : i)}
-        />
-      )}
-
-      <RecipeNotes type="recipe" id={recipe.id} />
-
-      <div className="h-4" />
     </div>
   );
+  const tip = recipe.tip ? <RecipeTip tip={recipe.tip} /> : null;
+  const variations =
+    recipe.variations?.length > 0 ? (
+      <InteractiveVariationList
+        variations={recipe.variations}
+        variationSteps={recipe.variationSteps}
+        activeVar={activeVar}
+        onSelect={(i) => setActiveVar(activeVar === i ? null : i)}
+      />
+    ) : null;
+  const notes = <RecipeNotes type="recipe" id={recipe.id} />;
 
-  const header = (titleNode: ReactNode) => (
-    <div className="flex-shrink-0 px-5 pt-5 pb-3 border-b border-stone-100 pr-12">
-      {titleNode}
-      <div className="flex gap-3 mt-1 text-xs text-muted-foreground">
-        <span>Time: {recipe.time}</span>
+  const titleNode = (Title: typeof DialogTitle | typeof SheetTitle) => (
+    <Title className="font-serif font-semibold text-ink text-xl leading-snug">
+      {recipe.name}
+    </Title>
+  );
+
+  const headerMeta: ReactNode = (
+    <>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+        <span>{recipe.time}</span>
         <span>Serves {recipe.serves}</span>
       </div>
       <div className="mt-2">
@@ -108,15 +107,49 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
           onChange={(next) => setRating("recipe", recipe.id, next)}
         />
       </div>
-    </div>
+    </>
   );
 
   if (isDesktop) {
     return (
       <Dialog open onOpenChange={handleOpenChange}>
-        <DialogContent className="p-0 gap-0 max-w-lg max-h-[90vh] flex flex-col sm:rounded-2xl overflow-hidden">
-          {header(title(DialogTitle))}
-          {body}
+        <DialogContent className="p-0 gap-0 w-[90vw] max-w-[1100px] max-h-[90vh] flex flex-col overflow-hidden sm:rounded-lg">
+          <div className="flex-shrink-0 px-6 pt-5 pb-4 border-b border-border pr-12">
+            {titleNode(DialogTitle)}
+            <div className="mt-3 flex items-center justify-between gap-4 flex-wrap">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+                  {recipe.time}
+                </span>
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted-foreground">
+                  Serves {recipe.serves}
+                </span>
+                <RecipeTimeTag icon={recipe.timeKey} leadTime={recipe.leadTime} />
+                <MoodPills moods={recipe.moods} />
+              </div>
+              <StarRating
+                value={rating}
+                onChange={(next) => setRating("recipe", recipe.id, next)}
+              />
+            </div>
+          </div>
+
+          {/* Two independently-scrolling panes: what you need / what you do. */}
+          <div className="flex-1 min-h-0 flex">
+            <aside className="w-[300px] flex-shrink-0 min-h-0 overflow-y-auto border-r border-border px-5 py-5 space-y-5">
+              {ingredients}
+              {tools}
+              {nutrition}
+            </aside>
+            <div className="flex-1 min-w-0 min-h-0 overflow-y-auto px-6 py-5 space-y-5">
+              {parallel}
+              {variationBanner}
+              {method}
+              {tip}
+              {variations}
+              {notes}
+            </div>
+          </div>
         </DialogContent>
       </Dialog>
     );
@@ -128,8 +161,22 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
         side="bottom"
         className="p-0 gap-0 max-h-[90vh] flex flex-col rounded-t-3xl border-t-0 w-full sm:max-w-none"
       >
-        {header(title(SheetTitle))}
-        {body}
+        <div className="flex-shrink-0 px-5 pt-5 pb-3 border-b border-border pr-12">
+          {titleNode(SheetTitle)}
+          {headerMeta}
+        </div>
+        <div className="overflow-y-auto flex-1 px-5 py-4 space-y-5">
+          {ingredients}
+          {parallel}
+          {tools}
+          {variationBanner}
+          {method}
+          {nutrition}
+          {tip}
+          {variations}
+          {notes}
+          <div className="h-4" />
+        </div>
       </SheetContent>
     </Sheet>
   );

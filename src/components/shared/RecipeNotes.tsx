@@ -48,7 +48,7 @@ export function RecipeNotes({ type, id }: RecipeNotesProps) {
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
         placeholder="What would you change next time?"
-        className="rounded-xl text-sm"
+        className="rounded-lg text-sm"
         rows={3}
       />
     </div>

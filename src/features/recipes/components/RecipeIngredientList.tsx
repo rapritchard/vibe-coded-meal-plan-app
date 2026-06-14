@@ -13,8 +13,8 @@ export function RecipeIngredientList({
         Ingredients
       </div>
       {ingredients.map(([name, qty, unit], i) => (
-        <div key={i} className="flex gap-2 text-sm text-stone-700">
-          <span className="text-stone-300">–</span>
+        <div key={i} className="flex gap-2 text-sm text-foreground">
+          <span className="text-foreground/30">–</span>
           <span>
             {qty} {unit} {name}
           </span>

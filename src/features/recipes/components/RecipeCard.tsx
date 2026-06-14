@@ -17,12 +17,12 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
   const rating = getRating("recipe", recipe.id);
 
   return (
-    <Card className="rounded-2xl px-5 py-4 border-stone-100 flex items-start justify-between gap-3">
-      <div className="flex-1 min-w-0 space-y-1.5">
+    <Card className="group rounded-lg px-5 py-4 flex items-start justify-between gap-3 transition-colors hover:border-ink/40">
+      <div className="flex-1 min-w-0 space-y-2">
         <button
           type="button"
           onClick={() => onView(recipe)}
-          className="font-serif font-semibold text-card-foreground text-sm leading-snug text-left hover:underline focus-visible:underline focus-visible:outline-none"
+          className="font-serif font-medium text-ink text-base leading-snug text-left transition-colors hover:text-persimmon focus-visible:text-persimmon focus-visible:outline-none"
         >
           {recipe.name}
         </button>
@@ -31,11 +31,11 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
 
         <MoodPills moods={recipe.moods} />
 
-        <div className="flex gap-3 text-xs text-muted-foreground items-center">
+        <div className="flex gap-3 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground items-center">
           <span>{recipe.time}</span>
           <span>Serves {recipe.serves}</span>
           {recipe.isBatch && (
-            <span className="text-rose-500 font-medium">Batch</span>
+            <span className="text-persimmon font-medium">Batch</span>
           )}
           {rating > 0 && <StarRating value={rating} size="sm" />}
         </div>
@@ -44,7 +44,7 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
       <Button
         size="sm"
         onClick={() => onView(recipe)}
-        className="flex-shrink-0 rounded-full px-3 py-1.5 h-auto text-xs"
+        className="flex-shrink-0 rounded-md px-3 py-1.5 h-auto font-mono text-[0.65rem] uppercase tracking-[0.12em]"
       >
         View
       </Button>

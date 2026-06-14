@@ -4,7 +4,7 @@ interface SnacksRowProps {
 
 export function SnacksRow({ snacks }: SnacksRowProps) {
   return (
-    <div className="py-2.5 border-t border-stone-100">
+    <div className="py-2.5 border-t border-border">
       <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1.5">
         Snacks
       </div>
@@ -12,7 +12,7 @@ export function SnacksRow({ snacks }: SnacksRowProps) {
         {snacks.map((s, i) => (
           <span
             key={i}
-            className="text-xs bg-stone-100 text-stone-600 px-2 py-1 rounded-full"
+            className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded-full"
           >
             {s}
           </span>

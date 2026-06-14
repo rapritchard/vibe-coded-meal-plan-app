@@ -136,9 +136,18 @@ localStorage ratings/notes/app-state into Supabase, gated by a sentinel flag.
   holds `FilterBar` (orchestrator) → `DesktopFilters` + `MobileFilterSheet` over a
   shared `FilterControlsProps`.
 
-### Styling
+### Styling — "The Test Kitchen" editorial identity
 
-Tailwind with shadcn-style HSL CSS variables (`src/index.css`, `tailwind.config.ts`);
-warm stone/neutral palette, Georgia serif. Per-category and per-week color tokens are
-kept as string maps in the data files (`WEEK_COLORS`, `TIME_COLORS`, `TAG_STYLES`)
-rather than inline.
+Tailwind with shadcn-style HSL CSS variables (`src/index.css`, `tailwind.config.ts`).
+The aesthetic is an editorial cookbook: pressed-paper ground, deep ink text,
+**deep-olive** primary, **persimmon** accent, with a faint paper grain (`body::after`).
+Type: **Fraunces** (display/`font-serif`), **Hanken Grotesk** (body/`font-sans`),
+**IBM Plex Mono** (metadata + the `.kicker` label utility) — loaded in `index.html`.
+Brand colors are exposed both as shadcn tokens (`--primary` = olive, etc.) and as
+named Tailwind colors (`paper`, `ink`, `olive`, `persimmon`, `mustard`). Because
+shadcn components read the CSS variables, re-tokenizing propagates app-wide; the
+signature surfaces (`AppHeader` masthead, `SidebarNav`, `RecipeCard`) are hand-tuned.
+Prefer the warm tokens (`border-border`, `text-muted-foreground`, `text-ink`,
+`text-persimmon`) over hardcoded `stone-*`/`rose-*` so the palette stays cohesive.
+Per-category/week color tokens still live as string maps in the data files
+(`WEEK_COLORS`, `TIME_COLORS`, `TAG_STYLES`).

@@ -8,7 +8,7 @@ interface InfoBannerProps {
 
 export function InfoBanner({ children }: InfoBannerProps) {
   return (
-    <Card className="p-4 text-sm text-muted-foreground border-stone-100">
+    <Card className="p-4 text-sm text-muted-foreground border-border">
       {children}
     </Card>
   );

@@ -19,7 +19,7 @@ export function Sidebar({ mobileOpen, onMobileOpenChange }: SidebarProps) {
           side="left"
           className="md:hidden w-64 sm:max-w-xs p-0 bg-card"
         >
-          <SheetTitle className="px-4 py-4 text-sm font-semibold text-stone-700 border-b border-border">
+          <SheetTitle className="px-4 py-4 text-sm font-semibold text-foreground border-b border-border">
             Navigation
           </SheetTitle>
           <SidebarNav onNavigate={() => onMobileOpenChange(false)} />
