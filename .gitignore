@@ -19,3 +19,7 @@ test-results/
 
 # Tooling caches
 .tanstack/
+
+# CoFID source spreadsheet — reproducible; only the generated
+# scripts/nutrition/data/cofid.json is committed (see that dir's README).
+*.xlsx

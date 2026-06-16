@@ -13,9 +13,12 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "nutrition": "tsx scripts/nutrition/run.ts",
+    "nutrition:cofid": "tsx scripts/nutrition/build-cofid.ts"
   },
   "dependencies": {
+    "@google/genai": "^2.8.0",
     "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -59,9 +62,11 @@
     "prettier": "^3.8.4",
     "tailwindcss": "^3.4.10",
     "tailwindcss-animate": "^1.0.7",
+    "tsx": "^4.22.4",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.61.0",
     "vite": "^5.4.1",
-    "vitest": "^4.1.8"
+    "vitest": "^4.1.8",
+    "xlsx": "^0.18.5"
   }
 }

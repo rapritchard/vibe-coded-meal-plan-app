@@ -128,7 +128,14 @@ export interface RecipeNutrition {
     saturatedFat_g?: number;
   };
   /** Where the data came from. */
-  source: "api-ninjas" | "edamam" | "usda" | "manual" | "llm";
+  source:
+    | "api-ninjas"
+    | "edamam"
+    | "usda"
+    | "openfoodfacts"
+    | "cofid"
+    | "manual"
+    | "llm";
   /** ISO timestamp of when it was last fetched / edited. */
   fetchedAt?: string;
   /** Raw provider response, preserved for future field extraction. */
