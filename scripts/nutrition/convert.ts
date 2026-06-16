@@ -44,6 +44,10 @@ const ALIASES: Record<string, string> = {
   arugula: "rocket",
   "snow peas": "mangetout",
   shrimp: "prawns",
+  "fresh coriander": "fresh coriander leaves",
+  "red chilli": "red chilli pepper",
+  "red chili": "red chilli pepper",
+  "green chilli": "green chilli pepper",
 };
 
 /** Map an ingredient name to a better search term (US→UK etc.), else itself. */
@@ -75,6 +79,44 @@ const CONTAINER_UNITS: Record<string, number> = {
   cans: 400,
   jar: 340,
   jars: 340,
+};
+
+// Free-text / measure-y units mapped directly to grams (coarse, review-worthy).
+// Covers "small handful", "squeeze", oil "sprays", "to taste", "g jar" (where the
+// quantity is already grams), and "juice of N lemons" style counts.
+const SPECIAL_UNITS: Record<string, number> = {
+  handful: 30,
+  handfuls: 30,
+  "small handful": 20,
+  "small handfuls": 20,
+  "large handful": 40,
+  "large handfuls": 40,
+  squeeze: 5,
+  splash: 5,
+  drizzle: 5,
+  glug: 10,
+  capful: 5,
+  capfuls: 5,
+  // Ginger is usually given as a length/thumb of fresh root.
+  cm: 6,
+  inch: 15,
+  inches: 15,
+  thumb: 15,
+  thumbs: 15,
+  spray: 0.3,
+  sprays: 0.3,
+  "few sprays": 1,
+  "to taste": 0.5,
+  lemon: 45, // juice of one lemon
+  lemons: 45,
+  lime: 30,
+  limes: 30,
+  "g jar": 1,
+  "g tin": 1,
+  "g can": 1,
+  "g pack": 1,
+  "g bag": 1,
+  "g packet": 1,
 };
 
 // Units that denote a count of whole items ("2 bananas", "2 cloves garlic").
@@ -182,6 +224,26 @@ const COUNT_GRAMS: Record<string, number> = {
   courgette: 200,
   courgettes: 200,
   aubergine: 250,
+  "pak choi": 150,
+  "romaine lettuce": 300,
+  lettuce: 300,
+  "lettuce heads": 300,
+  cauliflower: 600,
+  "cauliflower head": 600,
+  "dried shiitake mushrooms": 3,
+  "dried shiitake mushroom": 3,
+  "stock cube": 11,
+  "stock cubes": 11,
+  "vegetable stock cube": 11,
+  "lemon juice": 45, // a count of "Lemon juice" = juice of N lemons (~45g each)
+  "lime juice": 30,
+  "romaine lettuce heads": 300,
+  "star anise": 0.5,
+  "rice paper sheets": 10,
+  "rice paper sheet": 10,
+  "fresh ginger slices": 3,
+  "fresh ginger slice": 3,
+  "vegetable broth": 250, // "1 vegetable broth" ≈ one carton/portion
 };
 
 // Approximate grams for count units when no specific per-item weight is known
@@ -256,6 +318,8 @@ export function convertToGrams(
       reason: `no per-item weight for "${name}" (${quantity} ${unit || "count"})`,
     };
   }
+
+  if (u in SPECIAL_UNITS) return { grams: quantity * SPECIAL_UNITS[u] };
 
   if (u in VOLUME_UNITS) return { grams: quantity * VOLUME_UNITS[u] };
 

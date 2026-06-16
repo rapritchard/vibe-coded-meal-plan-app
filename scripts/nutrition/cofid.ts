@@ -83,6 +83,10 @@ const SUPPLEMENTAL: FoodRecord[] = [
   { source: "cofid", id: "supp:veg-stock", displayName: "Vegetable stock, prepared", per100g: { calories: 4, protein_g: 0.3, carbs_g: 0.5, fat_g: 0.1, fibre_g: 0, sugar_g: 0.2, sodium_mg: 320 } },
   { source: "cofid", id: "supp:chicken-stock", displayName: "Chicken stock, prepared", per100g: { calories: 4, protein_g: 0.5, carbs_g: 0.3, fat_g: 0.1, fibre_g: 0, sugar_g: 0.1, sodium_mg: 340 } },
   { source: "cofid", id: "supp:black-beans", displayName: "Black beans, canned, drained", per100g: { calories: 114, protein_g: 8.9, carbs_g: 16, fat_g: 0.5, fibre_g: 7.5, sugar_g: 0.3, sodium_mg: 240 } },
+  { source: "cofid", id: "supp:white-sugar", displayName: "Sugar, white, granulated", per100g: { calories: 400, protein_g: 0, carbs_g: 100, fat_g: 0, fibre_g: 0, sugar_g: 100, sodium_mg: 0 } },
+  { source: "cofid", id: "supp:mushrooms", displayName: "Mushrooms, white, raw", per100g: { calories: 22, protein_g: 3.1, carbs_g: 0.4, fat_g: 0.5, fibre_g: 1, sugar_g: 0.2, sodium_mg: 5 } },
+  { source: "cofid", id: "supp:stock-cube", displayName: "Stock cube, dry", per100g: { calories: 230, protein_g: 11, carbs_g: 24, fat_g: 11, fibre_g: 1, sugar_g: 8, sodium_mg: 20000 } },
+  { source: "cofid", id: "supp:plant-yoghurt", displayName: "Plant-based yoghurt", per100g: { calories: 70, protein_g: 3, carbs_g: 8, fat_g: 3, fibre_g: 0.5, sugar_g: 4, sodium_mg: 40 } },
 ];
 
 // ── Dataset load + search ────────────────────────────────────────────────────

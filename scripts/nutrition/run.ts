@@ -195,6 +195,7 @@ async function main() {
       written++;
     }
     console.log("");
+    saveCache(); // persist after every recipe so a crash never loses progress
   }
 
   saveCache();
@@ -206,5 +207,6 @@ async function main() {
 
 main().catch((err) => {
   console.error(err);
+  saveCache(); // don't lose resolved ingredients on an unexpected crash
   process.exit(1);
 });

@@ -80,9 +80,23 @@ export async function resolveIngredient(
 
   // Search with the aliased term (US→UK etc.) but cache under the original name.
   const query = aliasIngredient(name);
-  // CoFID is local (free); OFF is networked (throttled). Take a few of each.
-  const cofid = searchCofid(query, 3);
-  const off = await searchProduct(query, 3);
+  // CoFID is local (free); OFF is networked (throttled). When CoFID already has
+  // a credible whole-food match, skip the OFF call entirely — it keeps re-runs
+  // fast and avoids OFF snack products competing with a real food.
+  const cofidRaw = searchCofid(query, 3);
+  const off =
+    (cofidRaw[0]?.score ?? 0) >= 0.6 ? [] : await searchProduct(query, 3);
+
+  // Prefer the whole-food DB: when CoFID has a credible match (>=0.5) boost it so
+  // a real food beats an OFF snack/juice that merely shares a word (e.g. fresh
+  // ginger vs a "Greens & Ginger" juice). The gate leaves genuinely-branded
+  // items — where CoFID scores ~0 — to Open Food Facts.
+  const COFID_BOOST = 0.4;
+  const boost = (cofidRaw[0]?.score ?? 0) >= 0.5 ? COFID_BOOST : 0;
+  const cofid = cofidRaw.map((c) => ({
+    ...c,
+    score: Math.min(1, c.score + boost),
+  }));
   // Sort by score; on a tie prefer CoFID — "whole foods → CoFID" (a tie only
   // happens when CoFID has a clean base match, which is what we want to win).
   const candidates = [...cofid, ...off].sort(

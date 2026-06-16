@@ -57,6 +57,13 @@ describe("convertToGrams", () => {
     expect(convertToGrams(0.25, "", "Cucumber").grams).toBe(75);
   });
 
+  it("handles special measure units", () => {
+    expect(convertToGrams(1, "small handful", "Basil").grams).toBe(20);
+    expect(convertToGrams(0.5, "lemon", "Lemon juice").grams).toBe(22.5);
+    expect(convertToGrams(400, "g jar", "Cannellini beans").grams).toBe(400);
+    expect(convertToGrams(2, "heads", "pak choi").grams).toBe(300);
+  });
+
   it("falls back to a record serving size for unknown counts", () => {
     const r = convertToGrams(2, "", "exotic fruit", { servingGrams: 80 });
     expect(r.grams).toBe(160);

@@ -57,16 +57,26 @@ async function offFetch(
 ): Promise<unknown | null> {
   for (let attempt = 0; attempt < 3; attempt++) {
     await throttle(bucket);
-    const res = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
-    if (res.status === 503 || res.status === 429) {
-      await sleep(5_000 * (attempt + 1)); // back off on rate-limit
-      continue;
+    try {
+      const res = await fetch(url, { headers: { "User-Agent": USER_AGENT } });
+      if (res.status === 503 || res.status === 429) {
+        await sleep(5_000 * (attempt + 1)); // back off on rate-limit
+        continue;
+      }
+      if (!res.ok) return null;
+      if (
+        !(res.headers.get("content-type") ?? "").includes("application/json")
+      ) {
+        return null;
+      }
+      return res.json();
+    } catch (err) {
+      // Network blip (DNS/connection reset). Back off and retry; a transient
+      // failure must not crash the whole run — return null after retries so the
+      // ingredient is reported unresolved instead.
+      console.warn(`  OFF fetch failed (${String(err)}); retrying…`);
+      await sleep(5_000 * (attempt + 1));
     }
-    if (!res.ok) return null;
-    if (!(res.headers.get("content-type") ?? "").includes("application/json")) {
-      return null;
-    }
-    return res.json();
   }
   return null;
 }
