@@ -48,6 +48,13 @@ const ALIASES: Record<string, string> = {
   "red chilli": "red chilli pepper",
   "red chili": "red chilli pepper",
   "green chilli": "green chilli pepper",
+  "microwave rice pack": "cooked rice",
+  "microwavable rice packet": "cooked rice",
+  "microwave rice": "cooked rice",
+  "pre-cooked rice": "cooked rice",
+  "cooked jasmine rice": "cooked rice",
+  "dried soy mince": "soya mince",
+  "soy mince": "soya mince",
 };
 
 /** Map an ingredient name to a better search term (US→UK etc.), else itself. */
