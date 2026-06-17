@@ -138,13 +138,13 @@ export function RecipeModal({ recipe, onClose }: RecipeModalProps) {
           <div className="flex-1 min-h-0 flex">
             <aside className="w-[300px] flex-shrink-0 min-h-0 overflow-y-auto border-r border-border px-5 py-5 space-y-5">
               {ingredients}
-              {tools}
               {nutrition}
             </aside>
             <div className="flex-1 min-w-0 min-h-0 overflow-y-auto px-6 py-5 space-y-5">
               {parallel}
               {variationBanner}
               {method}
+              {tools}
               {tip}
               {variations}
               {notes}

@@ -13,12 +13,12 @@ export function ToolAltsPanel({ alts }: ToolAltsPanelProps) {
       {alts.map((t, i) => (
         <div
           key={i}
-          className="bg-amber-50 border border-amber-100 rounded-lg p-3 flex gap-2"
+          className="bg-amber-50 border border-amber-100 rounded-lg p-3 space-y-1"
         >
-          <span className="text-xs font-bold text-amber-800 flex-shrink-0">
+          <div className="text-xs font-bold text-amber-800 break-words">
             {t.tool}
-          </span>
-          <span className="text-xs text-amber-700">— {t.note}</span>
+          </div>
+          <p className="text-xs text-amber-700 break-words">{t.note}</p>
         </div>
       ))}
     </div>
