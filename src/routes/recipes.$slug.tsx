@@ -21,8 +21,9 @@ function RecipeModalRoute() {
     <RecipeModal
       recipe={recipe}
       onClose={() =>
-        // Return to the catalog, preserving the active filters in the URL.
-        navigate({ to: "/recipes", search: (prev) => prev })
+        // Return to the catalog, preserving the active filters and scroll
+        // position (don't jump back to the top of the list).
+        navigate({ to: "/recipes", search: (prev) => prev, resetScroll: false })
       }
     />
   );

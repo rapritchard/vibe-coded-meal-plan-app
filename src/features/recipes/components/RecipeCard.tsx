@@ -37,6 +37,9 @@ export function RecipeCard({ recipe, onView }: RecipeCardProps) {
           {recipe.isBatch && (
             <span className="text-persimmon font-medium">Batch</span>
           )}
+          {recipe.tags?.includes("hormone-support") && (
+            <span className="text-olive font-medium">Hormone support</span>
+          )}
           {rating > 0 && <StarRating value={rating} size="sm" />}
         </div>
       </div>

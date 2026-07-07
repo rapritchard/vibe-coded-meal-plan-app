@@ -79,6 +79,13 @@ export function MobileFilterSheet(props: MobileFilterSheetProps) {
               active={props.onTheGoOnly}
               onClick={() => props.onOnTheGoToggle(!props.onTheGoOnly)}
             />
+            <FilterPill
+              label="Hormone support"
+              active={props.hormoneSupportOnly}
+              onClick={() =>
+                props.onHormoneSupportToggle(!props.hormoneSupportOnly)
+              }
+            />
           </MobileFilterGroup>
         </div>
 

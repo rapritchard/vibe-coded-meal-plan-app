@@ -51,7 +51,24 @@ export type Mood =
   | "Rich & deep"
   | "Bright & fresh"
   | "Spiced & warming"
-  | "Sweet";
+  | "Sweet"
+  // Descriptive moods carried by the protein bakes & snacks collection.
+  | "Comforting"
+  | "Energising"
+  | "Batch-friendly"
+  | "Warming"
+  | "Light"
+  | "Fresh"
+  | "Summery"
+  | "Indulgent"
+  | "Tropical"
+  | "Seasonal"
+  | "Satisfying"
+  | "Bold"
+  | "Quick"
+  | "Crunchy"
+  | "Salty"
+  | "Versatile";
 
 export const ALL_MOODS: Mood[] = [
   "Creamy",
@@ -61,12 +78,32 @@ export const ALL_MOODS: Mood[] = [
   "Bright & fresh",
   "Spiced & warming",
   "Sweet",
+  "Comforting",
+  "Energising",
+  "Batch-friendly",
+  "Warming",
+  "Light",
+  "Fresh",
+  "Summery",
+  "Indulgent",
+  "Tropical",
+  "Seasonal",
+  "Satisfying",
+  "Bold",
+  "Quick",
+  "Crunchy",
+  "Salty",
+  "Versatile",
 ];
 
 /** Unicode emoji used as a time-complexity key */
 export type TimeKey = "⚡" | "🕐" | "🕑" | "⏳" | "🌙";
 
-export type MealCategory = "breakfast" | "lunch" | "dinner";
+export type MealCategory =
+  | "breakfast"
+  | "lunch"
+  | "dinner"
+  | "protein-bakes";
 
 /**
  * The full set of categories an item can have once snacks/smoothies/desserts
@@ -98,6 +135,8 @@ export interface RecipeBase {
   isBatch: boolean;
   /** Whether this item survives a Tupperware / eats well cold or reheated. */
   goodOnTheGo: boolean;
+  /** Freeform cross-cutting tags for filtering (e.g. "hormone-support"). */
+  tags?: string[];
   /**
    * Normalised nutrition data, or null when unknown. Stored as jsonb so the
    * schema doesn't change if we add fields later. Raw provider response is

@@ -22,6 +22,7 @@ const MEAL_VALUES = [
   "breakfast",
   "lunch",
   "dinner",
+  "protein-bakes",
   "snack",
   "smoothie",
   "dessert",
@@ -36,6 +37,7 @@ export const recipeSearchSchema = z.object({
   effort: z.array(z.enum(EFFORT_VALUES)).optional().catch(undefined),
   leftovers: z.boolean().optional().catch(undefined),
   onTheGo: z.boolean().optional().catch(undefined),
+  hormoneSupport: z.boolean().optional().catch(undefined),
   q: z.string().optional().catch(undefined),
 });
 
@@ -69,6 +71,7 @@ export function hasActiveFilters(search: RecipeSearch): boolean {
     (search.effort?.length ?? 0) > 0 ||
     Boolean(search.leftovers) ||
     Boolean(search.onTheGo) ||
+    Boolean(search.hormoneSupport) ||
     (search.q?.trim() ?? "") !== ""
   );
 }

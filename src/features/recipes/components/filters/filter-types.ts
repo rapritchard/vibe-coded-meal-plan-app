@@ -13,6 +13,8 @@ export interface FilterControlsProps {
   onLeftoversToggle: (v: boolean) => void;
   onTheGoOnly: boolean;
   onOnTheGoToggle: (v: boolean) => void;
+  hormoneSupportOnly: boolean;
+  onHormoneSupportToggle: (v: boolean) => void;
 }
 
 /** A removable filter chip. */

@@ -66,6 +66,11 @@ export function DesktopFilters(props: DesktopFiltersProps) {
           checked={props.onTheGoOnly}
           onToggle={() => props.onOnTheGoToggle(!props.onTheGoOnly)}
         />
+        <DropdownItem
+          label="Hormone support"
+          checked={props.hormoneSupportOnly}
+          onToggle={() => props.onHormoneSupportToggle(!props.hormoneSupportOnly)}
+        />
       </MultiSelect>
     </div>
   );

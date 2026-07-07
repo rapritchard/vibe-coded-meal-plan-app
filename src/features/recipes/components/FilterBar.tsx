@@ -63,6 +63,14 @@ export function FilterBar(props: FilterBarProps) {
           },
         ]
       : []),
+    ...(props.hormoneSupportOnly
+      ? [
+          {
+            label: "Hormone support",
+            onRemove: () => props.onHormoneSupportToggle(false),
+          },
+        ]
+      : []),
   ];
 
   const allChips = [...mealChips, ...moodChips, ...effortChips, ...extrasChips];

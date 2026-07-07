@@ -61,6 +61,7 @@ const recipeData = z.object({
   tip: z.string().catch(""),
   variations: z.array(z.string()).catch([]),
   variationSteps: z.array(z.array(z.string()).nullable()).catch([]),
+  tags: z.array(z.string()).catch([]),
 });
 
 const smoothieData = z.object({

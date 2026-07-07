@@ -32,6 +32,7 @@ export const NAV_GROUPS: NavGroup[] = [
       { label: "Breakfast", to: "/recipes", meal: "breakfast" },
       { label: "Lunch", to: "/recipes", meal: "lunch" },
       { label: "Dinner", to: "/recipes", meal: "dinner" },
+      { label: "Bakes & snacks", to: "/recipes", meal: "protein-bakes" },
       { label: "Smoothies", to: "/recipes", meal: "smoothie" },
       { label: "Snacks", to: "/recipes", meal: "snack" },
       { label: "Desserts", to: "/recipes", meal: "dessert" },

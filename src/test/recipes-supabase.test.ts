@@ -30,6 +30,7 @@ const sampleRecipe: Recipe = {
   tip: "Use frozen berries",
   variations: ["Add banana"],
   variationSteps: [null],
+  tags: [],
 };
 
 const sampleSnack: Snack = {

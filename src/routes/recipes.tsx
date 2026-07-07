@@ -80,6 +80,8 @@ function RecipesLayout() {
       if (selectedEffort.size > 0 && !selectedEffort.has(r.effort)) return false;
       if (search.leftovers && !r.isBatch) return false;
       if (search.onTheGo && !r.goodOnTheGo) return false;
+      if (search.hormoneSupport && !r.tags?.includes("hormone-support"))
+        return false;
       if (q) {
         const hay = [r.name, ...r.moods].join(" ").toLowerCase();
         if (!hay.includes(q)) return false;
@@ -100,6 +102,7 @@ function RecipesLayout() {
           breakfast: [],
           lunch: [],
           dinner: [],
+          "protein-bakes": [],
           snack: [],
           smoothie: [],
           dessert: [],
@@ -115,6 +118,8 @@ function RecipesLayout() {
       to: "/recipes/$slug",
       params: { slug: recipe.slug },
       search: (prev) => prev,
+      // Keep the list scroll position instead of jumping to the top.
+      resetScroll: false,
     });
 
   const showSections = !hasActiveFilters;
@@ -138,6 +143,10 @@ function RecipesLayout() {
           onLeftoversToggle={(v) => patchSearch({ leftovers: v || undefined })}
           onTheGoOnly={Boolean(search.onTheGo)}
           onOnTheGoToggle={(v) => patchSearch({ onTheGo: v || undefined })}
+          hormoneSupportOnly={Boolean(search.hormoneSupport)}
+          onHormoneSupportToggle={(v) =>
+            patchSearch({ hormoneSupport: v || undefined })
+          }
           totalCount={allItems.length}
           filteredCount={filtered.length}
           hasActiveFilters={hasActiveFilters}
