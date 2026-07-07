@@ -35,6 +35,41 @@
     "reason": "llm: The ingredient is a generic agave syrup, and the first candidate is a standard organic agave syrup product with a high match score.",
     "needsReview": false
   },
+  "almond butter": {
+    "source": "openfoodfacts",
+    "id": "8002352303008",
+    "displayName": "Damiano Amandino Purée d'amandes grillées",
+    "per100g": {
+      "calories": 643,
+      "protein_g": 26.5,
+      "carbs_g": 3.2,
+      "fat_g": 56.3,
+      "fibre_g": 8.9,
+      "sugar_g": 3,
+      "sodium_mg": 0,
+      "saturatedFat_g": 4.2
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is almond butter, which is a processed nut puree. Candidate 8002352303008 is a pure almond butter (Purée d'amandes), which is the correct product type, whereas the other candidates are whole or flaked almonds.",
+    "needsReview": false
+  },
+  "apples": {
+    "source": "cofid",
+    "id": "14-319",
+    "displayName": "Apples, eating, raw, flesh and skin",
+    "per100g": {
+      "calories": 51,
+      "protein_g": 0.6,
+      "carbs_g": 11.6,
+      "fat_g": 0.5,
+      "fibre_g": 1.2,
+      "sugar_g": 11.6,
+      "sodium_mg": 1
+    },
+    "confidence": 0.95,
+    "reason": "llm: Apples in recipes are typically eating apples consumed with the skin, making the raw flesh and skin variant the most standard and appropriate choice.",
+    "needsReview": false
+  },
   "artichoke hearts": {
     "source": "cofid",
     "id": "13-155",
@@ -67,6 +102,23 @@
     },
     "confidence": 0.85,
     "reason": "llm: Avocado, Hass is the most common variety found in general culinary use when a recipe simply specifies 'Avocado'.",
+    "needsReview": false
+  },
+  "avocados": {
+    "source": "cofid",
+    "id": "14-040",
+    "displayName": "Avocado, Fuerte, flesh only, weighed with skin and stone",
+    "per100g": {
+      "calories": 134,
+      "protein_g": 1.5,
+      "carbs_g": 1.3,
+      "fat_g": 13.7,
+      "fibre_g": 0,
+      "sugar_g": 0.4,
+      "sodium_mg": 6
+    },
+    "confidence": 0.9,
+    "reason": "llm: When a recipe lists a whole number of avocados (e.g., '2 Avocados'), it typically refers to the whole fruit including the skin and stone, making the 'weighed with skin and stone' entry the most accurate choice for nutritional estimation.",
     "needsReview": false
   },
   "baby chestnut mushrooms": {
@@ -210,6 +262,23 @@
     "reason": "llm: The ingredient 'Banana' refers to the fruit itself. Candidate 14-318 'Bananas, flesh only' is the standard representation for a banana in a recipe, whereas 14-347 includes the weight of the skin, which is typically discarded.",
     "needsReview": false
   },
+  "banana shallot": {
+    "source": "cofid",
+    "id": "13-342",
+    "displayName": "Shallots, raw",
+    "per100g": {
+      "calories": 20,
+      "protein_g": 1.5,
+      "carbs_g": 3.3,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 3.3,
+      "sodium_mg": 10
+    },
+    "confidence": 0.95,
+    "reason": "llm: A banana shallot is a specific variety of shallot, not a banana. Candidate 13-342 (Shallots, raw) is the correct botanical match for the ingredient, whereas the other options are either fruit or a specific branded product that is less representative of the ingredient category.",
+    "needsReview": false
+  },
   "basmati rice": {
     "source": "cofid",
     "id": "11-857",
@@ -244,6 +313,23 @@
     },
     "confidence": 0.95,
     "reason": "llm: The ingredient is 'Beetroot juice', which is a processed liquid product. Candidate 2 is a generic organic beetroot juice that matches the ingredient description perfectly, whereas candidate 3 is raw beetroot (a solid vegetable).",
+    "needsReview": false
+  },
+  "bell pepper": {
+    "source": "cofid",
+    "id": "13-524",
+    "displayName": "Pepper, capsicum, red, raw",
+    "per100g": {
+      "calories": 21,
+      "protein_g": 0.8,
+      "carbs_g": 4.3,
+      "fat_g": 0.2,
+      "fibre_g": 2.2,
+      "sugar_g": 4.2,
+      "sodium_mg": 1
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient 'Bell pepper' refers to the raw vegetable. Candidate 13-524 is a generic raw red pepper, which is the most standard interpretation of a bell pepper in a recipe context.",
     "needsReview": false
   },
   "black beans": {
@@ -297,6 +383,41 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Black pepper' directly matches the 'Black pepper, ground' product.",
+    "needsReview": false
+  },
+  "blackstrap molasses": {
+    "source": "openfoodfacts",
+    "id": "5060132284049",
+    "displayName": "Meridian Organic molasses pure blackstrap",
+    "per100g": {
+      "calories": 320,
+      "protein_g": 2.5,
+      "carbs_g": 74,
+      "fat_g": 0.9,
+      "fibre_g": 0,
+      "sugar_g": 56,
+      "sodium_mg": 12,
+      "saturatedFat_g": 0.45
+    },
+    "confidence": 0.95,
+    "reason": "llm: Meridian Organic molasses pure blackstrap is a standard, high-quality representation of blackstrap molasses with realistic nutritional values, unlike the Del Monte entry which has erroneous calorie and macronutrient data.",
+    "needsReview": false
+  },
+  "blackstrap treacle or dark maple syrup": {
+    "source": "cofid",
+    "id": "17-826",
+    "displayName": "Treacle, black",
+    "per100g": {
+      "calories": 257,
+      "protein_g": 1.2,
+      "carbs_g": 67.2,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 66.8,
+      "sodium_mg": 180
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient explicitly lists 'blackstrap treacle' as the primary option, which matches the candidate 'Treacle, black' perfectly.",
     "needsReview": false
   },
   "blueberries": {
@@ -492,6 +613,24 @@
     "reason": "llm: Tesco Capers is a direct match for the ingredient 'Capers'. The Sainsbury's option is also a valid match, but Tesco is selected as a representative generic branded product.",
     "needsReview": false
   },
+  "carrot": {
+    "source": "cofid",
+    "id": "13-496",
+    "displayName": "Carrots, old, raw",
+    "per100g": {
+      "calories": 34,
+      "protein_g": 0.5,
+      "carbs_g": 7.7,
+      "fat_g": 0.4,
+      "fibre_g": 3.9,
+      "sugar_g": 7.2,
+      "sodium_mg": 27,
+      "saturatedFat_g": 34.13
+    },
+    "confidence": 0.9,
+    "reason": "llm: Carrots are typically assumed to be raw and standard (old/mature) unless specified as young or cooked. 13-496 is the most representative standard carrot entry.",
+    "needsReview": false
+  },
   "carrots": {
     "source": "cofid",
     "id": "13-448",
@@ -507,6 +646,61 @@
     },
     "confidence": 0.9,
     "reason": "llm: Carrots in recipes are typically assumed to be fresh/young raw carrots unless specified otherwise. 13-448 is the most standard representation for raw carrots.",
+    "needsReview": false
+  },
+  "carton egg whites": {
+    "source": "cofid",
+    "id": "12-938",
+    "displayName": "Eggs, chicken, white, raw",
+    "per100g": {
+      "calories": 43,
+      "protein_g": 10.8,
+      "carbs_g": 0,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 185,
+      "saturatedFat_g": 0
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'egg whites' in a carton is typically raw liquid egg white, which matches the nutritional profile and state of raw chicken egg whites.",
+    "needsReview": false
+  },
+  "carton egg whites for base": {
+    "source": "cofid",
+    "id": "12-938",
+    "displayName": "Eggs, chicken, white, raw",
+    "per100g": {
+      "calories": 43,
+      "protein_g": 10.8,
+      "carbs_g": 0,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 185,
+      "saturatedFat_g": 0
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient refers to liquid egg whites typically found in cartons, which are raw and pasteurized. Candidate 12-938 represents raw chicken egg whites, which is the closest nutritional and state match for a base ingredient.",
+    "needsReview": false
+  },
+  "cashew butter": {
+    "source": "openfoodfacts",
+    "id": "5014213000929",
+    "displayName": "Meridian Smooth Cashew Butter",
+    "per100g": {
+      "calories": 659,
+      "protein_g": 21,
+      "carbs_g": 19,
+      "fat_g": 56,
+      "fibre_g": 4.3,
+      "sugar_g": 5.6,
+      "sodium_mg": 0,
+      "saturatedFat_g": 11
+    },
+    "servingGrams": 15,
+    "confidence": 0.95,
+    "reason": "llm: Meridian Smooth Cashew Butter is a standard, plain cashew butter product that matches the ingredient 'Cashew butter' perfectly for recipe use, unlike the chocolate-filled or granola-based alternatives.",
     "needsReview": false
   },
   "cashews": {
@@ -557,6 +751,23 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient specifically calls for Cayenne pepper, which matches the ground spice product perfectly.",
+    "needsReview": false
+  },
+  "celery stick": {
+    "source": "cofid",
+    "id": "13-636",
+    "displayName": "Celery, raw",
+    "per100g": {
+      "calories": 9,
+      "protein_g": 0.5,
+      "carbs_g": 1.4,
+      "fat_g": 0.1,
+      "fibre_g": 1.5,
+      "sugar_g": 1.4,
+      "sodium_mg": 77
+    },
+    "confidence": 0.93,
+    "reason": "llm: The ingredient is a raw vegetable, and 'Celery, raw' is the most accurate nutritional match for a standard celery stick used in cooking.",
     "needsReview": false
   },
   "cherry tomatoes": {
@@ -630,6 +841,42 @@
     },
     "confidence": 0.95,
     "reason": "llm: Stonemill Crushed chilli is a direct match for the ingredient 'Chilli flakes', whereas the other candidates are prepared meals or snacks.",
+    "needsReview": false
+  },
+  "chilli oil": {
+    "source": "openfoodfacts",
+    "id": "6921804700269",
+    "displayName": "Lee Kum Kee Chili Crunch in Oil",
+    "per100g": {
+      "calories": 593,
+      "protein_g": 5.9,
+      "carbs_g": 9.6,
+      "fat_g": 71.1,
+      "fibre_g": 2.66666666666667,
+      "sugar_g": 3.8,
+      "sodium_mg": 1160,
+      "saturatedFat_g": 11.7
+    },
+    "servingGrams": 60,
+    "confidence": 0.85,
+    "reason": "llm: Lee Kum Kee Chili Crunch in Oil is a direct match for the ingredient 'Chilli oil', whereas the other options are crisps or prepared meals.",
+    "needsReview": false
+  },
+  "chilli powder": {
+    "source": "cofid",
+    "id": "supp:chilli-powder",
+    "displayName": "Chilli powder",
+    "per100g": {
+      "calories": 282,
+      "protein_g": 14,
+      "carbs_g": 50,
+      "fat_g": 14,
+      "fibre_g": 35,
+      "sugar_g": 7.2,
+      "sodium_mg": 1640
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Chilli powder' is a direct match for the candidate 'Chilli powder'. The other candidates are prepared dishes containing chilli, which is not appropriate for a spice measurement.",
     "needsReview": false
   },
   "chinese five spice": {
@@ -741,6 +988,22 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "cocoa powder": {
+    "source": "cofid",
+    "id": "12-545",
+    "displayName": "Cocoa powder",
+    "per100g": {
+      "calories": 312,
+      "protein_g": 18.5,
+      "carbs_g": 11.5,
+      "fat_g": 21.7,
+      "fibre_g": 0,
+      "sugar_g": 0
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is plain cocoa powder, which matches the base product 12-545. The other options include milk, which is not specified in the ingredient line.",
+    "needsReview": false
+  },
   "coconut milk": {
     "source": "cofid",
     "id": "14-889",
@@ -756,6 +1019,41 @@
     },
     "confidence": 0.95,
     "reason": "llm: Coconut milk in recipes typically refers to the standard retail version, which is higher in fat and calories than the generic or reduced-fat options provided.",
+    "needsReview": false
+  },
+  "coconut oil": {
+    "source": "cofid",
+    "id": "17-031",
+    "displayName": "Oil, coconut",
+    "per100g": {
+      "calories": 899,
+      "protein_g": 0,
+      "carbs_g": 0,
+      "fat_g": 99.9,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 0,
+      "saturatedFat_g": 91.9
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is explicitly coconut oil, which matches the product 'Oil, coconut' perfectly.",
+    "needsReview": false
+  },
+  "cooked jasmine rice": {
+    "source": "cofid",
+    "id": "supp:cooked-rice",
+    "displayName": "Rice, cooked (pre-packed)",
+    "per100g": {
+      "calories": 140,
+      "protein_g": 2.7,
+      "carbs_g": 30,
+      "fat_g": 0.5,
+      "fibre_g": 0.5,
+      "sugar_g": 0.1,
+      "sodium_mg": 5
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies 'Cooked jasmine rice', which is a plain cooked rice. Candidate 1 is the most generic 'plain' cooked rice option, whereas the others imply additional ingredients like egg or specific preparation methods.",
     "needsReview": false
   },
   "coriander": {
@@ -792,6 +1090,23 @@
     "servingGrams": 100,
     "confidence": 0.9,
     "reason": "llm: Cornflour is a generic ingredient and Tesco Cornflour is a standard, high-confidence match for this item.",
+    "needsReview": false
+  },
+  "cottage cheese": {
+    "source": "cofid",
+    "id": "12-539",
+    "displayName": "Cheese, cottage, plain",
+    "per100g": {
+      "calories": 103,
+      "protein_g": 9.4,
+      "carbs_g": 3.1,
+      "fat_g": 6,
+      "fibre_g": 0,
+      "sugar_g": 3.1,
+      "sodium_mg": 250
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies 'Cottage cheese' without mentioning reduced fat, so the standard plain cottage cheese is the most accurate match.",
     "needsReview": false
   },
   "crispy chilli oil": {
@@ -849,6 +1164,23 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "crushed pistachios": {
+    "source": "openfoodfacts",
+    "id": "8680332400260",
+    "displayName": "Crushed pistachios",
+    "per100g": {
+      "calories": 200,
+      "protein_g": 2,
+      "carbs_g": 40,
+      "fat_g": 8,
+      "fibre_g": 40,
+      "sugar_g": 16,
+      "saturatedFat_g": 0
+    },
+    "confidence": 1,
+    "reason": "llm: The candidate 'Crushed pistachios' is an exact match for the ingredient description provided.",
+    "needsReview": false
+  },
   "cucumber": {
     "source": "cofid",
     "id": "13-523",
@@ -883,6 +1215,39 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "curry paste": {
+    "source": "cofid",
+    "id": "17-720",
+    "displayName": "Curry paste",
+    "per100g": {
+      "calories": 253,
+      "protein_g": 4.7,
+      "carbs_g": 11.3,
+      "fat_g": 21.3,
+      "fibre_g": 6.8,
+      "sugar_g": 7,
+      "sodium_mg": 1520
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Curry paste' is an exact match for the product 'Curry paste'.",
+    "needsReview": false
+  },
+  "curry powder": {
+    "source": "cofid",
+    "id": "13-876",
+    "displayName": "Curry powder",
+    "per100g": {
+      "calories": 233,
+      "protein_g": 9.5,
+      "carbs_g": 26.1,
+      "fat_g": 10.8,
+      "fibre_g": 0,
+      "sodium_mg": 450
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Curry powder' is a direct match for the generic 'Curry powder' product, which is the standard interpretation in recipes.",
+    "needsReview": false
+  },
   "dark chocolate": {
     "source": "cofid",
     "id": "supp:dark-chocolate",
@@ -898,6 +1263,57 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Dark chocolate' is a generic term that matches the plain whole food candidate 'Dark chocolate' perfectly.",
+    "needsReview": false
+  },
+  "dark chocolate chips": {
+    "source": "cofid",
+    "id": "supp:dark-chocolate",
+    "displayName": "Dark chocolate",
+    "per100g": {
+      "calories": 550,
+      "protein_g": 7,
+      "carbs_g": 46,
+      "fat_g": 39,
+      "fibre_g": 8,
+      "sugar_g": 35,
+      "sodium_mg": 12
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Dark chocolate chips' is best represented by the generic 'Dark chocolate' entry, as it is the most accurate nutritional match for the base ingredient compared to the filled or fancy chocolate options.",
+    "needsReview": false
+  },
+  "dark chocolate chips or chunks": {
+    "source": "cofid",
+    "id": "supp:dark-chocolate",
+    "displayName": "Dark chocolate",
+    "per100g": {
+      "calories": 550,
+      "protein_g": 7,
+      "carbs_g": 46,
+      "fat_g": 39,
+      "fibre_g": 8,
+      "sugar_g": 35,
+      "sodium_mg": 12
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient 'dark chocolate chips' is best represented by the generic 'Dark chocolate' entry, as the other candidates are specific filled or fancy chocolates which are not suitable substitutes for baking chips.",
+    "needsReview": false
+  },
+  "dark chocolate chunks 70 percent or above": {
+    "source": "cofid",
+    "id": "supp:dark-chocolate",
+    "displayName": "Dark chocolate",
+    "per100g": {
+      "calories": 550,
+      "protein_g": 7,
+      "carbs_g": 46,
+      "fat_g": 39,
+      "fibre_g": 8,
+      "sugar_g": 35,
+      "sodium_mg": 12
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient specifies dark chocolate chunks with 70 percent cocoa or above. Candidate 1 is the most generic and accurate representation of dark chocolate, whereas the other candidates are filled or processed confectionery items.",
     "needsReview": false
   },
   "dark soy sauce": {
@@ -951,6 +1367,76 @@
     "reason": "llm: The ingredient 'Desiccated coconut' is an exact match for the candidate 'Coconut, desiccated'. The instruction to toast it is a preparation step that does not change the base ingredient identity.",
     "needsReview": false
   },
+  "desiccated coconut for topping": {
+    "source": "cofid",
+    "id": "14-873",
+    "displayName": "Coconut, desiccated",
+    "per100g": {
+      "calories": 604,
+      "protein_g": 5.6,
+      "carbs_g": 6.4,
+      "fat_g": 62,
+      "fibre_g": 0,
+      "sugar_g": 6.4,
+      "sodium_mg": 28
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'desiccated coconut' is a direct match for the product 'Coconut, desiccated'.",
+    "needsReview": false
+  },
+  "doubanjiang": {
+    "source": "openfoodfacts",
+    "id": "6909003888612",
+    "displayName": "Sichuan Pixiandoubanjiang Doubanjiang",
+    "per100g": {
+      "calories": 106,
+      "protein_g": 6.06060606060606,
+      "carbs_g": 21.2121212121212,
+      "fat_g": 0,
+      "fibre_g": 9.09090909090909,
+      "sugar_g": 3.03030303030303,
+      "sodium_mg": 8778.78787878788
+    },
+    "servingGrams": 33,
+    "confidence": 0.9,
+    "reason": "llm: Sichuan Pixiandoubanjiang is the standard, authentic reference for Doubanjiang in recipes, making it a better match than the generic Union Foods product.",
+    "needsReview": false
+  },
+  "dried apricots": {
+    "source": "cofid",
+    "id": "14-031",
+    "displayName": "Apricots, dried",
+    "per100g": {
+      "calories": 188,
+      "protein_g": 4.8,
+      "carbs_g": 43.4,
+      "fat_g": 0.7,
+      "fibre_g": 0,
+      "sugar_g": 43.4,
+      "sodium_mg": 56
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Dried apricots' directly matches the plain whole food item 'Apricots, dried'.",
+    "needsReview": false
+  },
+  "dried chilli flakes": {
+    "source": "openfoodfacts",
+    "id": "4088600124957",
+    "displayName": "Aldi, Stonemill Crushed chilli",
+    "per100g": {
+      "calories": 376,
+      "protein_g": 12,
+      "carbs_g": 29,
+      "fat_g": 17,
+      "fibre_g": 27,
+      "sugar_g": 10,
+      "sodium_mg": 30,
+      "saturatedFat_g": 3.3
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is a specific spice (dried chilli flakes), and the Aldi Stonemill product is a direct match for this item, whereas the other candidates are prepared meals containing chilli.",
+    "needsReview": false
+  },
   "dried coriander": {
     "source": "cofid",
     "id": "13-818",
@@ -965,6 +1451,59 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Dried coriander' directly matches the description of 'Coriander leaves, dried'.",
+    "needsReview": false
+  },
+  "dried mango": {
+    "source": "openfoodfacts",
+    "id": "20412074",
+    "displayName": "Alesto Dried Mango",
+    "per100g": {
+      "calories": 293,
+      "protein_g": 2.9,
+      "carbs_g": 67,
+      "fat_g": 0.2,
+      "fibre_g": 5.3,
+      "sugar_g": 65,
+      "sodium_mg": 4,
+      "saturatedFat_g": 0.1
+    },
+    "servingGrams": 100,
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is a generic 'Dried mango'. While there are multiple branded options, Alesto is a common generic store brand often used as a representative for dried mango in nutritional databases. All dried mango options are nutritionally similar and appropriate for the ingredient.",
+    "needsReview": false
+  },
+  "dried mint": {
+    "source": "cofid",
+    "id": "13-837",
+    "displayName": "Mint, dried",
+    "per100g": {
+      "calories": 279,
+      "protein_g": 24.8,
+      "carbs_g": 34.6,
+      "fat_g": 4.6,
+      "fibre_g": 0,
+      "sodium_mg": 98
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is explicitly 'Dried mint', which matches the candidate 'Mint, dried' perfectly.",
+    "needsReview": false
+  },
+  "dried oregano": {
+    "source": "openfoodfacts",
+    "id": "4002674043952",
+    "displayName": "Ostmann Oregano gerebelt",
+    "per100g": {
+      "calories": 278,
+      "protein_g": 9.2,
+      "carbs_g": 34.1,
+      "fat_g": 3,
+      "fibre_g": 39,
+      "sugar_g": 7.2,
+      "sodium_mg": 20,
+      "saturatedFat_g": 1
+    },
+    "confidence": 0.95,
+    "reason": "llm: The candidate 'Ostmann Oregano gerebelt' is a direct match for dried oregano.",
     "needsReview": false
   },
   "dried parsley": {
@@ -982,6 +1521,24 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Dried parsley' matches the candidate 'Parsley, dried' perfectly.",
+    "needsReview": false
+  },
+  "dried pasta": {
+    "source": "cofid",
+    "id": "11-716",
+    "displayName": "Pasta, white, dried, raw",
+    "per100g": {
+      "calories": 343,
+      "protein_g": 11.3,
+      "carbs_g": 75.6,
+      "fat_g": 1.6,
+      "fibre_g": 0,
+      "sugar_g": 2.1,
+      "sodium_mg": 2,
+      "saturatedFat_g": 21.65
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'Dried pasta' is a generic term that most closely aligns with 'Pasta, white, dried, raw' as the standard default for pasta in recipes unless specified otherwise.",
     "needsReview": false
   },
   "dried porcini mushrooms": {
@@ -1053,6 +1610,24 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "edamame": {
+    "source": "cofid",
+    "id": "13-667",
+    "displayName": "Beans, edamame, frozen, boiled in unsalted water",
+    "per100g": {
+      "calories": 142,
+      "protein_g": 12.2,
+      "carbs_g": 6.5,
+      "fat_g": 7.6,
+      "fibre_g": 5.9,
+      "sugar_g": 2.6,
+      "sodium_mg": 5,
+      "saturatedFat_g": 14.04
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient specifies 'frozen' edamame, which is a generic whole food item. Candidate 3 is a generic database entry for frozen, boiled edamame, which is the most accurate representation for a recipe ingredient compared to specific branded products.",
+    "needsReview": false
+  },
   "egg": {
     "source": "cofid",
     "id": "12-937",
@@ -1108,6 +1683,75 @@
     "reason": "llm: The ingredient specifies 'Extra firm tofu', which is a common commercial product. Cauldron Extra firm tofu is a direct match for this product category and is a high-quality branded option.",
     "needsReview": false
   },
+  "extra virgin olive oil": {
+    "source": "cofid",
+    "id": "17-038",
+    "displayName": "Oil, olive",
+    "per100g": {
+      "calories": 899,
+      "protein_g": 0,
+      "carbs_g": 0,
+      "fat_g": 99.9,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 0,
+      "saturatedFat_g": 14.9
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is a generic pantry staple 'Extra virgin olive oil'. While branded options are available, the generic 'Oil, olive' from the COFID database is the most accurate representation of the ingredient as it is typically used in recipes unless a specific brand is requested.",
+    "needsReview": false
+  },
+  "fat-free greek yoghurt": {
+    "source": "cofid",
+    "id": "supp:greek-yog-0",
+    "displayName": "Greek yoghurt, 0% fat",
+    "per100g": {
+      "calories": 57,
+      "protein_g": 10,
+      "carbs_g": 4,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 4,
+      "sodium_mg": 36
+    },
+    "confidence": 0.98,
+    "reason": "llm: The ingredient is a generic 'Fat-free Greek yoghurt'. While the Waitrose product is a specific brand, the generic 'Greek yoghurt, 0% fat' from the cofid database is a more accurate representation of the ingredient as written in a recipe.",
+    "needsReview": false
+  },
+  "fat-free greek yogurt": {
+    "source": "cofid",
+    "id": "12-533",
+    "displayName": "Yogurt, virtually fat free/diet, plain",
+    "per100g": {
+      "calories": 54,
+      "protein_g": 5.4,
+      "carbs_g": 8.2,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 7.9,
+      "sodium_mg": 71
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient is 'fat-free Greek yogurt'. Candidate 12-533 is 'Yogurt, virtually fat free/diet, plain', which is the closest match for a plain, fat-free yogurt product, whereas the other options are either fruit-flavored or have high fat content.",
+    "needsReview": false
+  },
+  "fat-free greek yogurt for top layer": {
+    "source": "cofid",
+    "id": "12-533",
+    "displayName": "Yogurt, virtually fat free/diet, plain",
+    "per100g": {
+      "calories": 54,
+      "protein_g": 5.4,
+      "carbs_g": 8.2,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 7.9,
+      "sodium_mg": 71
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient specifies 'fat-free Greek yogurt'. Candidate 12-533 is a plain, virtually fat-free yogurt, which is the closest nutritional and culinary match for a plain Greek yogurt base in a recipe.",
+    "needsReview": false
+  },
   "fenugreek": {
     "source": "cofid",
     "id": "13-243",
@@ -1120,6 +1764,25 @@
       "fibre_g": 0,
       "sodium_mg": 76
     },
+    "confidence": 0.95,
+    "reason": "single strong match",
+    "needsReview": false
+  },
+  "fine salt": {
+    "source": "openfoodfacts",
+    "id": "0856069005957",
+    "displayName": "Simple Mills Almond Flour Crackers - Fine Ground Sea Salt",
+    "per100g": {
+      "calories": 500,
+      "protein_g": 10,
+      "carbs_g": 56.6666666666667,
+      "fat_g": 30,
+      "fibre_g": 6.66666666666667,
+      "sugar_g": 0,
+      "sodium_mg": 766.6666666666671,
+      "saturatedFat_g": 1.66666666666667
+    },
+    "servingGrams": 30,
     "confidence": 0.95,
     "reason": "single strong match",
     "needsReview": false
@@ -1177,6 +1840,25 @@
     "servingGrams": 80,
     "confidence": 0.85,
     "reason": "llm: The candidate is explicitly identified as a 'Greek Pita Flat Bread', which is a direct match for 'Flat pita breads'.",
+    "needsReview": false
+  },
+  "freeze-dried strawberries": {
+    "source": "openfoodfacts",
+    "id": "0011110903518",
+    "displayName": "simple truth Freeze-Dried Strawberries",
+    "per100g": {
+      "calories": 357,
+      "protein_g": 7.1428571428571,
+      "carbs_g": 82.142857142857,
+      "fat_g": 1.7857142857143,
+      "fibre_g": 20,
+      "sugar_g": 53.571428571429,
+      "sodium_mg": 0,
+      "saturatedFat_g": 0
+    },
+    "servingGrams": 10,
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is specifically 'Freeze-dried strawberries'. Candidate 0011110903518 is a direct match for this product type. While there are multiple similar branded options, this one is a highly credible match.",
     "needsReview": false
   },
   "fresh basil": {
@@ -1264,6 +1946,23 @@
     "reason": "llm: The ingredient specifies fresh parsley, which directly matches the 'Parsley, fresh' candidate.",
     "needsReview": false
   },
+  "fresh plums": {
+    "source": "cofid",
+    "id": "14-374",
+    "displayName": "Plums, dessert, flesh and skin, raw, weighed with stones",
+    "per100g": {
+      "calories": 40,
+      "protein_g": 0.6,
+      "carbs_g": 9.4,
+      "fat_g": 0.2,
+      "fibre_g": 1.3,
+      "sugar_g": 9.4,
+      "sodium_mg": 0
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies 'stoned' (stones removed), and candidate 14-374 is explicitly defined as 'weighed with stones', which is the standard reference for raw fruit preparation before processing. It is the most accurate match for the weight provided in the recipe.",
+    "needsReview": false
+  },
   "fresh rosemary": {
     "source": "cofid",
     "id": "13-892",
@@ -1315,6 +2014,40 @@
     "reason": "llm: Hacendado Mix frutos rojos is a direct match for 'Frozen berries' as it is a frozen mixed berry product, whereas the other options are either unrelated foods or specific single-berry products.",
     "needsReview": false
   },
+  "frozen blackcurrants": {
+    "source": "cofid",
+    "id": "14-053",
+    "displayName": "Blackcurrants, raw",
+    "per100g": {
+      "calories": 28,
+      "protein_g": 0.9,
+      "carbs_g": 6.6,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 6.6,
+      "sodium_mg": 3
+    },
+    "confidence": 0.93,
+    "reason": "llm: The ingredient is plain frozen blackcurrants. Candidate 1 (raw blackcurrants) is the closest nutritional match for the base ingredient, as frozen fruit is typically equivalent to raw fruit in nutritional composition.",
+    "needsReview": false
+  },
+  "frozen blueberries": {
+    "source": "cofid",
+    "id": "14-325",
+    "displayName": "Blueberries",
+    "per100g": {
+      "calories": 40,
+      "protein_g": 0.9,
+      "carbs_g": 9.1,
+      "fat_g": 0.2,
+      "fibre_g": 1.5,
+      "sugar_g": 9.1,
+      "sodium_mg": 2
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient is a generic whole food (blueberries). Candidate 1 is the most accurate generic representation of blueberries. While the ingredient is frozen, the nutritional profile of frozen blueberries is nearly identical to fresh, making this the best match among the options.",
+    "needsReview": false
+  },
   "frozen cauliflower": {
     "source": "cofid",
     "id": "13-512",
@@ -1330,6 +2063,130 @@
     },
     "confidence": 0.93,
     "reason": "llm: Frozen cauliflower is nutritionally equivalent to raw cauliflower, and 13-512 is the best match for the base ingredient.",
+    "needsReview": false
+  },
+  "frozen cherries": {
+    "source": "openfoodfacts",
+    "id": "00263245",
+    "displayName": "Sainsbury's Frozen Dark Sweet Cherries",
+    "per100g": {
+      "calories": 66,
+      "protein_g": 1.1,
+      "carbs_g": 13.9,
+      "fat_g": 0.5,
+      "fibre_g": 2.1,
+      "sugar_g": 12.8,
+      "sodium_mg": 0.01,
+      "saturatedFat_g": 0.1
+    },
+    "servingGrams": 80,
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies 'Frozen cherries', and candidate 00263245 is a direct match for a frozen cherry product, whereas the other candidates are either raw or processed (glace) or generic blends.",
+    "needsReview": false
+  },
+  "frozen chips": {
+    "source": "cofid",
+    "id": "13-026",
+    "displayName": "Potato chips, fine cut, frozen, fried in corn oil",
+    "per100g": {
+      "calories": 364,
+      "protein_g": 4.5,
+      "carbs_g": 41.2,
+      "fat_g": 21.3,
+      "fibre_g": 0,
+      "sugar_g": 0.6,
+      "sodium_mg": 97
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient 'Frozen chips' is generic. Candidate 13-026 is a standard fine-cut frozen potato chip. While 13-024 is also a valid option, 13-026 is a more common representation for standard frozen chips in culinary contexts.",
+    "needsReview": false
+  },
+  "frozen mango": {
+    "source": "cofid",
+    "id": "14-378",
+    "displayName": "Mangoes, ripe, flesh only, raw",
+    "per100g": {
+      "calories": 48,
+      "protein_g": 0.7,
+      "carbs_g": 10.7,
+      "fat_g": 0.6,
+      "fibre_g": 1.1,
+      "sugar_g": 10.4,
+      "sodium_mg": 4
+    },
+    "confidence": 0.93,
+    "reason": "llm: The ingredient is plain frozen mango, which is best represented by the raw mango flesh nutritional profile. Candidate 14-378 is the most accurate match for ripe mango flesh.",
+    "needsReview": false
+  },
+  "frozen mixed berries": {
+    "source": "openfoodfacts",
+    "id": "5057373184818",
+    "displayName": "Tesco Perfectly Imperfect Mixed Berries",
+    "per100g": {
+      "calories": 44,
+      "protein_g": 1,
+      "carbs_g": 6.625,
+      "fat_g": 0.625,
+      "fibre_g": 0.125,
+      "sugar_g": 6.5,
+      "sodium_mg": 0.0125,
+      "saturatedFat_g": 0.5
+    },
+    "servingGrams": 80,
+    "confidence": 0.85,
+    "reason": "llm: Tesco Perfectly Imperfect Mixed Berries is a direct match for frozen mixed berries, which is the primary component of the ingredient line.",
+    "needsReview": false
+  },
+  "frozen peach slices": {
+    "source": "openfoodfacts",
+    "id": "00554374",
+    "displayName": "Trader Joe's Freestone Peach Slices",
+    "per100g": {
+      "calories": 36,
+      "protein_g": 0.714285714285714,
+      "carbs_g": 9.28571428571429,
+      "fat_g": 0,
+      "fibre_g": 1.42857142857143,
+      "sugar_g": 0,
+      "sodium_mg": 0,
+      "saturatedFat_g": 0
+    },
+    "confidence": 0.85,
+    "reason": "llm: The candidate is a specific product of frozen peach slices, which matches the ingredient description perfectly.",
+    "needsReview": false
+  },
+  "frozen raspberries": {
+    "source": "cofid",
+    "id": "14-375",
+    "displayName": "Raspberries, raw",
+    "per100g": {
+      "calories": 25,
+      "protein_g": 0.8,
+      "carbs_g": 5.1,
+      "fat_g": 0.3,
+      "fibre_g": 3.7,
+      "sugar_g": 5.1,
+      "sodium_mg": 0
+    },
+    "confidence": 0.85,
+    "reason": "llm: Frozen raspberries are nutritionally equivalent to raw raspberries in terms of macronutrients, making the raw entry the most accurate baseline for calculation.",
+    "needsReview": false
+  },
+  "frozen strawberries": {
+    "source": "cofid",
+    "id": "14-324",
+    "displayName": "Strawberries, raw",
+    "per100g": {
+      "calories": 30,
+      "protein_g": 0.6,
+      "carbs_g": 6.1,
+      "fat_g": 0.5,
+      "fibre_g": 3.8,
+      "sugar_g": 6.1,
+      "sodium_mg": 1
+    },
+    "confidence": 0.93,
+    "reason": "single strong match",
     "needsReview": false
   },
   "garam masala": {
@@ -1538,6 +2395,23 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "greek yoghurt": {
+    "source": "cofid",
+    "id": "supp:greek-yog",
+    "displayName": "Greek yoghurt",
+    "per100g": {
+      "calories": 97,
+      "protein_g": 9,
+      "carbs_g": 4,
+      "fat_g": 5,
+      "fibre_g": 0,
+      "sugar_g": 4,
+      "sodium_mg": 36
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is specified as 'Greek yoghurt' without a fat percentage, making the generic 'Greek yoghurt' entry the most accurate match compared to the 0% fat variant.",
+    "needsReview": false
+  },
   "greek yogurt": {
     "source": "cofid",
     "id": "12-555",
@@ -1555,6 +2429,23 @@
     "reason": "llm: The ingredient specifies Greek yogurt without mentioning fruit, making the plain Greek style yogurt the most accurate match.",
     "needsReview": false
   },
+  "green bell pepper": {
+    "source": "cofid",
+    "id": "13-318",
+    "displayName": "Peppers, capsicum, green, raw",
+    "per100g": {
+      "calories": 15,
+      "protein_g": 0.8,
+      "carbs_g": 2.6,
+      "fat_g": 0.3,
+      "fibre_g": 0,
+      "sugar_g": 2.4,
+      "sodium_mg": 4
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'Green bell pepper' is a raw, whole vegetable. Candidate 13-318 is the most accurate match for raw green bell pepper, whereas 13-316 refers to chilli peppers.",
+    "needsReview": false
+  },
   "green lentils": {
     "source": "cofid",
     "id": "13-089",
@@ -1570,6 +2461,23 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient specifies 'Green lentils' without mentioning they are cooked, implying the raw dried form is intended.",
+    "needsReview": false
+  },
+  "ground cinnamon": {
+    "source": "cofid",
+    "id": "supp:cinnamon",
+    "displayName": "Cinnamon, ground",
+    "per100g": {
+      "calories": 247,
+      "protein_g": 4,
+      "carbs_g": 81,
+      "fat_g": 1.2,
+      "fibre_g": 53,
+      "sugar_g": 2.2,
+      "sodium_mg": 10
+    },
+    "confidence": 0.95,
+    "reason": "single strong match",
     "needsReview": false
   },
   "ground clove": {
@@ -1604,6 +2512,59 @@
     },
     "confidence": 0.95,
     "reason": "single strong match",
+    "needsReview": false
+  },
+  "ground flaxseed": {
+    "source": "openfoodfacts",
+    "id": "0039978039378",
+    "displayName": "Bob's Red Mill Whole Ground Flaxseed Meal",
+    "per100g": {
+      "calories": 538,
+      "protein_g": 23.0769230769231,
+      "carbs_g": 38.4615384615385,
+      "fat_g": 30.7692307692308,
+      "fibre_g": 23.0769230769231,
+      "sugar_g": 0,
+      "sodium_mg": 38.461538461538495,
+      "saturatedFat_g": 0
+    },
+    "servingGrams": 13,
+    "confidence": 0.9,
+    "reason": "llm: Bob's Red Mill is a standard, widely recognized brand for ground flaxseed meal, and the product description matches the ingredient perfectly.",
+    "needsReview": false
+  },
+  "ground ginger": {
+    "source": "cofid",
+    "id": "13-832",
+    "displayName": "Ginger, ground",
+    "per100g": {
+      "calories": 284,
+      "protein_g": 7.4,
+      "carbs_g": 60,
+      "fat_g": 3.3,
+      "fibre_g": 14.1,
+      "sugar_g": 19.8,
+      "sodium_mg": 34
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Ground ginger' is an exact match for the product 'Ginger, ground'.",
+    "needsReview": false
+  },
+  "ground white pepper": {
+    "source": "cofid",
+    "id": "supp:white-pepper",
+    "displayName": "White pepper, ground",
+    "per100g": {
+      "calories": 296,
+      "protein_g": 10,
+      "carbs_g": 69,
+      "fat_g": 2,
+      "fibre_g": 26,
+      "sugar_g": 0,
+      "sodium_mg": 5
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Ground white pepper' matches the candidate 'White pepper, ground' perfectly.",
     "needsReview": false
   },
   "halloumi": {
@@ -1750,6 +2711,24 @@
     "reason": "llm: The ingredient 'Italian herbs' refers to a dry spice blend, which is best represented by the generic 'Mixed herbs, dried' entry rather than specific pre-prepared sauces or sausages containing herbs.",
     "needsReview": false
   },
+  "italian seasoning": {
+    "source": "openfoodfacts",
+    "id": "50020805",
+    "displayName": "Spicy Italian Seasoning",
+    "per100g": {
+      "calories": 320,
+      "protein_g": 12.9,
+      "carbs_g": 52.6,
+      "fat_g": 3.3,
+      "fibre_g": 0,
+      "sugar_g": 28.9,
+      "sodium_mg": 2912,
+      "saturatedFat_g": 0.6
+    },
+    "confidence": 0.95,
+    "reason": "single strong match",
+    "needsReview": false
+  },
   "kale": {
     "source": "cofid",
     "id": "13-234",
@@ -1803,6 +2782,42 @@
     "reason": "llm: Vadasz Kimchi is a standard, widely available refrigerated kimchi product that matches the generic ingredient 'Kimchi' well, whereas the other options are either a specific niche brand or a processed noodle product.",
     "needsReview": false
   },
+  "large eggs": {
+    "source": "cofid",
+    "id": "12-937",
+    "displayName": "Eggs, chicken, whole, raw",
+    "per100g": {
+      "calories": 131,
+      "protein_g": 12.6,
+      "carbs_g": 0,
+      "fat_g": 9,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 154,
+      "saturatedFat_g": 33.75
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'large eggs' is a generic culinary item. The COFID database entry 'Eggs, chicken, whole, raw' is the most accurate nutritional representation for a standard recipe ingredient, whereas the other options are specific branded products that may not be universally applicable.",
+    "needsReview": false
+  },
+  "large eggs for top layer": {
+    "source": "cofid",
+    "id": "12-937",
+    "displayName": "Eggs, chicken, whole, raw",
+    "per100g": {
+      "calories": 131,
+      "protein_g": 12.6,
+      "carbs_g": 0,
+      "fat_g": 9,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 154,
+      "saturatedFat_g": 33.75
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies 'large eggs', which refers to the whole egg. Candidate 12-937 represents whole raw chicken eggs, which is the standard culinary ingredient.",
+    "needsReview": false
+  },
   "large onion": {
     "source": "cofid",
     "id": "13-499",
@@ -1854,6 +2869,40 @@
     "reason": "llm: Lemon juice, fresh is the most direct and standard match for the ingredient 'Lemon juice'.",
     "needsReview": false
   },
+  "lemon zest": {
+    "source": "cofid",
+    "id": "14-130",
+    "displayName": "Lemons, flesh only, raw, weighed with peel and pips",
+    "per100g": {
+      "calories": 9,
+      "protein_g": 0.5,
+      "carbs_g": 1.4,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 1.4,
+      "sodium_mg": 2
+    },
+    "confidence": 0.93,
+    "reason": "llm: Lemon zest is derived from the peel of the lemon. Candidate 14-130 is the only option that explicitly includes the peel in its nutritional profile, making it the most accurate representation for zest.",
+    "needsReview": false
+  },
+  "lemons": {
+    "source": "cofid",
+    "id": "14-128",
+    "displayName": "Lemons, whole, without pips",
+    "per100g": {
+      "calories": 19,
+      "protein_g": 1,
+      "carbs_g": 3.2,
+      "fat_g": 0.3,
+      "fibre_g": 0,
+      "sugar_g": 3.2,
+      "sodium_mg": 5
+    },
+    "confidence": 0.95,
+    "reason": "llm: The recipe calls for whole lemons to be zested, which requires the peel. Candidate 14-128 represents the whole lemon, whereas the other candidates are for peeled or flesh-only lemons.",
+    "needsReview": false
+  },
   "light coconut milk": {
     "source": "cofid",
     "id": "14-890",
@@ -1869,6 +2918,44 @@
     },
     "confidence": 0.95,
     "reason": "llm: The ingredient specifies 'Light coconut milk', which corresponds to the reduced fat variant in the provided candidates.",
+    "needsReview": false
+  },
+  "light mozzarella": {
+    "source": "openfoodfacts",
+    "id": "8000430137019",
+    "displayName": "Galbani Mozzarella Light",
+    "per100g": {
+      "calories": 171,
+      "protein_g": 17,
+      "carbs_g": 1,
+      "fat_g": 11,
+      "fibre_g": 0,
+      "sugar_g": 0.8,
+      "sodium_mg": 0.6,
+      "saturatedFat_g": 7.1
+    },
+    "servingGrams": 100,
+    "confidence": 0.9,
+    "reason": "llm: Galbani Mozzarella Light is a widely recognized and standard product for 'Light mozzarella' in recipes. While other brands are also valid, Galbani is a highly representative choice for this ingredient.",
+    "needsReview": false
+  },
+  "light olive oil": {
+    "source": "openfoodfacts",
+    "id": "0041790220933",
+    "displayName": "Bertolli Olive Oil Extra Light Taste",
+    "per100g": {
+      "calories": 800,
+      "protein_g": 0,
+      "carbs_g": 0,
+      "fat_g": 93.33,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 0,
+      "saturatedFat_g": 13.33
+    },
+    "servingGrams": 15,
+    "confidence": 0.95,
+    "reason": "llm: Bertolli Olive Oil Extra Light Taste is a direct match for the ingredient 'light olive oil', whereas Fry Light is a spray product and the other options are either incorrect food types or generic database entries.",
     "needsReview": false
   },
   "light soy sauce": {
@@ -1939,6 +3026,58 @@
     "reason": "llm: When a recipe calls for a whole fruit like '2 Limes', it is standard to account for the weight of the whole fruit including peel and pips, making 14-132 the most accurate representation for nutritional calculation.",
     "needsReview": false
   },
+  "low-fat cottage cheese": {
+    "source": "cofid",
+    "id": "12-550",
+    "displayName": "Cheese, cottage, plain, reduced fat",
+    "per100g": {
+      "calories": 68,
+      "protein_g": 10.6,
+      "carbs_g": 3.3,
+      "fat_g": 1.5,
+      "fibre_g": 0,
+      "sugar_g": 3.3,
+      "sodium_mg": 210
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is a generic description of a food item rather than a specific brand. Candidate 12-550 is a generic database entry for 'Cheese, cottage, plain, reduced fat', which is the most accurate match for the generic ingredient 'low-fat cottage cheese'.",
+    "needsReview": false
+  },
+  "malt vinegar": {
+    "source": "openfoodfacts",
+    "id": "5060336500044",
+    "displayName": "Sarson's Malt Vinegar",
+    "per100g": {
+      "calories": 9,
+      "protein_g": 1,
+      "carbs_g": 0.5,
+      "fat_g": 0.3,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 39,
+      "saturatedFat_g": 0
+    },
+    "confidence": 1,
+    "reason": "llm: Sarson's Malt Vinegar is a direct and accurate match for the ingredient 'malt vinegar'.",
+    "needsReview": false
+  },
+  "mango chutney": {
+    "source": "cofid",
+    "id": "17-343",
+    "displayName": "Chutney, mango, sweet",
+    "per100g": {
+      "calories": 189,
+      "protein_g": 0.7,
+      "carbs_g": 48.3,
+      "fat_g": 0.1,
+      "fibre_g": 0,
+      "sugar_g": 45.7,
+      "sodium_mg": 1300
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is explicitly 'Mango chutney', which matches the 'Chutney, mango, sweet' product record perfectly.",
+    "needsReview": false
+  },
   "maple syrup": {
     "source": "openfoodfacts",
     "id": "4056489774747",
@@ -1977,6 +3116,40 @@
     "reason": "llm: Marmite Yeast Extract is the standard and most common product name for the ingredient Marmite.",
     "needsReview": false
   },
+  "medjool dates": {
+    "source": "cofid",
+    "id": "14-083",
+    "displayName": "Dates, raw, flesh and skin",
+    "per100g": {
+      "calories": 124,
+      "protein_g": 1.5,
+      "carbs_g": 31.3,
+      "fat_g": 0.1,
+      "fibre_g": 0,
+      "sugar_g": 31.3,
+      "sodium_mg": 7
+    },
+    "confidence": 0.95,
+    "reason": "llm: Medjool dates are typically sold and used as fresh, raw fruit. Candidate 14-083 represents raw dates, which is the standard culinary assumption for Medjool dates unless specified as dried or pitted.",
+    "needsReview": false
+  },
+  "microwavable rice packet": {
+    "source": "cofid",
+    "id": "supp:cooked-rice",
+    "displayName": "Rice, cooked (pre-packed)",
+    "per100g": {
+      "calories": 140,
+      "protein_g": 2.7,
+      "carbs_g": 30,
+      "fat_g": 0.5,
+      "fibre_g": 0.5,
+      "sugar_g": 0.1,
+      "sodium_mg": 5
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies a microwavable rice packet, which is best represented by the generic pre-packed cooked rice entry.",
+    "needsReview": false
+  },
   "microwave rice pack": {
     "source": "cofid",
     "id": "supp:cooked-rice",
@@ -1992,6 +3165,23 @@
     },
     "confidence": 0.95,
     "reason": "llm: The ingredient 'Microwave rice pack' is a generic description for pre-packed cooked rice, which matches the 'Rice, cooked (pre-packed)' entry most accurately compared to specific variants like egg fried rice.",
+    "needsReview": false
+  },
+  "milk": {
+    "source": "cofid",
+    "id": "12-321",
+    "displayName": "Milk, Channel Islands, whole, pasteurised",
+    "per100g": {
+      "calories": 72,
+      "protein_g": 3.5,
+      "carbs_g": 4.3,
+      "fat_g": 4.7,
+      "fibre_g": 0,
+      "sugar_g": 4.3,
+      "sodium_mg": 39
+    },
+    "confidence": 0.85,
+    "reason": "llm: In recipes, 'Milk' without a qualifier typically refers to standard whole milk. Candidate 12-321 is the closest match to standard whole milk among the options provided.",
     "needsReview": false
   },
   "minced dill": {
@@ -2030,6 +3220,23 @@
     "reason": "llm: The ingredient 'Minced garlic' is a direct match for the Kirkland Minced California Garlic product, which is a standard pantry staple for this specific preparation.",
     "needsReview": false
   },
+  "minced ginger": {
+    "source": "cofid",
+    "id": "supp:ginger-paste",
+    "displayName": "Ginger paste",
+    "per100g": {
+      "calories": 100,
+      "protein_g": 1,
+      "carbs_g": 12,
+      "fat_g": 4,
+      "fibre_g": 2,
+      "sugar_g": 8,
+      "sodium_mg": 600
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient is 'minced ginger', which is functionally equivalent to 'ginger paste'. While branded options exist, the generic 'Ginger paste' is a more accurate representation of the ingredient as typically used in recipes unless a specific brand is requested.",
+    "needsReview": false
+  },
   "minced parsley": {
     "source": "cofid",
     "id": "13-844",
@@ -2045,6 +3252,24 @@
     },
     "confidence": 0.9,
     "reason": "llm: The ingredient is 'minced parsley', which refers to the herb itself. The branded products are mixtures of garlic and parsley, which would alter the recipe significantly. Fresh parsley is the standard culinary interpretation for 'minced parsley'.",
+    "needsReview": false
+  },
+  "mirin": {
+    "source": "openfoodfacts",
+    "id": "5014276512018",
+    "displayName": "Yutaka mirin",
+    "per100g": {
+      "calories": 212,
+      "protein_g": 0,
+      "carbs_g": 53,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 50,
+      "sodium_mg": 20,
+      "saturatedFat_g": 0
+    },
+    "confidence": 0.95,
+    "reason": "llm: Yutaka mirin is a standard, widely recognized brand for mirin used in cooking, making it a highly appropriate match for a generic recipe ingredient.",
     "needsReview": false
   },
   "miso paste": {
@@ -2065,6 +3290,25 @@
     "reason": "llm: Yutaka Organic Miso Paste is a standard, widely available miso paste that matches the ingredient description perfectly.",
     "needsReview": false
   },
+  "mixed berries": {
+    "source": "openfoodfacts",
+    "id": "5059319016573",
+    "displayName": "K Granola con Avena Mixed Berries",
+    "per100g": {
+      "calories": 451,
+      "protein_g": 9.33333333333333,
+      "carbs_g": 66.6666666666667,
+      "fat_g": 14,
+      "fibre_g": 10,
+      "sugar_g": 11.1111111111111,
+      "sodium_mg": 0,
+      "saturatedFat_g": 2
+    },
+    "servingGrams": 45,
+    "confidence": 0.95,
+    "reason": "single strong match",
+    "needsReview": false
+  },
   "mixed fresh herbs": {
     "source": "cofid",
     "id": "13-884",
@@ -2076,6 +3320,41 @@
       "fat_g": 8.5,
       "fibre_g": 0,
       "sodium_mg": 81
+    },
+    "confidence": 0.95,
+    "reason": "single strong match",
+    "needsReview": false
+  },
+  "mixed seeds": {
+    "source": "cofid",
+    "id": "supp:mixed-seeds",
+    "displayName": "Mixed seeds",
+    "per100g": {
+      "calories": 570,
+      "protein_g": 20,
+      "carbs_g": 20,
+      "fat_g": 45,
+      "fibre_g": 10,
+      "sugar_g": 2,
+      "sodium_mg": 10
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Mixed seeds' is a direct match for the generic 'Mixed seeds' product, whereas the other candidates are specific prepared dishes (nut and seed roasts).",
+    "needsReview": false
+  },
+  "mozzarella balls": {
+    "source": "openfoodfacts",
+    "id": "3760056264678",
+    "displayName": "Galbani Galbani Mozzarella balls le sachet de 17 150 g net égoutté",
+    "per100g": {
+      "calories": 216,
+      "protein_g": 17,
+      "carbs_g": 1,
+      "fat_g": 16,
+      "fibre_g": 0,
+      "sugar_g": 1,
+      "sodium_mg": 280,
+      "saturatedFat_g": 11
     },
     "confidence": 0.95,
     "reason": "single strong match",
@@ -2115,6 +3394,25 @@
     "reason": "llm: The ingredient 'Mushrooms' without further qualification typically refers to fresh white mushrooms, which matches the first candidate.",
     "needsReview": false
   },
+  "myprotein vanilla whey protein powder": {
+    "source": "openfoodfacts",
+    "id": "5055534324134",
+    "displayName": "MYPROTEIN Impact whey protein vanilla",
+    "per100g": {
+      "calories": 400,
+      "protein_g": 73.3333333333333,
+      "carbs_g": 10,
+      "fat_g": 6.66666666666667,
+      "fibre_g": 0,
+      "sugar_g": 3.33333333333333,
+      "sodium_mg": 366.66666666666697,
+      "saturatedFat_g": 3.33333333333333
+    },
+    "servingGrams": 30,
+    "confidence": 0.8,
+    "reason": "single strong match",
+    "needsReview": false
+  },
   "nutritional yeast": {
     "source": "openfoodfacts",
     "id": "0074305066054",
@@ -2131,6 +3429,25 @@
     "servingGrams": 10,
     "confidence": 0.9,
     "reason": "llm: Bragg Nutritional Yeast is a standard, widely recognized product for the ingredient 'nutritional yeast' in recipes, and it has a high match score.",
+    "needsReview": false
+  },
+  "oat flour": {
+    "source": "openfoodfacts",
+    "id": "8713576000610",
+    "displayName": "Terra Sana Whole Wheat & Oat Flour Wraps",
+    "per100g": {
+      "calories": 347,
+      "protein_g": 10,
+      "carbs_g": 50.2,
+      "fat_g": 10.4,
+      "fibre_g": 6.5,
+      "sugar_g": 3.3,
+      "sodium_mg": 840,
+      "saturatedFat_g": 0.7
+    },
+    "servingGrams": 40,
+    "confidence": 0.95,
+    "reason": "single strong match",
     "needsReview": false
   },
   "oat milk": {
@@ -2186,6 +3503,44 @@
     "reason": "llm: The ingredient 'Olive oil' is an exact match for the product 'Oil, olive'.",
     "needsReview": false
   },
+  "olive oil spray": {
+    "source": "openfoodfacts",
+    "id": "5601024154707",
+    "displayName": "Oliveira da Serra Azeite Virgem Extra Q.B. (spray)",
+    "per100g": {
+      "calories": 822,
+      "protein_g": 0,
+      "carbs_g": 0,
+      "fat_g": 91,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 0,
+      "saturatedFat_g": 16
+    },
+    "servingGrams": 100,
+    "confidence": 0.85,
+    "reason": "llm: The ingredient specifies 'Olive oil spray'. Candidate 5601024154707 is explicitly an olive oil spray product, which is a more accurate match for the usage than a generic oil or a specific brand like Fry Light which often contains emulsifiers and different nutritional profiles.",
+    "needsReview": false
+  },
+  "on strawberry whey protein powder": {
+    "source": "openfoodfacts",
+    "id": "5999076238330",
+    "displayName": "BioTechUSA 100% PURE WHEY strawberry flavoured",
+    "per100g": {
+      "calories": 384,
+      "protein_g": 74,
+      "carbs_g": 6.6,
+      "fat_g": 6.2,
+      "fibre_g": 0,
+      "sugar_g": 3.8,
+      "sodium_mg": 364,
+      "saturatedFat_g": 2
+    },
+    "servingGrams": 56,
+    "confidence": 0.85,
+    "reason": "llm: The ingredient specifies 'strawberry whey protein powder', and the BioTechUSA product is a direct match for a strawberry-flavored whey protein powder.",
+    "needsReview": false
+  },
   "onion": {
     "source": "cofid",
     "id": "13-499",
@@ -2201,6 +3556,23 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Onion' without further specification typically refers to a fresh, raw onion.",
+    "needsReview": false
+  },
+  "orange": {
+    "source": "cofid",
+    "id": "14-360",
+    "displayName": "Oranges, flesh only, weighed with peel and pips",
+    "per100g": {
+      "calories": 27,
+      "protein_g": 0.8,
+      "carbs_g": 5.8,
+      "fat_g": 0.2,
+      "fibre_g": 1.2,
+      "sugar_g": 5.8,
+      "sodium_mg": 0
+    },
+    "confidence": 0.95,
+    "reason": "llm: When a recipe lists '1 Orange', it typically refers to the whole fruit including the peel and pips, making 14-360 the most accurate nutritional representation for a whole unit.",
     "needsReview": false
   },
   "oregano": {
@@ -2222,6 +3594,23 @@
     "reason": "single strong match",
     "needsReview": false
   },
+  "oyster mushrooms": {
+    "source": "cofid",
+    "id": "13-293",
+    "displayName": "Mushrooms, oyster, raw",
+    "per100g": {
+      "calories": 8,
+      "protein_g": 1.6,
+      "carbs_g": 0,
+      "fat_g": 0.2,
+      "fibre_g": 0,
+      "sugar_g": 0,
+      "sodium_mg": 77
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Oyster mushrooms' matches the candidate 'Mushrooms, oyster, raw' perfectly.",
+    "needsReview": false
+  },
   "pak choi": {
     "source": "cofid",
     "id": "13-516",
@@ -2237,6 +3626,24 @@
     },
     "confidence": 0.95,
     "reason": "single strong match",
+    "needsReview": false
+  },
+  "paneer block": {
+    "source": "cofid",
+    "id": "12-495",
+    "displayName": "Cheese, Paneer",
+    "per100g": {
+      "calories": 328,
+      "protein_g": 26,
+      "carbs_g": 0.9,
+      "fat_g": 24.5,
+      "fibre_g": 0,
+      "sugar_g": 0.9,
+      "sodium_mg": 19,
+      "saturatedFat_g": 64.78
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Paneer block' is a direct match for the 'Cheese, Paneer' product record.",
     "needsReview": false
   },
   "panko breadcrumbs": {
@@ -2327,6 +3734,41 @@
     "reason": "llm: The ingredient 'Peanut butter' matches the candidate 'Peanut butter, smooth' perfectly.",
     "needsReview": false
   },
+  "pears": {
+    "source": "cofid",
+    "id": "14-361",
+    "displayName": "Pears, average, flesh and skin, raw, weighed with core and stalk",
+    "per100g": {
+      "calories": 37,
+      "protein_g": 0.3,
+      "carbs_g": 9.2,
+      "fat_g": 0.1,
+      "fibre_g": 2.3,
+      "sugar_g": 9.2,
+      "sodium_mg": 1
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'Pears' refers to the whole fruit including skin and core, which matches the description of candidate 14-361.",
+    "needsReview": false
+  },
+  "peas": {
+    "source": "cofid",
+    "id": "13-527",
+    "displayName": "Peas, frozen, raw",
+    "per100g": {
+      "calories": 68,
+      "protein_g": 5.3,
+      "carbs_g": 10.7,
+      "fat_g": 0.7,
+      "fibre_g": 5.3,
+      "sugar_g": 5.7,
+      "sodium_mg": 4,
+      "saturatedFat_g": 23.93
+    },
+    "confidence": 0.85,
+    "reason": "llm: In standard culinary contexts, 'peas' without further qualification typically refers to garden peas, which are most commonly purchased and used in their frozen form.",
+    "needsReview": false
+  },
   "philadelphia lightest": {
     "source": "openfoodfacts",
     "id": "7622201693930",
@@ -2361,6 +3803,24 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient 'Pickled onions' matches the candidate 'Onions, pickled, drained' perfectly.",
+    "needsReview": false
+  },
+  "pink pickled onions": {
+    "source": "openfoodfacts",
+    "id": "4088600563893",
+    "displayName": "Aldi Pickled Pink Onions",
+    "per100g": {
+      "calories": 52,
+      "protein_g": 0.5,
+      "carbs_g": 11.6,
+      "fat_g": 0.1,
+      "fibre_g": 1.3,
+      "sugar_g": 10.7,
+      "sodium_mg": 156,
+      "saturatedFat_g": 0
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is a specific branded product type 'Pink pickled onions'. Candidate 1 is a direct match for this description.",
     "needsReview": false
   },
   "pistachio spread": {
@@ -2399,6 +3859,23 @@
     "reason": "llm: The ingredient 'plain flour' is a direct match for 'Flour, wheat, white, plain, soft'.",
     "needsReview": false
   },
+  "plant-based greek yoghurt": {
+    "source": "cofid",
+    "id": "supp:plant-yoghurt",
+    "displayName": "Plant-based yoghurt",
+    "per100g": {
+      "calories": 70,
+      "protein_g": 3,
+      "carbs_g": 8,
+      "fat_g": 3,
+      "fibre_g": 0.5,
+      "sugar_g": 4,
+      "sodium_mg": 40
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient explicitly specifies 'Plant-based', which matches the 'Plant-based yoghurt' candidate perfectly, whereas the other candidates are dairy-based Greek yoghurts.",
+    "needsReview": false
+  },
   "plant-based milk": {
     "source": "cofid",
     "id": "supp:plant-milk",
@@ -2433,6 +3910,61 @@
     "reason": "llm: The ingredient name matches the candidate name exactly.",
     "needsReview": false
   },
+  "popcorn kernels": {
+    "source": "openfoodfacts",
+    "id": "7340011351399",
+    "displayName": "Coop Popcorn kernels",
+    "per100g": {
+      "calories": 353,
+      "protein_g": 11,
+      "carbs_g": 61,
+      "fat_g": 4.3,
+      "fibre_g": 0,
+      "sugar_g": 0.9,
+      "sodium_mg": 0,
+      "saturatedFat_g": 0
+    },
+    "servingGrams": 100,
+    "confidence": 0.95,
+    "reason": "single strong match",
+    "needsReview": false
+  },
+  "potato": {
+    "source": "cofid",
+    "id": "13-489",
+    "displayName": "Potatoes, old, raw, flesh only",
+    "per100g": {
+      "calories": 82,
+      "protein_g": 1.9,
+      "carbs_g": 19.6,
+      "fat_g": 0.1,
+      "fibre_g": 2,
+      "sugar_g": 0.9,
+      "sodium_mg": 2,
+      "saturatedFat_g": 53.24
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient 'Potato' is generic. 'Potatoes, old, raw, flesh only' is the standard reference for general-purpose potatoes in nutritional databases when no specific variety is mentioned.",
+    "needsReview": false
+  },
+  "pre-cooked udon noodles": {
+    "source": "openfoodfacts",
+    "id": "4068706309939",
+    "displayName": "Asia Green Garden Noodles Udon Pre-Cooked",
+    "per100g": {
+      "calories": 130,
+      "protein_g": 4,
+      "carbs_g": 26,
+      "fat_g": 0.4,
+      "fibre_g": 0,
+      "sugar_g": 0.4,
+      "sodium_mg": 43,
+      "saturatedFat_g": 0.1
+    },
+    "confidence": 1,
+    "reason": "llm: The candidate is a direct match for the product name and description provided in the ingredient line.",
+    "needsReview": false
+  },
   "protein powder": {
     "source": "openfoodfacts",
     "id": "0851770007566",
@@ -2450,6 +3982,40 @@
     "servingGrams": 51,
     "confidence": 0.85,
     "reason": "llm: Orgain Organic Protein is a standard protein powder supplement, which matches the ingredient 'Protein powder' much better than a soy drink or non-protein powders like baking or chilli powder.",
+    "needsReview": false
+  },
+  "pumpkin seeds": {
+    "source": "cofid",
+    "id": "14-842",
+    "displayName": "Pumpkin seeds",
+    "per100g": {
+      "calories": 565,
+      "protein_g": 24.4,
+      "carbs_g": 15.2,
+      "fat_g": 45.6,
+      "fibre_g": 0,
+      "sugar_g": 1.1,
+      "sodium_mg": 18
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'Pumpkin seeds' matches the product 'Pumpkin seeds' perfectly, whereas the other options refer to the flesh of the pumpkin.",
+    "needsReview": false
+  },
+  "pumpkin seeds for topping": {
+    "source": "cofid",
+    "id": "14-842",
+    "displayName": "Pumpkin seeds",
+    "per100g": {
+      "calories": 565,
+      "protein_g": 24.4,
+      "carbs_g": 15.2,
+      "fat_g": 45.6,
+      "fibre_g": 0,
+      "sugar_g": 1.1,
+      "sodium_mg": 18
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient 'pumpkin seeds' directly matches the product 'Pumpkin seeds'. The other candidates refer to the flesh of the pumpkin, which is not the same ingredient.",
     "needsReview": false
   },
   "quark": {
@@ -2608,6 +4174,25 @@
     "reason": "llm: The ingredient 'Red curry paste' is a direct match for the generic 'Curry paste' product, whereas the other candidates refer to prepared lentil or bean dishes.",
     "needsReview": false
   },
+  "red lentil pasta": {
+    "source": "openfoodfacts",
+    "id": "00359566",
+    "displayName": "Sainsbury's Red Lentil Penne",
+    "per100g": {
+      "calories": 160,
+      "protein_g": 12.4,
+      "carbs_g": 23.8,
+      "fat_g": 0.8,
+      "fibre_g": 3.6,
+      "sugar_g": 0.6,
+      "sodium_mg": 0,
+      "saturatedFat_g": 0.2
+    },
+    "servingGrams": 200,
+    "confidence": 0.85,
+    "reason": "llm: The ingredient is 'Red lentil pasta', which is a processed food product. While the candidate is a specific brand, it is a direct match for the product type, whereas the other candidates are raw lentils or different types of pasta. The confidence is high as it accurately represents the processed nature of the ingredient.",
+    "needsReview": false
+  },
   "red lentils": {
     "source": "cofid",
     "id": "13-657",
@@ -2676,6 +4261,40 @@
     "reason": "llm: The ingredient 'Red pepper' typically refers to a raw bell pepper, which matches the 'Pepper, capsicum, red, raw' entry best.",
     "needsReview": false
   },
+  "red wine": {
+    "source": "cofid",
+    "id": "17-752",
+    "displayName": "Wine, red",
+    "per100g": {
+      "calories": 76,
+      "protein_g": 0.1,
+      "carbs_g": 0.2,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 0.2,
+      "sodium_mg": 7
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is a generic red wine, which matches the 'Wine, red' entry perfectly.",
+    "needsReview": false
+  },
+  "red wine vinegar": {
+    "source": "cofid",
+    "id": "supp:wine-vinegar",
+    "displayName": "Wine vinegar",
+    "per100g": {
+      "calories": 19,
+      "protein_g": 0.1,
+      "carbs_g": 0.6,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 0.4,
+      "sodium_mg": 8
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is specifically 'Red wine vinegar', and 'Wine vinegar' is the most accurate category match for this product.",
+    "needsReview": false
+  },
   "reduced-fat cheddar": {
     "source": "cofid",
     "id": "supp:reduced-cheddar",
@@ -2708,6 +4327,25 @@
     },
     "confidence": 0.85,
     "reason": "llm: The ingredient is vegetable stock, and supp:veg-stock is the only candidate that matches the base food item, despite the 'reduced-salt' variant not being explicitly present.",
+    "needsReview": false
+  },
+  "rice cakes": {
+    "source": "openfoodfacts",
+    "id": "5013665100065",
+    "displayName": "kallø Organic Lightly Salted Wholegrain Low Fat Rice Cakes",
+    "per100g": {
+      "calories": 1900,
+      "protein_g": 8.5,
+      "carbs_g": 82.3,
+      "fat_g": 2.7,
+      "fibre_g": 0,
+      "sugar_g": 0.5,
+      "sodium_mg": 118,
+      "saturatedFat_g": 0.7
+    },
+    "servingGrams": 100,
+    "confidence": 1,
+    "reason": "llm: The ingredient specifically requests 'Rice cakes', and the Kallø product is a direct match for this processed food item, whereas the other candidates are raw rice grains.",
     "needsReview": false
   },
   "rice noodles": {
@@ -2779,6 +4417,23 @@
     "reason": "llm: The ingredient 'Ripe banana' refers to the edible flesh of the fruit. Candidate 14-318 ('Bananas, flesh only') is the most accurate representation for a recipe ingredient, as it excludes the weight of the skin which is not consumed.",
     "needsReview": false
   },
+  "ripe bananas": {
+    "source": "cofid",
+    "id": "14-318",
+    "displayName": "Bananas, flesh only",
+    "per100g": {
+      "calories": 81,
+      "protein_g": 1.2,
+      "carbs_g": 20.3,
+      "fat_g": 0.1,
+      "fibre_g": 1.4,
+      "sugar_g": 18.1,
+      "sodium_mg": 0
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is a raw, whole food item. Candidate 14-318 (Bananas, flesh only) is the most accurate nutritional representation for raw, mashed bananas, as it excludes the weight of the skin which is included in candidate 14-347.",
+    "needsReview": false
+  },
   "rocket": {
     "source": "cofid",
     "id": "13-522",
@@ -2814,6 +4469,42 @@
     "reason": "llm: The ingredient 'Rolled oats' is a generic whole food item. Candidate 11-788 'Porridge oats' is the standard culinary equivalent for rolled oats in a recipe context, whereas the other options are either specific brands or processed/cooked variants.",
     "needsReview": false
   },
+  "rolled oats for base": {
+    "source": "cofid",
+    "id": "11-788",
+    "displayName": "Porridge oats, unfortified",
+    "per100g": {
+      "calories": 381,
+      "protein_g": 10.9,
+      "carbs_g": 70.7,
+      "fat_g": 8.1,
+      "fibre_g": 7.8,
+      "sugar_g": 0.3,
+      "sodium_mg": 1,
+      "saturatedFat_g": 16.9
+    },
+    "confidence": 0.95,
+    "reason": "llm: Rolled oats are synonymous with porridge oats, making this the most accurate nutritional and ingredient match for the base of a recipe.",
+    "needsReview": false
+  },
+  "rolled oats for topping": {
+    "source": "cofid",
+    "id": "11-788",
+    "displayName": "Porridge oats, unfortified",
+    "per100g": {
+      "calories": 381,
+      "protein_g": 10.9,
+      "carbs_g": 70.7,
+      "fat_g": 8.1,
+      "fibre_g": 7.8,
+      "sugar_g": 0.3,
+      "sodium_mg": 1,
+      "saturatedFat_g": 16.9
+    },
+    "confidence": 0.95,
+    "reason": "llm: Rolled oats are synonymous with porridge oats in their raw, dry state, which is the appropriate form for a topping.",
+    "needsReview": false
+  },
   "roma tomato": {
     "source": "cofid",
     "id": "13-517",
@@ -2846,6 +4537,23 @@
     },
     "confidence": 0.85,
     "reason": "llm: Romaine lettuce is a specific type of lettuce, and the generic 'Lettuce, average, raw' entry is the most appropriate nutritional match for a raw vegetable ingredient compared to a prepared sandwich.",
+    "needsReview": false
+  },
+  "runny tahini": {
+    "source": "cofid",
+    "id": "14-847",
+    "displayName": "Tahini paste",
+    "per100g": {
+      "calories": 607,
+      "protein_g": 18.5,
+      "carbs_g": 0.9,
+      "fat_g": 58.9,
+      "fibre_g": 0,
+      "sugar_g": 0.4,
+      "sodium_mg": 20
+    },
+    "confidence": 0.95,
+    "reason": "llm: Runny tahini is a standard description for tahini paste, which is a pantry staple ingredient.",
     "needsReview": false
   },
   "salt": {
@@ -2933,6 +4641,77 @@
     },
     "confidence": 0.95,
     "reason": "single strong match",
+    "needsReview": false
+  },
+  "self raising flour": {
+    "source": "cofid",
+    "id": "11-888",
+    "displayName": "Flour, wheat, white, self raising",
+    "per100g": {
+      "calories": 348,
+      "protein_g": 8.9,
+      "carbs_g": 79.6,
+      "fat_g": 1.5,
+      "fibre_g": 4,
+      "sugar_g": 0.6,
+      "sodium_mg": 342,
+      "saturatedFat_g": 37.4
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is a generic 'Self raising flour' without a brand specified. The COFID generic entry is the most appropriate match for a standard recipe ingredient.",
+    "needsReview": false
+  },
+  "self-raising flour": {
+    "source": "cofid",
+    "id": "11-888",
+    "displayName": "Flour, wheat, white, self raising",
+    "per100g": {
+      "calories": 348,
+      "protein_g": 8.9,
+      "carbs_g": 79.6,
+      "fat_g": 1.5,
+      "fibre_g": 4,
+      "sugar_g": 0.6,
+      "sodium_mg": 342,
+      "saturatedFat_g": 37.4
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient is a generic pantry staple. The COFID database entry for 'Flour, wheat, white, self raising' is the most accurate representation of a standard recipe ingredient compared to specific branded products.",
+    "needsReview": false
+  },
+  "self-raising flour plus extra for dusting": {
+    "source": "cofid",
+    "id": "11-888",
+    "displayName": "Flour, wheat, white, self raising",
+    "per100g": {
+      "calories": 348,
+      "protein_g": 8.9,
+      "carbs_g": 79.6,
+      "fat_g": 1.5,
+      "fibre_g": 4,
+      "sugar_g": 0.6,
+      "sodium_mg": 342,
+      "saturatedFat_g": 37.4
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies self-raising flour, which is standard white wheat flour with leavening agents. Candidate 11-888 is the most accurate match for standard self-raising flour.",
+    "needsReview": false
+  },
+  "semi-skimmed milk": {
+    "source": "cofid",
+    "id": "12-313",
+    "displayName": "Milk, semi-skimmed, pasteurised, average",
+    "per100g": {
+      "calories": 46,
+      "protein_g": 3.5,
+      "carbs_g": 4.7,
+      "fat_g": 1.7,
+      "fibre_g": 0,
+      "sugar_g": 4.7,
+      "sodium_mg": 43
+    },
+    "confidence": 0.98,
+    "reason": "llm: The candidate 12-313 is a direct match for 'semi-skimmed milk' and is the most generic, representative option for the ingredient.",
     "needsReview": false
   },
   "sesame oil": {
@@ -3041,6 +4820,40 @@
     "reason": "llm: The ingredient is explicitly 'Skimmed milk', which matches the candidate 'Skimmed milk' perfectly, whereas the other candidates are for semi-skimmed milk.",
     "needsReview": false
   },
+  "small carrot": {
+    "source": "cofid",
+    "id": "13-448",
+    "displayName": "Carrots, young, raw",
+    "per100g": {
+      "calories": 30,
+      "protein_g": 0.7,
+      "carbs_g": 6,
+      "fat_g": 0.5,
+      "fibre_g": 0,
+      "sugar_g": 5.6,
+      "sodium_mg": 40
+    },
+    "confidence": 0.93,
+    "reason": "llm: The ingredient specifies a small, raw carrot. Candidate 13-448 (Carrots, young, raw) is the best match for a fresh, raw carrot used in a recipe.",
+    "needsReview": false
+  },
+  "small onion": {
+    "source": "cofid",
+    "id": "13-499",
+    "displayName": "Onions, raw",
+    "per100g": {
+      "calories": 35,
+      "protein_g": 1,
+      "carbs_g": 8,
+      "fat_g": 0.1,
+      "fibre_g": 2.2,
+      "sugar_g": 6.2,
+      "sodium_mg": 3
+    },
+    "confidence": 0.93,
+    "reason": "llm: The ingredient is a raw onion, which matches the 'Onions, raw' entry perfectly. The other options are either processed products or not the primary ingredient.",
+    "needsReview": false
+  },
   "smoked paprika": {
     "source": "cofid",
     "id": "supp:paprika",
@@ -3073,6 +4886,23 @@
     },
     "confidence": 1,
     "reason": "llm: The ingredient explicitly specifies 'Smoked tofu', which matches the candidate 'Smoked tofu' perfectly.",
+    "needsReview": false
+  },
+  "smooth peanut butter": {
+    "source": "cofid",
+    "id": "14-892",
+    "displayName": "Peanut butter, smooth",
+    "per100g": {
+      "calories": 607,
+      "protein_g": 22.8,
+      "carbs_g": 13.1,
+      "fat_g": 51.8,
+      "fibre_g": 6.6,
+      "sugar_g": 6.7,
+      "sodium_mg": 350
+    },
+    "confidence": 0.95,
+    "reason": "single strong match",
     "needsReview": false
   },
   "soba noodles": {
@@ -3185,6 +5015,23 @@
     "reason": "llm: Spinach described as 'large handfuls' typically refers to mature spinach leaves rather than baby spinach, which is usually sold in smaller, delicate clusters.",
     "needsReview": false
   },
+  "spring onion": {
+    "source": "cofid",
+    "id": "13-352",
+    "displayName": "Spring onions, bulbs and tops, raw",
+    "per100g": {
+      "calories": 23,
+      "protein_g": 2,
+      "carbs_g": 3,
+      "fat_g": 0.5,
+      "fibre_g": 0,
+      "sugar_g": 2.8,
+      "sodium_mg": 7
+    },
+    "confidence": 1,
+    "reason": "llm: Spring onions in recipes typically refer to the whole vegetable including both the bulb and the green tops.",
+    "needsReview": false
+  },
   "spring onions": {
     "source": "cofid",
     "id": "13-352",
@@ -3200,6 +5047,25 @@
     },
     "confidence": 1,
     "reason": "llm: Spring onions in recipes typically refer to the whole vegetable including both the bulb and the green tops.",
+    "needsReview": false
+  },
+  "sriracha": {
+    "source": "openfoodfacts",
+    "id": "8853662056012",
+    "displayName": "Flying Goose Brand Sriracha Sauce",
+    "per100g": {
+      "calories": 139,
+      "protein_g": 2.3,
+      "carbs_g": 28,
+      "fat_g": 1.2,
+      "fibre_g": 3.1,
+      "sugar_g": 22,
+      "sodium_mg": 8,
+      "saturatedFat_g": 0.2
+    },
+    "servingGrams": 100,
+    "confidence": 0.9,
+    "reason": "llm: Flying Goose Brand is the most iconic and widely used Sriracha in recipes when no specific brand is mentioned, making it a better representative match than the others.",
     "needsReview": false
   },
   "star anise": {
@@ -3308,6 +5174,40 @@
     "reason": "llm: Baresa Sun-Dried Tomatoes is a direct match for the ingredient 'Sun-dried tomatoes', whereas the other options are either a pesto sauce, raw tomatoes, or canned tomatoes.",
     "needsReview": false
   },
+  "sunflower seeds": {
+    "source": "cofid",
+    "id": "14-845",
+    "displayName": "Sunflower seeds",
+    "per100g": {
+      "calories": 576,
+      "protein_g": 19.8,
+      "carbs_g": 18.6,
+      "fat_g": 47.5,
+      "fibre_g": 0,
+      "sugar_g": 1.7,
+      "sodium_mg": 3
+    },
+    "confidence": 1,
+    "reason": "llm: The ingredient is a generic raw sunflower seed, which matches the plain whole food record 14-845 perfectly.",
+    "needsReview": false
+  },
+  "sunflower seeds for topping": {
+    "source": "cofid",
+    "id": "14-845",
+    "displayName": "Sunflower seeds",
+    "per100g": {
+      "calories": 576,
+      "protein_g": 19.8,
+      "carbs_g": 18.6,
+      "fat_g": 47.5,
+      "fibre_g": 0,
+      "sugar_g": 1.7,
+      "sodium_mg": 3
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is a generic sunflower seed, and 14-845 is the standard plain whole food entry. The other options are either toasted or specific branded salad bar products which are less appropriate for a general recipe.",
+    "needsReview": false
+  },
   "tagliatelle": {
     "source": "openfoodfacts",
     "id": "8076809523714",
@@ -3360,6 +5260,111 @@
     },
     "confidence": 0.95,
     "reason": "llm: Kikkoman is the most widely recognized and standard brand for Tamari in general culinary contexts, making it the best default match for a generic recipe ingredient.",
+    "needsReview": false
+  },
+  "tempeh block": {
+    "source": "cofid",
+    "id": "13-118",
+    "displayName": "Tempeh",
+    "per100g": {
+      "calories": 166,
+      "protein_g": 20.7,
+      "carbs_g": 6.4,
+      "fat_g": 6.4,
+      "fibre_g": 0,
+      "sugar_g": 0.9,
+      "sodium_mg": 6
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'Tempeh block' refers to the raw, plain form of the food, which matches the generic 'Tempeh' entry perfectly. The other option is a processed 'Tempeh burger' which is not appropriate for a recipe calling for a block.",
+    "needsReview": false
+  },
+  "tikka paste": {
+    "source": "openfoodfacts",
+    "id": "5011308000994",
+    "displayName": "Patak's Tikka Masala Spice Paste",
+    "per100g": {
+      "calories": 270,
+      "protein_g": 3,
+      "carbs_g": 7.8,
+      "fat_g": 22.9,
+      "fibre_g": 6.8,
+      "sugar_g": 0.8,
+      "sodium_mg": 1880,
+      "saturatedFat_g": 1.7
+    },
+    "confidence": 0.95,
+    "reason": "llm: Patak's Tikka Masala Spice Paste is the most standard and widely available representation of 'Tikka paste' in a recipe context.",
+    "needsReview": false
+  },
+  "tinned black beans": {
+    "source": "cofid",
+    "id": "supp:black-beans",
+    "displayName": "Black beans, canned, drained",
+    "per100g": {
+      "calories": 114,
+      "protein_g": 8.9,
+      "carbs_g": 16,
+      "fat_g": 0.5,
+      "fibre_g": 7.5,
+      "sugar_g": 0.3,
+      "sodium_mg": 240
+    },
+    "confidence": 1,
+    "reason": "llm: The candidate 'Black beans, canned, drained' is an exact match for the ingredient 'tinned black beans, drained and rinsed'.",
+    "needsReview": false
+  },
+  "tinned peaches in juice": {
+    "source": "cofid",
+    "id": "14-188",
+    "displayName": "Peaches, canned in juice, whole contents",
+    "per100g": {
+      "calories": 39,
+      "protein_g": 0.6,
+      "carbs_g": 9.7,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 9.7,
+      "sodium_mg": 12
+    },
+    "confidence": 0.85,
+    "reason": "llm: The ingredient is a generic description of tinned peaches in juice. The COFID database entry 14-188 is a standard reference for this specific food item, which is more appropriate for a recipe ingredient than a specific brand product.",
+    "needsReview": false
+  },
+  "tinned pears in juice": {
+    "source": "cofid",
+    "id": "14-197",
+    "displayName": "Pears, canned in juice, whole contents",
+    "per100g": {
+      "calories": 33,
+      "protein_g": 0.3,
+      "carbs_g": 8.5,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 8.5,
+      "sodium_mg": 3
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient specifies tinned pears in juice, which directly matches the COFID entry for canned pears in juice.",
+    "needsReview": false
+  },
+  "tinned pineapple in juice": {
+    "source": "openfoodfacts",
+    "id": "4088600173108",
+    "displayName": "Four Seasons Sweet Pineapple Slices In Juice",
+    "per100g": {
+      "calories": 51,
+      "protein_g": 0.5,
+      "carbs_g": 12,
+      "fat_g": 0.5,
+      "fibre_g": 0.5,
+      "sugar_g": 12,
+      "sodium_mg": 4,
+      "saturatedFat_g": 0.5
+    },
+    "servingGrams": 91,
+    "confidence": 0.75,
+    "reason": "single strong match",
     "needsReview": false
   },
   "toasted cashews": {
@@ -3469,6 +5474,24 @@
     "reason": "llm: The ingredient 'Tortilla chips' directly matches the description of candidate 17-644, which is the standard definition for tortilla chips.",
     "needsReview": false
   },
+  "tortilla wraps": {
+    "source": "cofid",
+    "id": "11-925",
+    "displayName": "Tortilla, wheat, soft",
+    "per100g": {
+      "calories": 285,
+      "protein_g": 7.8,
+      "carbs_g": 53.9,
+      "fat_g": 5.7,
+      "fibre_g": 3.6,
+      "sugar_g": 2,
+      "sodium_mg": 622,
+      "saturatedFat_g": 22.14
+    },
+    "confidence": 0.95,
+    "reason": "llm: Tortilla wraps are soft wheat-based flatbreads, which matches the 'Tortilla, wheat, soft' entry perfectly, whereas the other option is for fried chips.",
+    "needsReview": false
+  },
   "turmeric": {
     "source": "cofid",
     "id": "supp:turmeric",
@@ -3484,6 +5507,23 @@
     },
     "confidence": 0.95,
     "reason": "single strong match",
+    "needsReview": false
+  },
+  "udon noodles": {
+    "source": "cofid",
+    "id": "supp:udon",
+    "displayName": "Udon noodles, cooked",
+    "per100g": {
+      "calories": 130,
+      "protein_g": 3,
+      "carbs_g": 28,
+      "fat_g": 0.5,
+      "fibre_g": 1.5,
+      "sugar_g": 0.5,
+      "sodium_mg": 130
+    },
+    "confidence": 1,
+    "reason": "llm: The candidate 'Udon noodles, cooked' is a direct match for the ingredient 'Udon noodles'.",
     "needsReview": false
   },
   "unsweetened plant milk": {
@@ -3534,6 +5574,43 @@
     "servingGrams": 100,
     "confidence": 0.95,
     "reason": "llm: Vahiné Arôme vanille is a standard vanilla extract/flavoring used in baking, which matches the '1 tsp Vanilla' ingredient requirement, whereas the other candidates are ice cream products.",
+    "needsReview": false
+  },
+  "vanilla extract": {
+    "source": "openfoodfacts",
+    "id": "5000254020323",
+    "displayName": "Dr. Oetker Madagascan Vanilla Extract",
+    "per100g": {
+      "calories": 280,
+      "protein_g": 0,
+      "carbs_g": 70,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 48,
+      "sodium_mg": 40
+    },
+    "servingGrams": 0.1,
+    "confidence": 0.9,
+    "reason": "llm: Dr. Oetker Madagascan Vanilla Extract is a standard, high-quality vanilla extract that matches the ingredient description perfectly.",
+    "needsReview": false
+  },
+  "vanilla protein powder": {
+    "source": "openfoodfacts",
+    "id": "4335619166097",
+    "displayName": "Lidl Whey Protein Vanilla",
+    "per100g": {
+      "calories": 388,
+      "protein_g": 75,
+      "carbs_g": 5.6,
+      "fat_g": 7.3,
+      "fibre_g": 0,
+      "sugar_g": 4,
+      "sodium_mg": 511,
+      "saturatedFat_g": 2.4
+    },
+    "servingGrams": 30,
+    "confidence": 0.85,
+    "reason": "llm: The ingredient specifies 'protein powder', which matches the nutritional profile and product category of the Lidl Whey Protein Vanilla (a dry powder) much better than the liquid milkshakes or unrelated powders.",
     "needsReview": false
   },
   "vegan bacon lardons": {
@@ -3727,6 +5804,24 @@
     "reason": "llm: The ingredient specifies 'White basmati rice' without mentioning 'easy cook' or 'boiled'. Candidate 11-857 is the most generic raw basmati rice option.",
     "needsReview": false
   },
+  "white beans": {
+    "source": "openfoodfacts",
+    "id": "8480000260192",
+    "displayName": "Hacendado Alubia Blanca",
+    "per100g": {
+      "calories": 83,
+      "protein_g": 5.8,
+      "carbs_g": 10.7,
+      "fat_g": 0.4,
+      "fibre_g": 0,
+      "sugar_g": 0.8,
+      "sodium_mg": 320,
+      "saturatedFat_g": 0.1
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'White beans' refers to the common culinary bean, which matches 'Alubia Blanca' (White Bean) in the Hacendado product. While the match score provided in the metadata was low, the product name is a direct translation and accurate match for the ingredient.",
+    "needsReview": false
+  },
   "white cabbage": {
     "source": "cofid",
     "id": "13-509",
@@ -3760,6 +5855,23 @@
     },
     "confidence": 0.95,
     "reason": "llm: The ingredient is a generic 'White miso paste', and candidate 5060366570819 is a generic 'White Miso Paste' product, which is a better match than a specific brand like Hikari Miso.",
+    "needsReview": false
+  },
+  "white onion": {
+    "source": "cofid",
+    "id": "13-499",
+    "displayName": "Onions, raw",
+    "per100g": {
+      "calories": 35,
+      "protein_g": 1,
+      "carbs_g": 8,
+      "fat_g": 0.1,
+      "fibre_g": 2.2,
+      "sugar_g": 6.2,
+      "sodium_mg": 3
+    },
+    "confidence": 0.95,
+    "reason": "llm: The ingredient 'White onion' is a raw, whole vegetable. Candidate 13-499 'Onions, raw' is the most accurate match for a standard culinary ingredient, whereas other options are processed products or dried versions.",
     "needsReview": false
   },
   "white pasta": {
@@ -3798,6 +5910,40 @@
     "reason": "llm: The ingredient is generic white rice. Candidate 11-857 is the most standard representation of raw white rice among the options provided.",
     "needsReview": false
   },
+  "white wine vinegar": {
+    "source": "cofid",
+    "id": "supp:wine-vinegar",
+    "displayName": "Wine vinegar",
+    "per100g": {
+      "calories": 19,
+      "protein_g": 0.1,
+      "carbs_g": 0.6,
+      "fat_g": 0,
+      "fibre_g": 0,
+      "sugar_g": 0.4,
+      "sodium_mg": 8
+    },
+    "confidence": 0.95,
+    "reason": "llm: White wine vinegar is a specific type of wine vinegar, making the first candidate the most accurate match for the ingredient.",
+    "needsReview": false
+  },
+  "yellow bell pepper": {
+    "source": "cofid",
+    "id": "13-526",
+    "displayName": "Pepper, capsicum, yellow, raw",
+    "per100g": {
+      "calories": 23,
+      "protein_g": 0.8,
+      "carbs_g": 4.6,
+      "fat_g": 0.2,
+      "fibre_g": 2.2,
+      "sugar_g": 4.4,
+      "sodium_mg": 1
+    },
+    "confidence": 0.9,
+    "reason": "llm: The ingredient is a raw yellow bell pepper, which matches the raw yellow capsicum entry perfectly.",
+    "needsReview": false
+  },
   "yellow onion": {
     "source": "cofid",
     "id": "13-499",
@@ -3813,6 +5959,23 @@
     },
     "confidence": 0.93,
     "reason": "llm: The ingredient 'Yellow onion' is a raw, whole vegetable. Candidate 13-499 'Onions, raw' is the most accurate match for a standard culinary ingredient.",
+    "needsReview": false
+  },
+  "yoghurt": {
+    "source": "cofid",
+    "id": "supp:greek-yog",
+    "displayName": "Greek yoghurt",
+    "per100g": {
+      "calories": 97,
+      "protein_g": 9,
+      "carbs_g": 4,
+      "fat_g": 5,
+      "fibre_g": 0,
+      "sugar_g": 4,
+      "sodium_mg": 36
+    },
+    "confidence": 0.9,
+    "reason": "llm: Greek yoghurt is the standard default for a generic 'yoghurt' ingredient in recipes unless specified otherwise. The plain Greek yoghurt is a better general-purpose match than the 0% fat variant or plant-based alternatives.",
     "needsReview": false
   },
   "yukon gold potatoes": {

@@ -73,8 +73,3 @@ Reads from `.env.local`:
 - `GEMINI_API_KEY` — optional; enables LLM adjudication of ambiguous matches.
 
 Generate `data/cofid.json` once before the first run — see `data/README.md`.
-
-## Related
-
-`scripts/recipes/uk-variants.ts` is a separate one-off that normalised stored
-recipes to UK ingredient terminology (cilantro→coriander, etc.).
